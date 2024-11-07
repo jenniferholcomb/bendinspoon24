@@ -1,0 +1,20 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 61">
+<rect id="Rectangle 168" x="1.00024" y="1" width="22" height="22" rx="6" stroke="#BCBCBC" stroke-opacity="0.27" stroke-width="2"/>
+<g id="Mask group">
+<mask id="mask0_753_830" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="17" height="16">
+<path id="Rectangle 169" d="M4.00024 8C4.00024 5.79086 5.79111 4 8.00024 4H16.0002C18.2094 4 20.0002 5.79086 20.0002 8V16C20.0002 18.2091 18.2094 20 16.0002 20H8.00024C5.79111 20 4.00024 18.2091 4.00024 16V8Z" fill="url(#paint0_linear_753_830)"/>
+</mask>
+<g mask="url(#mask0_753_830)">
+<path id="Rectangle 170" d="M5.00024 18.7427L19.9552 3.99992L27.2591 11.4089L12.3041 26.1517L5.00024 18.7427Z" fill="#DF571C"/>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_753_830" x1="16.4288" y1="21.5111" x2="2.42851" y2="9.19831" gradientUnits="userSpaceOnUse">
+<stop stop-color="#005054"/>
+<stop offset="0.496212" stop-color="#006065"/>
+<stop offset="1" stop-color="#008B93"/>
+</linearGradient>
+</defs>
+</svg>

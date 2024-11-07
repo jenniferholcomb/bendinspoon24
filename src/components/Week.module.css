@@ -1,0 +1,481 @@
+.weekWrapper {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  width: 100vw;
+  height: 35vh;
+  background: linear-gradient(183deg, rgba(189, 193, 192, 0.19) -5.5%, rgba(131, 132, 132, 0.19) 99.28%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weekLabelContainer {
+  width: 198px;
+  height: 35px;
+  border-radius: 0px 0px 13px 13px;
+  background: #323634;
+  box-shadow: 4px -2px 3px 0px rgba(0, 0, 0, 0.14) inset;
+}
+
+.weekLabel {
+  padding-top: 3px;
+  color: #FEFFDA;
+  text-align: center;
+  font-family: Dongle;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+}
+
+.weekdayCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+}
+
+.inFocusCard {
+  width: 339px;
+  height: 203px;
+  border-radius: 13px;
+  background: rgba(38, 43, 41, 0.66);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.20) inset;
+  cursor: pointer;
+}
+
+.dayCard {
+  width: 112px;
+  height: 203px;
+  border-radius: 13px;
+  background: rgba(38, 43, 41, 0.66);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.20) inset;
+  cursor: pointer;
+}
+
+.inFocusCard:hover, .dayCard:hover {
+  transform: scale(1.04);
+  /* // transition: all 0.3s ease; */
+}
+
+.dayCardContainer {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dateContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.dayDateFocusContainer {
+  width: 100%;
+}
+
+.dayDateFocusContainer, p.dayDate {
+  margin: 0;
+  padding: 15px 0 0 9px;
+  align-self: center;
+}
+
+p.dayDate, p.dayDateFocus {
+  color: rgba(188, 188, 188, 0.27);
+  font-family: Dongle;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400; 
+  line-height: 15px;
+  letter-spacing: 1.54px;
+  background: linear-gradient(180deg, rgba(250, 250, 250, 0.719) 0%, rgba(197, 197, 197, 0.673) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+p.dayDateFocus {
+  white-space: nowrap;
+}
+
+p.holidayTitle {
+  color: #DF571C;
+  font-family: Dongle;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400; 
+  line-height: 15px;
+  letter-spacing: 1.54px;
+  text-transform: uppercase;
+  padding-top: 0;
+  margin: 0;
+  max-width: 100%;
+}
+
+.dayWeek {
+  font-size: 23px;
+}
+
+.weatherContainerFocus {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.weatherContainerFocus img {
+  width: 44px;
+  height: 44px;
+  margin: 8px 10px 0 0;
+}
+
+.weatherDegreeContainer {
+  width: 55px;
+  padding: 1px 9px 0 0;
+  margin: 8px 0 -3px 0;
+}
+
+.hiLoLabel {
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Dongle;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 16px;
+  letter-spacing: 1.8px;
+  margin: 0;
+}
+
+.weatherContainer {
+  display: flex;
+  flex-direction: column;
+  /* // justify-content: flex-end; */
+  width: 100%;
+  max-height: 100%;
+  padding: 1px 9px 0 0;
+  margin: 0 0 -3px 0;
+}
+
+.iconContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.weatherIcon {
+  width: 30px;
+  height: 30px;
+  margin-top: 1px;
+}
+
+.weatherDegreeFocus, .weatherDegree {
+  color: #FFF;
+  text-align: right;
+  font-family: Akatab;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.42px;
+  opacity: 0.9;
+  margin: 0;
+  transform: translateY(-5px);
+}
+
+span.weatherDegreeFocus {
+  line-height: 16px;
+  text-align: end;
+  margin-left: 5px;
+}
+
+#weatherNudge {
+  margin-left: 7px;
+}
+
+.weatherDegree {
+  line-height: normal;
+}
+
+.inFocusContainer {
+  display: flex;
+  flex-direction: row;
+  height: 128px;
+}
+
+.notInFocusContainer {
+  height: 128px;
+}
+
+.eventInFocus {
+  min-width: 226px;
+  min-height: 100%;
+  background: linear-gradient(84deg, #414443 11.78%, #383A39 88.78%);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  padding-left: 12px;
+}
+
+.eventInFocusHidden {
+  display: none;
+}
+
+.eventsHeader {
+  width: 100%;
+  color: rgba(188, 188, 188, 0.27);
+  background: linear-gradient(180deg, rgba(250, 250, 250, 0.719) 0%, rgba(197, 197, 197, 0.673) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Dongle;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 16px;
+  letter-spacing: 1.54px;
+  padding: 16px 0 0 0;
+  margin: 0;
+}
+
+.noEventsHeader {
+  display: none;
+}
+
+.singleEventContainer {
+  display: flex;
+  flex-direction: row;
+  /* // align-items: center; */
+  margin-top: 4px;
+  padding-right: 8px;
+}
+
+.singleEventContainer svg {
+  margin: 3px 0 0 0;
+}
+
+.singleEventContainer p {
+  margin: 0;
+  padding-bottom: 4px;
+}
+
+.singleEventContainer blockquote {
+  margin: 0;
+  padding-left: 8px;
+}
+
+.eventDescription {
+  width: 100%;
+  padding-left: 8px;
+  color: rgba(255, 255, 255, 0.80);
+  font-family: Akatab;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+}
+
+.eventDescription p {
+  color: #FFF;
+  font-weight: 500;
+}
+
+.salesLaborContainer {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dividerLine {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.factorContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  margin: 8px 0 3px 0;
+}
+
+.dollarSignLabor, .laborTotalA, .laborTotalB, .dollarSignSales, .salesTotalA, .salesTotalB {
+  text-align: center;
+  font-family: Akatab;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin: 0;
+}
+
+.dollarSignlabor, .dollarSignSales {
+  font-size: 16px;
+  padding: 0 2px 0 0;
+}
+
+.dollarSignLabor, .laborTotalA, .laborTotalB {
+  color: #5779FF;
+}
+
+.dollarSignSales, .salesTotalA, .salesTotalB {
+  color: #D8DB5F;
+}
+
+.laborTotalA, .salesTotalA {
+  font-size: 24px;
+  letter-spacing: 2.16px;
+}
+
+.laborTotalB, .salesTotalB {
+  font-size: 22px;
+  letter-spacing: 1.98px;
+}
+
+.factorLabel {
+  color: #858786;
+  font-family: Akatab;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 12px;
+  letter-spacing: 0.2px;
+  margin: 0 9px 0 9px;
+}
+
+#laborLabel {
+  text-align: center;
+  margin: 2px 0 3px 0;
+}
+
+.salesLabels {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 2px;
+}
+
+#salesLabelA {
+  text-align: left;
+  width: 100%;
+}
+
+#salesLabelB {
+  text-align: right;
+  width: 100%;
+  color: rgba(188, 188, 188, 0.27);
+  background: linear-gradient(180deg, rgba(250, 250, 250, 0.719) 0%, rgba(197, 197, 197, 0.673) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.customBarContainer {
+  min-height: 100%;
+  /* // width: 100%; */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.customBar {
+  width: 100%;
+  height: 24px;
+  border-radius: 0px 0px 13px 13px;
+  box-shadow: 2px 2px 4px 0px rgba(16, 15, 15, 0.25);
+  background-repeat: no-repeat, no-repeat;
+  background-position: -2px -2px, center;
+  background-size: auto, cover;
+}
+
+.backgroundLayer, .colorLayer {
+  width: 100%;
+  height: 24px;
+  border-radius: 0px 0px 13px 13px;
+  box-shadow: 2px 2px 4px 0px rgba(16, 15, 15, 0.25);
+}
+
+.eventHolidayAlerts {
+  margin-left: 8px;
+  padding-right: 8px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rentalsOccupiedText {
+  width: 100%;
+  color: #2D3230;
+  font-family: Akatab;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  margin: 0;
+  padding: 0 0 1px 4px;
+}
+
+.percentContainerA, .percentContainerB {
+  display: flex;
+  flex-direction: row;
+}
+
+.percentContainerA {
+  padding-right: 8%;
+}
+
+.percentContainerB {
+  padding-left: 8px;
+}
+
+.percentContainerA p, .percentContainerB p {
+  font-family: Akatab;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.42px;
+  margin: 0;
+}
+
+p.percentSign {
+  color: #5A5C5B;
+  font-feature-settings: 'sups' on;
+  font-family: Akatab;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 10px;
+  padding-top: 3px;
+}
+
+.eventHolidayAlerts svg {
+  align-self: center;
+  max-width: 100%;
+  margin-right: 6px;
+}
+
+.holidayAlert {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.holidayAlertImg {
+  width: 24px;
+  height: 100%;
+}
+
+.hideHolidayAlert {
+  display: none;
+}

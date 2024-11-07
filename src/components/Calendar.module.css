@@ -1,0 +1,174 @@
+
+.calMonth {
+  grid-row: 1;
+  grid-column: 1 / span 7;
+  display: flex;
+  padding-top: 8px;
+};
+
+.calArrowLeft, .calArrowRight {
+  align-self: center;
+}
+
+.calArrowLeft {
+  padding-left: 10px;
+}
+
+.calArrowRight {
+  padding-right: 10px;
+}
+
+.calArrowLeftDisabled, .calArrowRightDisabled {
+  display: none;
+}
+
+p.calText {
+  color: rgba(188, 188, 188, 0.27);
+  font-family: Dongle;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3.6px;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(221, 219, 219, 0.719) 0%, rgba(139, 139, 139, 0.673) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+};
+
+/* .dateContainer {
+  max
+} */
+
+p.date {
+  margin: 4px 0 0 4px;
+  color: #5A5C5B;
+  font-family: Dongle;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px;
+};
+
+.date:nth-last-child(-n+28) {
+  font-weight: 400;
+};
+
+.percentContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+p.propPercent {
+  /* margin: 2px 0 0 0; */
+  font-family: Akatab;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  transform: translateY(-2px);
+  width: 100%;
+  text-align: center;
+  /* width: 68%;   // use these styles if want % sign with number
+  text-align: right; */
+};
+
+p.percentSign {
+  color: #5A5C5B;
+  font-feature-settings: 'sups' on;
+  font-family: Akatab;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 10px;
+  margin: 0 0 14px 1px;
+}
+
+.listItemCal {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.dateBubble {
+  display: grid;
+  padding: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  box-shadow: 4px 8px 10px 0px rgba(16, 15, 15, 0.10);
+}
+
+#popDateBubble {
+  cursor: pointer;
+}
+
+.popoverContent {
+  font-family: Dongle;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  background-color: #E4E4E4;
+  box-shadow: 4px 4px 10px 10px rgba(0, 0, 0, 0.25);
+  padding: 8px 8px 7px 8px;
+  border-radius: 13px;
+  box-sizing: border-box;
+  min-width: 100%;
+  outline-color: transparent;
+  max-width: 300px;
+}
+
+.popoverArrow {
+  width: 16px;
+  height: 10px;
+  margin-left: 20px;
+  transform: translateY(-8px);
+}
+
+.popoverContent:focus, .popover-trigger:focus-visible  {
+  outline: none;
+  outline-color: transparent;
+}
+
+.popHeaderHoliday {
+  color: #DF571C;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px 5px 10px 5px;
+}
+
+.popHeaderEvent {
+  color: #C50202;
+  margin: 10px 5px 0 5px;
+}
+
+.popEventName {
+  margin: 3px 5px 5px 15px;
+  text-transform: none;
+  width: 100%;
+  font-family: Akatab;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+}
+
+blockquote {
+  font-size: 95%;
+  text-transform: none;
+  max-width: 100%;
+  font-family: Akatab;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  margin: 0 10px 10px 15px;
+}

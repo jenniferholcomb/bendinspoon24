@@ -1,0 +1,6 @@
+.agentsWrapper {
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 38% 62%;
+  width: 100%;
+};
