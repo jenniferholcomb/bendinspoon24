@@ -1,6 +1,6 @@
 // netlify/functions/getPropertyListings.js
 
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
 export async function handler(event, context) {
   // Extract `singleId` from the query string parameters
