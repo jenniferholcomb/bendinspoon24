@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./Footer.module.css";
 
-import holidayKey from "./../img/holidayKey.svg";
-import eventKey from "./../img/eventKey.svg";
-import laborKey from "./../img/laborKey.svg";
-import salesKey from "./../img/salesKey.svg";
-import alertKey from "./../img/alertKey.svg";
-import copyright from "./../img/copyright.svg";
+import holidayKey from "/img/holidayKey.svg";
+import eventKey from "/img/eventKey.svg";
+import laborKey from "/img/laborKey.svg";
+import salesKey from "/img/salesKey.svg";
+import alertKey from "/img/alertKey.svg";
+import copyright from "/img/copyright.svg";
 
 const { footerWrapper, keyGroup, keyText, copyrightContainer, copyrightText } = styles;
 

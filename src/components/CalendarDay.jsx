@@ -9,9 +9,9 @@ import useEvents from "./useEvents.jsx";
 import styles from "./CalendarDay.module.css";
 import PropTypes from 'prop-types';
 
-import holidayIcon from "./../img/holiday.svg";
-import eventIcon from "./../img/event.svg";
-import holidayEventIcon from "./../img/holidayEvent.svg";
+import holidayIcon from "/img/holiday.svg";
+import eventIcon from "/img/event.svg";
+import holidayEventIcon from "/img/holidayEvent.svg";
 
 const {calMonth, calArrowLeft, calArrowLeftDisabled, calText, calArrowRight, calArrowRightDisabled, calendarDateContainer, percentContainer, propPercent, date, dateBubble, popDateBubble, listItemCal, popoverContent, popoverArrow, popHeaderHoliday, popHeaderEvent, popEventName } = styles;
 

@@ -1,13 +1,13 @@
 import React from "react";
 import useWeather from "./useWeather";
 import styles from "./Week.module.css";
-import holidayIcon from "./../img/holidayAlert.svg";
-import highAlert from "./../img/highAlert.svg";
-import mediumAlert from "./../img/mediumAlert.svg";
-import lowAlert from "./../img/lowAlert.svg";
-import wideHighAlert from "./../img/wideHighAlert.svg";
-import wideMediumAlert from "./../img/wideMediumAlert.svg";
-import wideLowAlert from "./../img/wideLowAlert.svg";
+import holidayIcon from "/img/holidayAlert.svg";
+import highAlert from "/img/highAlert.svg";
+import mediumAlert from "/img/mediumAlert.svg";
+import lowAlert from "/img/lowAlert.svg";
+import wideHighAlert from "/img/wideHighAlert.svg";
+import wideMediumAlert from "/img/wideMediumAlert.svg";
+import wideLowAlert from "/img/wideLowAlert.svg";
 
 const { weekWrapper, weekLabelContainer, weekLabel, weekdayCards, inFocusCard, dayCard, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, percentContainerA, percentContainerB, percentSign, eventHolidayAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
 
