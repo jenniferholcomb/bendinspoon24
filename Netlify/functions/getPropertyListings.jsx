@@ -16,7 +16,7 @@ export async function handler(event, context) {
 
   try {
     // Make the API call using the singleId
-    const response = await fetch(`https://airbnb-listings.p.rapidapi.com/v2/listingAvailabilityFull?id=${singleId}&rapidapi-key=${process.env.VITE_API_KEY}`);
+    const response = await fetch(`https://airbnb-listings.p.rapidapi.com/v2/listingAvailabilityFull?id=${singleId}&rapidapi-key=${process.env.API_KEY}`);
     
     if (!response.ok) {
       throw new Error(`${response.status}: ${response.statusText}`);

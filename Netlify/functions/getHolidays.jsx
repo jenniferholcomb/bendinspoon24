@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 
 export async function handler(event, context) {
   try {
-    const response = await fetch(`https://calendarific.com/api/v2/holidays?&api_key=${process.env.VITE_API_KEY_HOLIDAY}&country=US&year=${year}`);
+    const response = await fetch(`https://calendarific.com/api/v2/holidays?&api_key=${process.env.API_KEY_HOLIDAY}&country=US&year=${year}`);
     if (!response.ok) {
       throw new Error(`${response.status}: ${response.statusText}`);
     }

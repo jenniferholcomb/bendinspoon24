@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 
 export async function handler(event, context) {
   try {
-    const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=Bend,OR&key=${process.env.WEATHER_API_KEY}&units=I&days=7`);
+    const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=Bend,OR&key=${process.env.API_KEY_WEATHER}&units=I&days=7`);
     if (!response.ok) {
       throw new Error(`${response.status}: ${response.statusText}`);
     }
