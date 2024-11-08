@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 
 export async function handler(event, context) {
   try {
-    const response = await fetch(`https://airdna1.p.rapidapi.com/properties?rapidapi-key=${process.env.REACT_APP_API_KEY}&location=bend`);
+    const response = await fetch(`https://airdna1.p.rapidapi.com/properties?rapidapi-key=${process.env.VITE_API_KEY}&location=bend`);
     if (!response.ok) {
       throw new Error(`${response.status}: ${response.statusText}`);
     }

@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import db from '../firebase.js';
+import db from '../firebase.jsx';
 import { collection, addDoc, onSnapshot } from 'firebase/firestore'; 
 
 const usePropertyListing = () => {

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import CalendarDay from "./CalendarDay";
-import useSTRController from "./useSTRController.js";
+import useSTRController from "./useSTRController.jsx";
 import usePropertyListing from "./usePropertyListing";
-import styles from "./Tourism.module.scss";
+import styles from "./Tourism.module.css";
 // import { connectFirestoreEmulator } from "firebase/firestore";
 // import Events from "./Events";
 

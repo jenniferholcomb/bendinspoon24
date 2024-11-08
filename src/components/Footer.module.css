@@ -1,6 +1,6 @@
 .footerWrapper {
   grid-row: 3;
-  width: 100vw;
+  max-width: 100vw;
   height: 6vh;
   display: flex;
   flex-direction: row;

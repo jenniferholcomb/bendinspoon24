@@ -4,7 +4,7 @@
   grid-column: 1 / span 7;
   display: flex;
   padding-top: 8px;
-};
+}
 
 .calArrowLeft, .calArrowRight {
   align-self: center;
@@ -38,7 +38,7 @@ p.calText {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
-};
+}
 
 /* .dateContainer {
   max
@@ -52,11 +52,11 @@ p.date {
   font-style: normal;
   font-weight: 400;
   line-height: 10px;
-};
+}
 
 .date:nth-last-child(-n+28) {
   font-weight: 400;
-};
+}
 
 .percentContainer {
   display: flex;
@@ -71,12 +71,13 @@ p.propPercent {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  transform: translateY(-2px);
+  transform: translateY(-5px);
   width: 100%;
   text-align: center;
   /* width: 68%;   // use these styles if want % sign with number
   text-align: right; */
-};
+  margin: 0;
+}
 
 p.percentSign {
   color: #5A5C5B;

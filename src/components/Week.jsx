@@ -1,6 +1,6 @@
 import React from "react";
 import useWeather from "./useWeather";
-import styles from "./Week.module.scss";
+import styles from "./Week.module.css";
 import holidayIcon from "./../img/holidayAlert.svg";
 import highAlert from "./../img/highAlert.svg";
 import mediumAlert from "./../img/mediumAlert.svg";
@@ -50,7 +50,8 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
                     { weatherIsLoaded && (
                       index === dayInFocus ?
                         <div className={weatherContainerFocus}>
-                          <img src={require(`./../img/icons/${forecast[index+14]}.png`)} alt="weatherIcon" />
+                          <img src={`/src/img/icons/${forecast[index+14]}.png`} alt="weatherIcon" />
+                          {/* <img src={require(`./../img/icons/${forecast[index+14]}.png`)} alt="weatherIcon" /> */}
                           <div className={weatherDegreeContainer}>
                             <p className={hiLoLabel}>LO<span className={weatherDegreeFocus}>{forecast[index]}&ordm;</span></p>
                             <p className={hiLoLabel}>HI<span className={weatherDegreeFocus} id={weatherNudge}>{forecast[index+7]}&ordm;</span></p>
@@ -59,7 +60,8 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
                       :
                         <div className={weatherContainer}>
                           <div className={iconContainer}>                  
-                            <img className={weatherIcon} src={require(`./../img/icons/${forecast[index+14]}.png`)} alt='weather icon' />
+                            <img className={weatherIcon} src={`/src/img/icons/${forecast[index+14]}.png`} alt='weather icon' />
+                            {/* <img className={weatherIcon} src={require(`./../img/icons/${forecast[index+14]}.png`)} alt='weather icon' /> */}
                           </div>
                           <p className={weatherDegree}>{forecast[index+7]}&ordm;</p>
                         </div> 

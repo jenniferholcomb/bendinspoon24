@@ -5,14 +5,14 @@
   width: 100vw;
   height: 6vh;
   background: #323634;
-};
+}
 
 .logoContainer {
   position: absolute;
   top: 0;
   left: 41px;
   width: 86px;
-  height: 81px;
+  height: 68px;
   border-radius: 0px 0px 20px 20px ;
   background: #E4E4E4;
   box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.14) inset;
@@ -27,7 +27,8 @@
 
 .subheadContainer {
   padding-left: 146px;
-  align-self: last baseline;
+  padding-top: 10px;
+  align-self: center;
   color: #E4E4E4;
   font-family: Dongle;
   font-size: 34px;
@@ -36,7 +37,7 @@
   line-height: 25px; /* 69.444% */
   letter-spacing: 1.8px;
   text-transform: uppercase;
-};
+}
 
 .locationContainer {
   justify-content: flex-end;
@@ -46,6 +47,7 @@
 }
 
 .town {
+  padding-top: 10px;
   color: #E4E4E4;
   font-family: Dongle;
   font-size: 26px;
@@ -53,13 +55,13 @@
   font-weight: 300;
   line-height: normal;
   letter-spacing: .64px;
-  align-self: last baseline;
+  align-self: center;
   margin: 0;
 }
 
 .pindrop {
   margin: 0 30px 0px 17px;
-  align-self: last baseline;
+  align-self: center;
 }
 
 /* // .tagWrap {

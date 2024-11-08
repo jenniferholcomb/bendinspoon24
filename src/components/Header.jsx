@@ -1,6 +1,6 @@
 import React from "react";
 import logoArt from "./../img/BendSpoon.svg"
-import styles from "./Header.module.scss";
+import styles from "./Header.module.css";
 
 const { headerWrapper, weekLabelContainer, weekLabel, logoContainer, logo, subheadContainer, locationContainer, town, pindrop } = styles;
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import db from '../firebase.js';
+import db from '../firebase.jsx';
 import { collection, addDoc, onSnapshot } from 'firebase/firestore'; // doc, deleteDoc, updateDoc,
 
 const useSTRController = () => {

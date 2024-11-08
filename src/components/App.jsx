@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './Header';
 import AgentsControl from './AgentsControl';
 import Footer from './Footer';
-import styles from "./App.module.scss";
+import styles from "./App.module.css";
 
 function App() {
   return (

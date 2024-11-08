@@ -4,16 +4,16 @@ import {
   PopoverTrigger,
   PopoverContent
 } from "./usePopover";
-import useHolidays from "./useHolidays.js";
-import useEvents from "./useEvents.js";
-import styles from "./Calendar.module.scss";
+import useHolidays from "./useHolidays.jsx";
+import useEvents from "./useEvents.jsx";
+import styles from "./CalendarDay.module.css";
 import PropTypes from 'prop-types';
 
 import holidayIcon from "./../img/holiday.svg";
 import eventIcon from "./../img/event.svg";
 import holidayEventIcon from "./../img/holidayEvent.svg";
 
-const {calMonth, calArrowLeft, calArrowLeftDisabled, calText, calArrowRight, calArrowRightDisabled, date, percentContainer, propPercent, dateBubble, popDateBubble, listItemCal, popoverContent, popoverArrow, popHeaderHoliday, popHeaderEvent, popEventName } = styles;
+const {calMonth, calArrowLeft, calArrowLeftDisabled, calText, calArrowRight, calArrowRightDisabled, calendarDateContainer, percentContainer, propPercent, date, dateBubble, popDateBubble, listItemCal, popoverContent, popoverArrow, popHeaderHoliday, popHeaderEvent, popEventName } = styles;
 
 function CalendarDay ({ month, availablePercent, monthName, thisWeek, onAddingCalendarData, onNextMonth, onPreviousMonth }) {
   const [monthBg, setMonthBg] = useState();
@@ -197,9 +197,9 @@ function CalendarDay ({ month, availablePercent, monthName, thisWeek, onAddingCa
                         ...(item.currentDay ? { outline: '3px solid #C13F07' } : { outline: 'none' }),
                       }}
                     >
-                      <p className={date} style={{ color: `${item.color}` }}>
-                        {item.date.charAt(8) === '0' ? item.date.substring(9) : item.date.substring(8)}
-                      </p>
+                        <p className={date} style={{ color: `${item.color}` }}>
+                          {item.date.charAt(8) === '0' ? item.date.substring(9) : item.date.substring(8)}
+                        </p>
                       <div className={percentContainer}>
                         <p
                           className={propPercent}
@@ -237,7 +237,10 @@ function CalendarDay ({ month, availablePercent, monthName, thisWeek, onAddingCa
                     ...(item.currentDay ? { outline: '3px solid #C13F07' } : { outline: 'none' }),
                   }}
                 >
-                  <p className={date} style={{ color: `${item.color}` }}>
+                  <p 
+                    className={date} 
+                    style={{ color: `${item.color}` }}
+                  >
                     {item.date.charAt(8) === '0' ? item.date.substring(9) : item.date.substring(8)}
                   </p>
                   <div className={percentContainer}>

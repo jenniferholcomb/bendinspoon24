@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Tourism from './Tourism';
 import Week from './Week';
 import CostGoods from './CostGoods';
-import styles from "./AgentsControl.module.scss";
+import styles from "./AgentsControl.module.css";
 
 function AgentsControl () {
   const [fullCalendar, setFullCalendar] = useState();

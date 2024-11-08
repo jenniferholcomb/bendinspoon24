@@ -2,7 +2,7 @@ import { useEffect, useReducer } from 'react';
 import agentsReducer from '../reducers/agents-reducer';
 import { getFetchFailure, getEventsSuccess, getEventsLoaded } from '../actions';
 
-import db from './../firebase.js';
+import db from './../firebase.jsx';
 import { collection, addDoc, doc, deleteDoc, onSnapshot } from 'firebase/firestore';
 
 const initialState = {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./CostGoods.module.scss";
+import styles from "./CostGoods.module.css";
 
 const { costGoodsWrapper, costLabelContainer, costLabel, popover, box } = styles;
 

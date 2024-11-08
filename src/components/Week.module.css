@@ -28,6 +28,7 @@
   line-height: normal;
   letter-spacing: 1.68px;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .weekdayCards {
@@ -79,7 +80,7 @@
 }
 
 .dayDateFocusContainer {
-  width: 100%;
+  min-width: 215px;
 }
 
 .dayDateFocusContainer, p.dayDate {
@@ -131,6 +132,7 @@ p.holidayTitle {
   justify-content: flex-end;
   align-items: center;
   height: 100%;
+  width: 100%;
 }
 
 .weatherContainerFocus img {
@@ -141,7 +143,7 @@ p.holidayTitle {
 
 .weatherDegreeContainer {
   width: 55px;
-  padding: 1px 9px 0 0;
+  padding: 1px 0px 0 0;
   margin: 8px 0 -3px 0;
 }
 
@@ -216,7 +218,7 @@ span.weatherDegreeFocus {
 }
 
 .eventInFocus {
-  min-width: 226px;
+  min-width: 215px;
   min-height: 100%;
   background: linear-gradient(84deg, #414443 11.78%, #383A39 88.78%);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
@@ -403,9 +405,8 @@ span.weatherDegreeFocus {
 }
 
 .eventHolidayAlerts {
-  margin-left: 8px;
-  padding-right: 8px;
-  width: 100%;
+  padding-left: 8px;
+  max-width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
