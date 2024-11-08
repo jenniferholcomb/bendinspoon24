@@ -3,7 +3,7 @@
 const fetch = require('node-fetch');
 
 export async function handler(event, context) {
-  console.log('were connected to function');
+  console.log('were connected to weather');
 
   try {
     const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=Bend,OR&key=${process.env.API_KEY_WEATHER}&units=I&days=7`);

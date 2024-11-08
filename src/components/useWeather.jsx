@@ -77,7 +77,7 @@ function useWeather () {
 
   const makeAPICall = async () => {
     console.log('making weather call')
-    fetch('/.netlify/functions/getWeather')  
+    fetch('/.netlify/functions/getWeather', { cache: 'no-store' })  
       .then(response => response.json()) 
       .then((jsonifiedResponse) => {
         if (jsonifiedResponse.statusCode === 200) {
