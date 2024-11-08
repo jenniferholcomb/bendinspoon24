@@ -1,6 +1,6 @@
 // netlify/functions/getHolidays.js
 
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
 export async function handler(event, context) {
   try {

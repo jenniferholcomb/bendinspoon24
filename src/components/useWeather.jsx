@@ -80,7 +80,7 @@ function useWeather () {
     fetch('/.netlify/functions/getWeather', { cache: 'no-store' })  
       .then(response => response.json()) 
       .then((jsonifiedResponse) => {
-        if (jsonifiedResponse.statusCode === 200) {
+        if (jsonifiedResponse.data) {
           const data = jsonifiedResponse.data;  
           const action = getWeatherSuccess(data);  
           dispatch(action);
