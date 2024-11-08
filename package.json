@@ -13,6 +13,7 @@
     "@babel/runtime": "^7.24.4",
     "@floating-ui/react": "^0.26.27",
     "firebase": "^11.0.1",
+    "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "uuid": "^9.0.1"
