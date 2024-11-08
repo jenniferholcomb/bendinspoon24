@@ -50,7 +50,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
                     { weatherIsLoaded && (
                       index === dayInFocus ?
                         <div className={weatherContainerFocus}>
-                          <img src={`/src/img/icons/${forecast[index+14]}.png`} alt="weatherIcon" />
+                          <img src={`/img/icons/${forecast[index+14]}.png`} alt="weatherIcon" />
                           {/* <img src={require(`./../img/icons/${forecast[index+14]}.png`)} alt="weatherIcon" /> */}
                           <div className={weatherDegreeContainer}>
                             <p className={hiLoLabel}>LO<span className={weatherDegreeFocus}>{forecast[index]}&ordm;</span></p>
@@ -60,7 +60,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
                       :
                         <div className={weatherContainer}>
                           <div className={iconContainer}>                  
-                            <img className={weatherIcon} src={`/src/img/icons/${forecast[index+14]}.png`} alt='weather icon' />
+                            <img className={weatherIcon} src={`/img/icons/${forecast[index+14]}.png`} alt='weather icon' />
                             {/* <img className={weatherIcon} src={require(`./../img/icons/${forecast[index+14]}.png`)} alt='weather icon' /> */}
                           </div>
                           <p className={weatherDegree}>{forecast[index+7]}&ordm;</p>
