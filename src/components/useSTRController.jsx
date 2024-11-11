@@ -61,7 +61,7 @@ const useSTRController = () => {
     fetch('/.netlify/functions/getSTRData') 
       .then(response => response.json()) 
       .then((jsonifiedResponse) => {
-        if (jsonifiedResponse.statusCode === 200) {
+        if (!jsonifiedResponse.error) {
           const data = jsonifiedResponse.properties;  
           handlePropertiesSuccess(data); 
         } else {
