@@ -13,7 +13,7 @@ const initialState = {
       {'name': 'Bend Fall Festival', 'date': ['2024-11-02', '2024-11-03'], 'description': 'A festival celebrating the season with live music, art, food, and family-friendly activities.', 'month': ['11']},
       {'name': 'Holiday Lights Paddle Parade', 'date': ['2024-12-15'], 'description': 'A unique event where kayakers and paddleboarders decorate their vessels and float down the Deschutes River.', 'month': ['12']},
       {'name': 'Downtown Bend Artisans Market', 'date': ['2024-10-19'], 'description': 'An open-air market with local artisans selling handcrafted goods in the heart of Bend.', 'month': ['10']},
-      {'name': 'Mt Bachelor Opening Day', 'date': ['2024-11-29'], 'description': 'The winter season kicks off with the anticipated opening of Mt. Bachelor for skiing and snowboarding', 'month': ['11']},
+      {'name': 'Mt Bachelor Opening Day', 'date': ['2024-11-15'], 'description': 'The winter season kicks off with the anticipated opening of Mt. Bachelor for skiing and snowboarding', 'month': ['11']},
       {'name': 'Hippie Death Cult', 'date': ['2024-11-09'], 'description': 'Psychedelic doom rock band performing at the Volcanic Theatre Pub.', 'month': ['11']},
       {'name': 'Hot Buttered Rum', 'date': ['2024-11-10'], 'description': 'A bluegrass and Americana band performing at the Midtown Ballroom.', 'month': ['11']},
       {'name': 'Curtis Salgado', 'date': ['2024-11-15'], 'description': 'A  blues performance at the Midtown Ballroom.', 'month': ['11']},

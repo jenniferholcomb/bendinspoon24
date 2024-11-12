@@ -9,7 +9,7 @@ import wideHighAlert from "/img/wideHighAlert.svg";
 import wideMediumAlert from "/img/wideMediumAlert.svg";
 import wideLowAlert from "/img/wideLowAlert.svg";
 
-const { weekWrapper, weekLabelContainer, weekLabel, weekdayCards, inFocusCard, dayCard, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, percentContainerA, percentContainerB, percentSign, eventHolidayAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
+const { weekWrapper, weekLabelContainer, weekLabel, weekdayCards, inFocusCard, dayCard, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, centerContainer, percentContainerA, percentContainerB, aMPM, percentSign, eventHolidayAlerts, eventAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
 
 function Week ({ thisWeek, dayInFocus, onChangingDay }) {
   const [forecast, weatherIsLoaded] = useWeather();
@@ -115,26 +115,33 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
                         <div className={eventHolidayAlerts}>
                           { index === dayInFocus ?
                             <>
-                              <p className={rentalsOccupiedText} style={{ color: thisWeek[index][2][0].color}}>rentals occupied</p>
-                              <div className={percentContainerA} style={{ color: thisWeek[index][2][0].color}}>
-                                <p>{thisWeek[index][2][0].percent}</p>
-                                <p className={percentSign}>%</p>
-                              </div>
-                              <div className={percentContainerB} style={{ color: day[2][0].color}}>
-                                <p>{day[2][0].percent}</p>
-                                <p className={percentSign}>%</p>
+                              <p className={rentalsOccupiedText} style={{ color: thisWeek[index][2][0].color}}>tourism</p>
+                              <div className={centerContainer}>
+                                <div className={percentContainerA} style={{ color: thisWeek[index][2][0].color}}>
+                                  <p><span className={aMPM}>AM </span>{thisWeek[index][2][0].percent}</p>
+                                  <p className={percentSign}>%</p>
+                                </div>
+                                <div className={percentContainerB} style={{ color: day[2][0].color}}>
+                                  <p>{day[2][0].percent}</p>
+                                  <p className={percentSign}>%</p>
+                                  <p><span className={aMPM}>PM</span></p>
+                                </div>
                               </div>
                             </>
                           :
-                            day[2][0].addEvent[0] === true && (
-                              day[2][0].addEvent[1].map((event, i) => {
-                                return (
-                                  <svg key={i} xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7" fill="none">
-                                    <circle cx="3.5" cy="3.50024" r="3.5" fill="#C50202"/>
-                                  </svg>
-                                )
-                              })
-                            )
+                            <>
+                            <div className={eventAlerts}>
+                              { day[2][0].addEvent[0] === true && (
+                                day[2][0].addEvent[1].map((event, i) => {
+                                  return (
+                                    <svg key={i} xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 7 7" fill="none">
+                                      <circle cx="3.5" cy="3.50024" r="3.5" fill="#C50202"/>
+                                    </svg>
+                                  )
+                                })
+                              )}
+                            </div>
+                            </>
                           }
                           <div className={holidayAlert}>
                             <img className={day[2][0].addHoliday[0] === true ? `${holidayAlertImg}` : `${hideHolidayAlert}`} src={holidayIcon} alt='holiday alert icon' />

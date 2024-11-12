@@ -191,7 +191,7 @@ const Tourism = (props) => {
             null
           }
         </div>
-        <p className={tourismSubhead}>% local AirBnb&apos;s occupied by night</p>
+        <p className={tourismSubhead}>% local short term rentals (STR) occupied by night</p>
         </div>
       </div>
 
