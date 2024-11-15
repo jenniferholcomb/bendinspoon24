@@ -1,0 +1,12 @@
+.goodsControlWrapper {
+  display: grid;
+  grid-column: 2 / span 2;
+  grid-row: 1 / span 3;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 4.8em repeat(6, 1fr);
+}
+
+.loading {
+  font-size: 25px;
+  font-style: italic
+}

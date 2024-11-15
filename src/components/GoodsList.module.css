@@ -1,0 +1,148 @@
+.barWrapper {
+  display: grid;
+  grid-row: 1;
+  grid-column: 1 / span 4;  
+  background-color: rgba(100, 99, 99, 0.71);
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 35px;
+  padding-top: 6px;
+  padding-left: 20px;
+}
+
+.goodsListWrapper {
+  display: grid;
+  grid-row: 2 / span 6;
+  grid-column: 1 / span 4;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  margin-right: 35px;
+  background-color: rgba(215, 205, 195, 0.363);
+  box-shadow: 0 0px 10px 0 rgba(239, 239, 239, 0.459), 15px 10px 25px 0 rgba(121, 121, 121, 0.25);
+  justify-items: center;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.nameWrapper {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(248, 246, 241);
+  justify-content: start;
+  margin-top: 3px;
+  padding-left: 3px;
+}
+
+.containerWrapper {
+  display: flex;
+  grid-row: 1;
+  grid-column: 2 / span 3;
+  justify-self: end;
+  margin-right: 20px;
+  margin-top: 1px;
+  gap: 10px;
+}
+
+.iconWrapper {
+  grid-column: 3 / span 2;;
+  display: flex;
+  justify-self: end;
+  margin-top: 10px;
+  margin-right: 13px;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.goodsIcon {
+  position: relative;
+  display: inline-block;
+}
+
+.goodsIcon .iconText {
+  visibility: hidden;
+  width: 80px;
+  font-size: 12px;
+  background-color: rgba(100, 99, 99, 0.71);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 35px;
+}
+
+.goodsIcon:hover .iconIext {
+  visibility: visible;
+}
+
+.downWrap {
+  margin-top: 10px;
+  margin-left: 2px;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  border-radius: 5px;
+  padding-top: 9px;
+  background-color: rgba(211, 238, 206, 0.80);
+  box-shadow: 0 0px 5px 0 rgba(239, 239, 239, 0.459), 1px 1px 10px 0 rgba(121, 121, 121, 0.25); 
+  width: 32px;
+}
+
+.upWrap {
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex;
+
+  height: 32px;
+  justify-content: center;
+  border-radius: 5px;
+  padding-top: 7px;
+  background-color: rgb(254, 232, 218);
+  box-shadow: 0 0px 5px 0 rgba(239, 239, 239, 0.459), 1px 1px 10px 0 rgba(121, 121, 121, 0.25); 
+  width: 32px;
+}
+
+.invListWrapper {
+  grid-column: 1 / span 4;
+  grid-row: 2;
+  padding: 10px;
+  display: inline-flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.nav5 {
+  width: 170px;
+  height: 32px;
+  background-color: white;
+  color: rgba(100, 99, 99, .95);
+  padding: 5px 5%;
+  font-weight: 500;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0px 5px 0 rgba(239, 239, 239, 0.459), 3px 3px 10px 0 rgba(121, 121, 121, 0.25); 
+}
+
+.nav6 {
+  width: 170px;
+  height: 32px;
+  background-color: white;
+  color: rgba(100, 99, 99, .95);
+  padding: 5px 5%;
+  font-weight: 500;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0px 5px 0 rgba(239, 239, 239, 0.459), 3px 3px 10px 0 rgba(121, 121, 121, 0.25); 
+}
+
+.nav5:hover, .nav6:hover {
+  background-color: rgb(232, 230, 230);
+}

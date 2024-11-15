@@ -1,0 +1,103 @@
+.invoiceWrapper {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: grid;
+  /* justify-content: start; */
+  outline: none;
+}
+
+.tableWrapper {
+  display: grid;
+  grid-column: 1 / span 3;
+  grid-row: 2;
+  width: 100%;
+  outline: none;
+}
+
+.cancelWrapper {
+  display: grid;
+  grid-column: 2 / span 2;;
+  grid-row: 1;
+  justify-content: end;
+  margin-top: 8px;
+}
+
+th[class^=dataHead] {
+  font-size: 14px;
+}
+
+.dataHead2 {
+  font-size: 14px;
+  padding-left: 12px;
+  width: 110px;
+}
+
+.dataHead3 {
+  font-size: 14px;
+  width: 300px;
+}
+
+.dataRow {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.input3 {
+  width: 190px;
+  margin: 8px 0;
+  margin-left: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.input1 {
+  width: 48%;
+  height: 30px;
+  margin: 8px 0;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.input2 {
+  width: 100%;
+  height: 50px;
+  padding-top: 4px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 30px;
+  width: 90%;
+  border-radius: 4px;
+  text-align: center;
+}
+
+table.editHead {
+  width: 90%;
+  margin-right: 10px;
+}
+
+td.editLabel {
+  width: 90px;
+}
+
+.deletebtn {
+  width: 75px;
+  height: 25px;
+  background-color: rgba(100, 99, 99, 0.71);
+  color: white;
+  padding: 4px 5%;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}

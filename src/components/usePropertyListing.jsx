@@ -66,7 +66,7 @@ const usePropertyListing = () => {
     const daysPassed = (today.getTime() - oldData.getTime()) / (1000 * 60 * 60 * 24);
 
     // if (dataDate !== todayStr && (daysPassed > 5 || todayNum === 1 || todayNum === 4)) {
-    if (dataDate !== todayStr && (daysPassed > 5 || todayNum === 4)) {
+    if (dataDate !== todayStr && (daysPassed > 20)) {
       return true;    
     } else {
       return false;

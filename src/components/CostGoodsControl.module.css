@@ -1,0 +1,219 @@
+.costGoodsWrapper {
+  grid-row: 2;
+  grid-column: 2;
+  background: #262B29;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.25) inset;
+  width: 100%;
+  height: 53vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 35px 35px 1fr 43px;
+  column-gap: 20px;
+}
+
+.costLabelContainer {
+  grid-column: 1 / span 2;
+  justify-self: center;
+  width: 169px;
+  height: 35px;
+  border-radius: 0px 0px 13px 13px;
+  background: #222725;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.14) inset;
+}
+
+.costLabel {
+  padding-top: 3px;
+  color: #FEFFDA;
+  text-align: center;
+  font-family: Dongle;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.greenArrow {
+  justify-self: start;
+  align-self: last baseline;
+  padding-left: 38px;
+  padding-bottom: 10px;
+}
+
+.redArrow {
+  justify-self: end;
+  align-self: last baseline;
+  padding-right: 38px;
+  padding-bottom: 10px;
+}
+
+.itemBrkdwn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.decreaseContainer {
+  grid-column: 1;
+}
+
+.increaseContainer {
+  grid-column: 2;
+}
+
+.decreaseContainer, .increaseContainer {
+  background: linear-gradient(84deg, #2B2F2D 11.78%, #2B2F2D 88.78%);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  justify-items: center;
+  padding-top: 19px;
+}
+
+.goodsCard {
+  width: 93%;
+  height: 46px;
+  border-radius: 8px;
+  background: #252928; 
+  /* #262B29 */
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.20) inset;
+  display: grid;
+  grid-template-columns: 63px 63px 1fr 46px;
+  column-gap: 4px;
+}
+
+.decreasePercent {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px 0px 0px 8px;
+  background: #494B4A;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.decreasePercent p, .decreaseCost p {
+  text-align: center;
+  font-family: Akatab;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+
+.decreasePercent p {
+  color: #66FF97;
+}
+
+.decreaseCostContainer {
+  height: 100%;
+  width: 100%;
+  background: #494B4A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.decreaseCost {
+  display: flex;
+  flex-direction: row;
+}
+
+.decreaseCost p {
+  color: #D9D9D9;
+}
+
+#percentSign {
+  font-size: 10px;
+  margin-left: 4px;
+  transform: translateY(-4px);
+}
+
+#dollarSign {
+  font-size: 10px;
+  margin-right: 4px;
+}
+
+#cents {
+  font-size: 11px;
+  margin-left: 2px;
+}
+
+.decreaseItem {
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+}
+
+.decreaseItem p {
+  color: #D9D9D9;
+  font-family: Akatab;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.45px;
+}
+
+.decreaseImg {
+  border-radius: 0px 8px 8px 0px;
+  border: 1px solid #262B29;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.costFooter {
+  grid-column: 1 / span 2;
+  align-content: center;
+  display: grid;
+  grid-template-columns: .8fr 1.4fr .8fr;
+}
+
+.footerLeft {
+  width: 100%;
+}
+
+.costGoodsSubhead {
+  grid-column: 2;
+  width: 100%;
+  color: #BDC1C0;
+  text-align: center;
+  font-family: Akatab;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 1.05px;
+  margin: 0;
+}
+
+.invoiceMgmntContainer {
+  grid-column: 3;
+  justify-content: end;
+  display: flex;
+}
+
+button.nav5, button.nav6 {
+  width: 80px;
+  height: 100%;
+  background-color: #E4E4E4;
+  color: rgba(100, 99, 99, .95);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  /* box-shadow: 0 0px 5px 0 rgba(239, 239, 239, 0.459), 3px 3px 10px 0 rgba(121, 121, 121, 0.25);  */
+  margin: 0;
+  font-family: Dongle;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 13px;
+  letter-spacing: .5px;
+  padding-top: 4px;
+  margin: 0 8px 0 0;
+  align-self: center;
+}
+
+.nav5:hover, .nav6:hover {
+  background-color: rgb(232, 230, 230);
+}

@@ -115,7 +115,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
                         <div className={eventHolidayAlerts}>
                           { index === dayInFocus ?
                             <>
-                              <p className={rentalsOccupiedText} style={{ color: thisWeek[index][2][0].color}}>tourism</p>
+                              <p className={rentalsOccupiedText} style={{ color: thisWeek[index][2][0].color}}>STR</p>
                               <div className={centerContainer}>
                                 <div className={percentContainerA} style={{ color: thisWeek[index][2][0].color}}>
                                   <p><span className={aMPM}>AM </span>{thisWeek[index][2][0].percent}</p>
@@ -134,7 +134,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
                               { day[2][0].addEvent[0] === true && (
                                 day[2][0].addEvent[1].map((event, i) => {
                                   return (
-                                    <svg key={i} xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 7 7" fill="none">
+                                    <svg key={i} xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 7 7" fill="none">
                                       <circle cx="3.5" cy="3.50024" r="3.5" fill="#C50202"/>
                                     </svg>
                                   )

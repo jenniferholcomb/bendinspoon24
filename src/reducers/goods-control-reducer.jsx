@@ -52,6 +52,7 @@ const goodsControlReducer = (state, action) => {
         error: action.error
       }
     case c.GET_MANAGE_INVOICES:
+      console.log('are we over here?')
       return {
         ...state,
         manageInvoiceVisible: true,

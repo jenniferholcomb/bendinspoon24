@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Tourism from './Tourism';
 import Week from './Week';
-import CostGoods from './CostGoods';
+import CostGoodsControl from './CostGoodsControl';
 import styles from "./AgentsControl.module.css";
 
 function AgentsControl () {
@@ -55,7 +55,7 @@ function AgentsControl () {
         <Tourism onAddingCalendarData={handleAddingCalendarData} 
                 thisWeek={thisWeek}/>
       )}
-      <CostGoods /> 
+      <CostGoodsControl /> 
     </div>
   );
 }

@@ -1,0 +1,34 @@
+.itemCard1 {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  padding: 15px;
+  /* border-radius: 10px; */
+  margin-left: 5px;
+  margin-bottom: 10px;
+  margin-right: 7px;
+  width: 250px;
+  height: 158px;
+  /* border: 6px rgb(248, 247, 247); */
+  box-shadow: 0 0px 10px 0 rgba(247, 243, 243, 0.459), 20px 6px 25px 0 rgba(77, 76, 76, 0.25);
+  background-color: rgb(255, 255, 255);
+  /* background-color: rgba(255, 255, 255, 0.785);  */
+}
+
+.itemCard1:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease; 
+  background-color: rgb(247, 243, 236);
+}
+
+.listHeaderInv {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.listValuesInv {
+  padding-left: 30px;
+  font-size: 16px;
+  width: 100%;
+  justify-self: end;
+}
