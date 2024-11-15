@@ -1,0 +1,142 @@
+.goodsCardDecrease, .goodsCardIncrease {
+  width: 90%;
+  min-height: 46px;
+  border-radius: 8px;
+  background: #252928; 
+  /* #262B29 */
+  border-bottom: 0.25px solid #242626;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.20) inset;
+  display: grid;
+}
+
+.goodsCardDecrease {
+  grid-template-columns: 63px 4px 63px 2px 1fr 46px;
+}
+
+.goodsCardIncrease {
+  grid-template-columns: 46px 1fr 2px 63px 4px 63px;
+}
+
+.decreasePercent, .increasePercent {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  /* background: rgb(73, 75, 74); */
+}
+
+.decreasePercent p, .cost p, .increasePercent p {
+  text-align: center;
+  font-family: Akatab;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+
+.decreasePercent p {
+  color: #0ce6cd;
+  font-size: 18px;
+}
+
+.increasePercent p {
+  color: #ff4747;
+  font-size: 18px;
+}
+
+.increasePercent p span {
+  font-size: 15px;
+}
+
+svg {
+  align-self: center;
+  padding-top: 1px;
+}
+
+.costContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background: rgb(73, 75, 74); */
+}
+
+.cost {
+  display: flex;
+  flex-direction: row;
+}
+
+.cost p {
+  color: #D9D9D9;
+  font-size: 15px;
+}
+
+#percentSign {
+  font-size: 10px;
+  margin-left: 4px;
+  transform: translateY(-4px);
+}
+
+#dollarSign {
+  font-size: 9px;
+  margin-right: 3px;
+  transform: translateY(1px);
+  color: #B4B3B3;
+}
+
+#cents {
+  font-size: 10px;
+  margin-left: 2px;
+  font-weight: 400;
+  color: #B4B3B3;
+  transform: translateY(1px);
+}
+
+.date p {
+  color: #D8DAD9;
+  text-align: center;
+  font-family: Akatab;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.22px;
+  margin: 0;
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+  align-content: center;
+}
+
+.item p {
+  color: #D9D9D9;
+  font-family: Akatab;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.45px;
+  margin: 0;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.decreaseImg, .increaseImg {
+  border: 1px solid #262B29;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.decreaseImg, .increasePercent {
+  border-radius: 0px 8px 8px 0px;
+}
+
+.increaseImg, .decreasePercent {
+  border-radius: 8px 0px 0px 8px; 
+}

@@ -216,7 +216,7 @@ function CostGoodsControl () {
           // </div> 
         : goodsLoaded ?
           <GoodsList
-            goods={currentGoods.current} 
+            allGoods={currentGoods.current} 
             onManageInvoicesClick={handleManageInvoicesClick}
             onAddInvoiceClick={handleAddInvoicesClick} />
         :
