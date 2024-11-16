@@ -66,10 +66,12 @@ function GoodsList ({ allGoods }) {
     const finalDecList = decreaseList.current.sort((a,b) => a.percentDecrease - b.percentDecrease).reverse();
     console.log(finalDecList)
     setFinalDecList(finalDecList);
+    decreaseList.current = [];
 
     const finalIncList = increaseList.current.sort((a,b) => a.percentIncrease - b.percentIncrease).reverse();
     console.log(finalIncList)
     setFinalIncList(finalIncList);
+    increaseList.current = [];
   }, [goodsListCode]);
 
   return (

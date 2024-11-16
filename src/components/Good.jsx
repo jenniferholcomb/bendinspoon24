@@ -15,7 +15,7 @@ function Good({ decItem, incItem }) {
           { incItem && (
         <>
           <div className={goodsCardIncrease}>
-            <div className={increaseImg} style={{ backgroundImage: `url("/img/sweetPotatoes.png")`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}></div>
+            <div className={increaseImg} style={{ backgroundImage: `url("/img/goods/${incItem.itemCode}.png")`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}></div>
             <div className={item}>
               <p>{incItem.name}</p>
             </div>
@@ -72,7 +72,7 @@ function Good({ decItem, incItem }) {
             <div className={item}>
               <p>{decItem.name}</p>
             </div>
-              <div className={decreaseImg} style={{ backgroundImage: `url("/img/sweetPotatoes.png")`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+              <div className={decreaseImg} style={{ backgroundImage: `url("/img/goods/${decItem.itemCode}.png")`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
             </div>
           </div>
         </>
