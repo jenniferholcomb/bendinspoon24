@@ -222,13 +222,26 @@ span.weatherDegreeFocus {
   min-height: 100%;
   background: linear-gradient(84deg, #414443 11.78%, #383A39 88.78%);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  padding-left: 12px;
-  margin-bottom: 12px;
   overflow-y: scroll;
+}
+
+.shadowTop {
+  position: sticky;
+  z-index: 10;
+  width: 100%;
+  min-height: 10px;
+  top: -1px;
+  background-image: linear-gradient(to bottom, #2f302f, #2f302f00);
 }
 
 .eventInFocusHidden {
   display: none;
+}
+
+.eventsContainer {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 6px 5px 6px 12px;
 }
 
 .eventsHeader {
@@ -244,7 +257,7 @@ span.weatherDegreeFocus {
   font-weight: 300;
   line-height: 16px;
   letter-spacing: 1.54px;
-  padding: 16px 0 0 0;
+  padding-bottom: 4px;
   margin: 0;
 }
 
@@ -261,7 +274,8 @@ span.weatherDegreeFocus {
 }
 
 .singleEventContainer svg {
-  margin: 3px 0 0 0;
+  margin: 2px 0 0 0;
+  align-self: first baseline;
 }
 
 .singleEventContainer p {
@@ -271,7 +285,8 @@ span.weatherDegreeFocus {
 
 .singleEventContainer blockquote {
   margin: 0;
-  padding-left: 8px;
+  padding-left: 0px;
+  font-size: 11px;
 }
 
 .singleEventContainer:last-child {
@@ -283,7 +298,7 @@ span.weatherDegreeFocus {
   padding-left: 8px;
   color: rgba(255, 255, 255, 0.80);
   font-family: Akatab;
-  font-size: 12px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: 12px;

@@ -124,13 +124,14 @@ p.percentSign {
   min-width: 100%;
   outline-color: transparent;
   max-width: 300px;
+  position: relative;
 }
 
 .popoverArrow {
   width: 16px;
   height: 10px;
   margin-left: 20px;
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 
 .popoverContent:focus, .popover-trigger:focus-visible  {
@@ -139,14 +140,14 @@ p.percentSign {
 }
 
 .popHeaderHoliday {
-  color: #DF571C;
+  color: #ff4747;
   font-size: 20px;
   font-weight: 500;
   margin: 10px 5px 10px 5px;
 }
 
 .popHeaderEvent {
-  color: #C50202;
+  color: #ff4747;
   margin: 10px 5px 0 5px;
 }
 

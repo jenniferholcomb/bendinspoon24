@@ -211,7 +211,7 @@ function CalendarDay ({ month, availablePercent, monthName, thisWeek, onAddingCa
                     </div>
                   </PopoverTrigger>
                   
-                  <PopoverContent style={{outline: 'none'}}>
+                  <PopoverContent style={{outline: 'none', zIndex: '9999'}}>
                     <div className={popoverContent}>
                       {item.addHoliday[0] && 
                         <p className={popHeaderHoliday}>{item.addHoliday[1][0].name}</p>
@@ -234,7 +234,7 @@ function CalendarDay ({ month, availablePercent, monthName, thisWeek, onAddingCa
                   className={dateBubble}
                   style={{
                     background: `${item.background}`,
-                    ...(item.currentDay ? { outline: '3px solid #C13F07' } : { outline: 'none' }),
+                    ...(item.currentDay ? { outline: '3px solid #ff4747' } : { outline: 'none' }),
                   }}
                 >
                   <p 

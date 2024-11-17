@@ -9,7 +9,7 @@ import wideHighAlert from "/img/wideHighAlert.svg";
 import wideMediumAlert from "/img/wideMediumAlert.svg";
 import wideLowAlert from "/img/wideLowAlert.svg";
 
-const { weekWrapper, weekLabelContainer, weekLabel, weekdayCards, inFocusCard, dayCard, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, centerContainer, percentContainerA, percentContainerB, aMPM, percentSign, eventHolidayAlerts, eventAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
+const { weekWrapper, weekLabelContainer, weekLabel, weekdayCards, inFocusCard, dayCard, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, shadowTop, eventsContainer, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, centerContainer, percentContainerA, percentContainerB, aMPM, percentSign, eventHolidayAlerts, eventAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
 
 function Week ({ thisWeek, dayInFocus, onChangingDay }) {
   const [forecast, weatherIsLoaded] = useWeather();
@@ -69,18 +69,21 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
                   </div>
                   <div className={index === dayInFocus ? inFocusContainer : notInFocusContainer}>
                     <div className={index === dayInFocus ? eventInFocus : eventInFocusHidden}>
-                      <h4 className={eventsHeader}><span className={day[2][0].addEvent[1].length > 0 ? noEventsHeader : null}>NO </span>LOCAL EVENTS</h4>
-                      {day[2][0].addEvent[1].map((event, i) => 
-                        <div key={i} className={singleEventContainer}>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7" fill="none">
-                            <circle cx="3.5" cy="3.50024" r="3.5" fill="#C50202"/>
-                          </svg>
-                          <div className={eventDescription}>
-                            <p className={eventTitle}>{event.name}</p>
-                            <blockquote>"{event.description}"</blockquote>
+                      <div className={shadowTop}></div>
+                      <div className={eventsContainer}>                      
+                        <h4 className={eventsHeader}><span className={day[2][0].addEvent[1].length > 0 ? noEventsHeader : null}>NO </span>LOCAL EVENTS</h4>
+                        {day[2][0].addEvent[1].map((event, i) => 
+                          <div key={i} className={singleEventContainer}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 7 7" fill="none">
+                              <circle cx="3.5" cy="3.50024" r="3.5" fill="#e74040"/>
+                            </svg>
+                            <div className={eventDescription}>
+                              <p className={eventTitle}>{event.name}</p>
+                              <blockquote>"{event.description}"</blockquote>
+                            </div>
                           </div>
-                        </div>
-                      )}
+                        )}
+                      </div>
                     </div>
                     <div className={salesLaborContainer}>
                       <div className={dividerLine}>
@@ -135,7 +138,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
                                 day[2][0].addEvent[1].map((event, i) => {
                                   return (
                                     <svg key={i} xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 7 7" fill="none">
-                                      <circle cx="3.5" cy="3.50024" r="3.5" fill="#C50202"/>
+                                      <circle cx="3.5" cy="3.50024" r="3.5" fill="#e74040"/>
                                     </svg>
                                   )
                                 })

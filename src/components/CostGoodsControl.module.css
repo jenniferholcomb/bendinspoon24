@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 35px 39px 1fr 47px;
-  padding: 0 10px 0 10px;
+  padding: 0 5px 0 5px;
 }
 
 .costLabelContainer {
@@ -70,7 +70,6 @@
   flex-direction: column;
   width: 100%;
   padding-top: 0px;
-  /* row-gap: 13px; */
   overflow-y: scroll;
   position: relative;
 }
