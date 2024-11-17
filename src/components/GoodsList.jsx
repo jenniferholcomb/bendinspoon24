@@ -5,7 +5,7 @@ import styles from "./GoodsList.module.css";
 import styles2 from "./CostGoodsControl.module.css";
 
 const {barWrapper, nameWrapper, containerWrapper, goodsListWrapper, iconWrapper, downWrap, goodsIcon, iconText, upWrap, invListWrapper} = styles;
-const { greenArrow, redArrow, decreaseContainer, increaseContainer, goodsCard, decreasePercent, decreaseCost, decreaseCostContainer, percentSign, dollarSign, cents, decreaseItem, decreaseImg, costFooter, costGoodsSubhead, footerLeft, invoiceMgmntContainer, nav5, nav6 } = styles2;
+const { greenArrow, redArrow, decreaseContainer, increaseContainer, shadowTop, shadowBottom, incGoodsContent, decGoodsContent, costFooter, costGoodsSubhead, footerLeft, invoiceMgmntContainer, nav5, nav6 } = styles2;
 
 function GoodsList ({ allGoods }) {
 
@@ -111,27 +111,35 @@ function GoodsList ({ allGoods }) {
         </defs>
       </svg>
       <div className={increaseContainer}>
-        { finalIncList && (
-          finalIncList.map((item, index) => 
-            <Good
-              incItem={item} 
-              key={index} />
-          )
-        )}
+        <div className={shadowTop}></div>
+          <div className={incGoodsContent}>
+            { finalIncList && (
+              finalIncList.map((item, index) => 
+                <Good
+                  incItem={item} 
+                  key={index} />
+              )
+            )}
+          </div>
+        <div className={shadowBottom}></div>
       </div>
       <div className={decreaseContainer}>
-        { finalDecList && (
-          finalDecList.map((item, index) => 
-            <Good
-              decItem={item} 
-              key={index} />
-          )
-        )}
+        <div className={shadowTop}></div>
+          <div className={decGoodsContent}>
+            { finalDecList && (
+              finalDecList.map((item, index) => 
+                <Good
+                  decItem={item} 
+                  key={index} />
+              )
+            )}
+          </div>
+        <div className={shadowBottom}></div>
       </div>
 
       <div className={costFooter}>
         <div className={footerLeft}></div>
-        <p className={costGoodsSubhead}>cost per item flucuation (%)</p>
+        <p className={costGoodsSubhead}>item cost flucuation (%)</p>
         {/* <div className={invoiceMgmntContainer}>
           <button className={nav5} onClick={props.onManageInvoicesClick}>MANAGE INVOICES</button>
           <button className={nav6} onClick={props.onAddInvoiceClick}>ADD INVOICE</button>

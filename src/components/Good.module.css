@@ -1,6 +1,6 @@
 .goodsCardDecrease, .goodsCardIncrease {
   width: 90%;
-  min-height: 46px;
+  min-height: 48px;
   border-radius: 8px;
   background: #252928; 
   /* background: #434443; */
@@ -10,11 +10,11 @@
 }
 
 .goodsCardDecrease {
-  grid-template-columns: 63px 4px 63px 2px 1fr 46px;
+  grid-template-columns: 63px 4px 63px 2px 1fr 48px;
 }
 
 .goodsCardIncrease {
-  grid-template-columns: 46px 1fr 2px 63px 4px 63px;
+  grid-template-columns: 48px 1fr 2px 63px 4px 63px;
 }
 
 .decreasePercent, .increasePercent {
@@ -126,6 +126,7 @@ svg {
   margin: 0;
   text-align: center;
   text-transform: lowercase;
+  padding: 0 5px 0 5px;
 }
 
 .decreaseImg, .increaseImg {
