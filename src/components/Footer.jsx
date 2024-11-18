@@ -15,6 +15,10 @@ function Footer () {
     <>
       <div className={footerWrapper}>
         <div className={keyGroup}>
+          <img src={copyright} className={copyrightContainer} alt="copyright icon" />
+          <p className={copyrightText}>2024 Jennifer Holcomb</p>
+        </div>
+        <div className={keyGroup}>
           <img src={holidayKey} alt="holiday key" />
           <p className={keyText}>holiday</p>
         </div>
@@ -33,10 +37,6 @@ function Footer () {
         <div className={keyGroup}>
           <img src={alertKey} alt="tourism alert key" />
           <p className={keyText}>tourism probability<br />morning vs evening</p>
-        </div>
-        <div className={keyGroup}>
-          <img src={copyright} className={copyrightContainer} alt="copyright icon" />
-          <p className={copyrightText}>2024 Jennifer Holcomb</p>
         </div>
       </div>
     </>

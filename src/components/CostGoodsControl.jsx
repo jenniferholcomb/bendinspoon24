@@ -17,7 +17,7 @@ import { collection, addDoc, doc, deleteDoc, updateDoc, onSnapshot } from 'fireb
 
 const {goodsControlWrapper, loading} = styles2;
 const {barWrapper, nameWrapper, containerWrapper, nav5, nav6, goodsListWrapper} = styles2;
-const { costGoodsWrapper, costLabelContainer, costLabel } = styles;
+const { costGoodsWrapper, costGoodsHeader, costLabelContainer, costLabel } = styles;
 
 const initialState = {
   formVisible: false,
@@ -177,8 +177,10 @@ function CostGoodsControl () {
   return (
     <>
       <div className={costGoodsWrapper}>
-        <div className={costLabelContainer}>
-          <h3 className={costLabel}>cost of goods</h3>
+        <div className={costGoodsHeader}>
+          <div className={costLabelContainer}>
+            <h3 className={costLabel}>cost of goods</h3>
+          </div>
         </div>
         { 
         error ?

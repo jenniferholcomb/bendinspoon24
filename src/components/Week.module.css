@@ -40,6 +40,7 @@
   align-items: center;
   justify-content: center;
   gap: 2%;
+  transform: translateY(-2px);
 }
 
 .inFocusCard {
@@ -281,6 +282,7 @@ span.weatherDegreeFocus {
 .singleEventContainer p {
   margin: 0;
   padding-bottom: 4px;
+  letter-spacing: 0.35px;
 }
 
 .singleEventContainer blockquote {

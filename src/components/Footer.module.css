@@ -6,7 +6,8 @@
   flex-direction: row;
   background: rgba(29, 33, 32, 0.46);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;  
-  padding: 0 2% 0 4%;
+  padding: 0 0 0 41px;
+  justify-content: flex-end;
 }
 
 .keyGroup {
@@ -15,9 +16,13 @@
   align-items: center;
 }
 
-.keyGroup:last-child {
-  margin-left: auto;
+.keyGroup:first-child {
+  margin-right: auto;
 }
+
+/* .keyGroup:last-child {
+  margin-right: 1.5%;
+} */
 
 .keyGroup img {
   width: 24px;
@@ -26,14 +31,18 @@
 }
 
 p.keyText {
-  color: #FFF;
+  color: #BDC1C0;
   font-family: Akatab;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 14px; /* 116.667% */
   letter-spacing: 0.84px;
-  margin: 0 45px 0 0;
+  margin: 0 41px 0 0;
+}
+
+p.keyText {
+  margin-right: 40px;
 }
 
 .keyGroup img.copyrightContainer {

@@ -2,7 +2,7 @@
   grid-row: 1;
   grid-column: 1 / span 7;
   display: flex;
-  padding-top: 8px;
+  /* padding-top: 8px; */
 }
 
 .calArrowLeft, .calArrowRight {
@@ -30,13 +30,14 @@ p.calText {
   line-height: normal;
   letter-spacing: 3.6px;
   width: 100%;
-  align-self: center;
   text-align: center;
+  align-self: center;
   background: linear-gradient(180deg, rgba(221, 219, 219, 0.719) 0%, rgba(139, 139, 139, 0.673) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
+  padding-top: 1px;
 }
 
 /* .dateContainer {

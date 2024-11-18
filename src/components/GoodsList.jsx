@@ -5,7 +5,7 @@ import styles from "./GoodsList.module.css";
 import styles2 from "./CostGoodsControl.module.css";
 
 const {barWrapper, nameWrapper, containerWrapper, goodsListWrapper, iconWrapper, downWrap, goodsIcon, iconText, upWrap, invListWrapper} = styles;
-const { greenArrow, redArrow, decreaseContainer, increaseContainer, shadowTop, shadowBottom, incGoodsContent, decGoodsContent, costFooter, costGoodsSubhead, footerLeft, invoiceMgmntContainer, nav5, nav6 } = styles2;
+const { greenArrow, redArrow, goodsContainer, decreaseContainer, increaseContainer, shadowTop, shadowBottom, incGoodsContent, decGoodsContent, costFooter, costGoodsSubhead, footerLeft, invoiceMgmntContainer, nav5, nav6 } = styles2;
 
 function GoodsList ({ allGoods }) {
 
@@ -109,37 +109,37 @@ function GoodsList ({ allGoods }) {
             <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1052_1324"/>
           </filter>
         </defs>
-      </svg>
-      <div className={increaseContainer}>
-        <div className={shadowTop}></div>
-          <div className={incGoodsContent}>
-            { finalIncList && (
-              finalIncList.map((item, index) => 
-                <Good
-                  incItem={item} 
-                  key={index} />
-              )
-            )}
-          </div>
-        <div className={shadowBottom}></div>
+    </svg>
+    <div className={increaseContainer}>
+      <div className={shadowTop}></div>
+      <div className={incGoodsContent}>
+        { finalIncList && (
+          finalIncList.map((item, index) => 
+            <Good
+              incItem={item} 
+              key={index} />
+          )
+        )}
       </div>
-      <div className={decreaseContainer}>
-        <div className={shadowTop}></div>
-          <div className={decGoodsContent}>
-            { finalDecList && (
-              finalDecList.map((item, index) => 
-                <Good
-                  decItem={item} 
-                  key={index} />
-              )
-            )}
-          </div>
-        <div className={shadowBottom}></div>
+      <div className={shadowBottom}></div>
+    </div>
+    <div className={decreaseContainer}>
+      <div className={shadowTop}></div>
+      <div className={decGoodsContent}>
+        { finalDecList && (
+          finalDecList.map((item, index) => 
+            <Good
+              decItem={item} 
+              key={index} />
+          )
+        )}
       </div>
+      <div className={shadowBottom}></div>
+    </div>
 
       <div className={costFooter}>
         <div className={footerLeft}></div>
-        <p className={costGoodsSubhead}>item cost flucuation (%)</p>
+        <p className={costGoodsSubhead}>item cost flucuation</p>
         {/* <div className={invoiceMgmntContainer}>
           <button className={nav5} onClick={props.onManageInvoicesClick}>MANAGE INVOICES</button>
           <button className={nav6} onClick={props.onAddInvoiceClick}>ADD INVOICE</button>
