@@ -64,12 +64,12 @@ function GoodsList ({ allGoods }) {
       goodsListCode.map(item => handleSortingGood(item))
     }
     const finalDecList = decreaseList.current.sort((a,b) => a.percentDecrease - b.percentDecrease).reverse();
-    console.log(finalDecList)
+    // console.log(finalDecList)
     setFinalDecList(finalDecList);
     decreaseList.current = [];
 
     const finalIncList = increaseList.current.sort((a,b) => a.percentIncrease - b.percentIncrease).reverse();
-    console.log(finalIncList)
+    // console.log(finalIncList)
     setFinalIncList(finalIncList);
     increaseList.current = [];
   }, [goodsListCode]);
@@ -82,7 +82,7 @@ function GoodsList ({ allGoods }) {
         </g>
         <defs>
           <filter id="filter0_i_1052_1327" x="-6" y="-6" width="33" height="19" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
             <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
             <feOffset dx="-6" dy="-6"/>
@@ -98,8 +98,8 @@ function GoodsList ({ allGoods }) {
           <path d="M27 1.18021e-06L0 0L13.5 13L27 1.18021e-06Z" fill="#0ce6cd"/>
         </g>
         <defs>
-          <filter id="filter0_i_1052_1324" x="-6" y="-6" width="33" height="19" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+          <filter id="filter0_i_1052_1324" x="-6" y="-6" width="33" height="19" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
             <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
             <feOffset dx="-6" dy="-6"/>
@@ -139,7 +139,9 @@ function GoodsList ({ allGoods }) {
 
       <div className={costFooter}>
         <div className={footerLeft}></div>
-        <p className={costGoodsSubhead}>item cost flucuation</p>
+        <div className={costGoodsSubhead}>
+          <p>cost flucuation by item</p>
+        </div>
         {/* <div className={invoiceMgmntContainer}>
           <button className={nav5} onClick={props.onManageInvoicesClick}>MANAGE INVOICES</button>
           <button className={nav6} onClick={props.onAddInvoiceClick}>ADD INVOICE</button>

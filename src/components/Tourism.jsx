@@ -13,12 +13,16 @@ const Tourism = (props) => {
   const [currentMonthName, setCurrentMonthName]  = useState();
   const currentYear = useRef();
   const [dates, setDates] = useState([]);
-
   const month = useRef();
-  const [propertyList, loadProperties] = useSTRController();
+
+  const [loadPropertiesOnce] = useSTRController();
+  const [properties, setProperties] = useState(null);
+
+  const [listingAvailability, setListingAvailability] = useState(null);
+  const [listingsOccupied, handlePropList, percentsError] = usePropertyListing();
+
   const [percentLoaded, setPercentLoaded] = useState(false);
   const [monthAvail, setMonthAvail] = useState();
-  const [listingAvailability, handlePropList] = usePropertyListing();
 
 
   const handleRentalPercents = () => {
@@ -146,8 +150,6 @@ const Tourism = (props) => {
     currentYear.current = year;
 
     month.current = year.toString() + '-' + (selectedMonth.current + 1).toString();
-
-    loadProperties(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -157,19 +159,56 @@ const Tourism = (props) => {
   }, []);
 
   useEffect(() => {
-    if (propertyList) {
-      // const shortenedList = propertyList.slice(0,4);
-      // console.log('shortenedlist', shortenedList);
-      handlePropList(propertyList);
-      //setListingAvailabilityLoaded(listingAvailability);
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propertyList]);
+    if (!properties) {
+      loadPropertiesOnce().then((properties) => setProperties(properties));
+    }
+  }, [loadPropertiesOnce]);
 
   useEffect(() => {
-    if (propertyList && listingAvailability) {
-      handleRentalPercents();
+    if (properties) {
+      // const shortenedList = properties[0].propertiesId.slice(0, 28);
+      const propertyList = properties[0].propertiesId;
+
+      console.log('calling usePropertyListing...','properties', propertyList);
+
+      handlePropList(propertyList);
+    } 
+  }, [properties]);
+
+  useEffect(() => {
+    if (listingsOccupied && listingsOccupied !== listingAvailability) {
+      setListingAvailability(listingsOccupied);
     } // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propertyList, listingAvailability]);
+  }, [listingsOccupied]);
+
+  useEffect(() => {
+    if (listingAvailability) {
+      handleRentalPercents();
+    }
+  }, [listingAvailability]);
+
+  // useEffect(() => {
+  //   if (percentsError) {
+  //     console.log(percentsError)
+  //   }
+  // }, [percentsError]);
+
+
+
+  // useEffect(() => {
+  //   if (listingAvailability) {
+  //     handleRentalPercents();
+  //   }
+  // }, [listingAvailability]);
+
+  // useEffect(() => {
+  //   console.log('listingsOccupied changed:', listingsOccupied);
+  // }, [listingsOccupied]);
+  
+  useEffect(() => {
+    console.log('propertyList changed:', properties);
+  }, [properties]);
+  
 
   return (
     <>

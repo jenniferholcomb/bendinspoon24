@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import db from '../firebase.jsx';
-import { collection, addDoc, onSnapshot } from 'firebase/firestore'; // doc, deleteDoc, updateDoc,
+import { collection, addDoc, onSnapshot, getDocs } from 'firebase/firestore'; // doc, deleteDoc, updateDoc,
 
 const useSTRController = () => {
   const [propertyList, setPropertyList] = useState();
@@ -18,7 +18,13 @@ const useSTRController = () => {
             id: doc.id
           });
         });
-        handleGetProperties(properties);
+        console.log('we made it here')
+        if (properties.length === 0) {  // to get new updated properties list, set propertiesAll.length !== 0. And update key in .env
+          // makeAPICall();
+          return;
+        } else {
+          return properties[0].propertyId;
+        }
       },
       (error) => {
         setError(error);
@@ -26,6 +32,12 @@ const useSTRController = () => {
     );  
     return () => unSubscribe();
   };
+
+  const loadPropertiesOnce = async () => {
+    const snapshot = await getDocs(collection(db, "properties"));
+    return snapshot.docs.map(doc => doc.data());
+  };
+
 
   // const handleGetProperties = async (propertiesAll) => {
   //   if (propertiesAll.length === 0) {  // to get new updated properties list, set propertiesAll.length !== 0. And update key in .env
@@ -48,13 +60,13 @@ const useSTRController = () => {
   //   }
   // }
 
-  const handleGetProperties = async (propertiesAll) => {
-    if (propertiesAll.length === 0) {  // to get new updated properties list, set propertiesAll.length !== 0. And update key in .env
-      makeAPICall();
-    } else {
-      setPropertyList(propertiesAll[0].propertyId);
-    }
-  }
+  // const handleGetProperties = async (propertiesAll) => {
+  //   if (propertiesAll.length === 0) {  // to get new updated properties list, set propertiesAll.length !== 0. And update key in .env
+  //     makeAPICall();
+  //   } else {
+  //     setPropertyList(propertiesAll[0].propertyId);
+  //   }
+  // }
 
   const makeAPICall = async () => {
 
@@ -89,11 +101,15 @@ const useSTRController = () => {
     handleSendingProps(propObj);
   };
 
+  // const handleSendingProps = async (propertiesId) => {
+  //   await setDoc(doc(db, "propertiesNew", "uniqueId"), propertiesId, { merge: true });
+  // };
+
   const handleSendingProps = async (propertiesId) => {
     await addDoc(collection(db, "propertiesNew"), propertiesId);
   };
 
-  return [ propertyList, loadProperties, error ];
+  return [ loadPropertiesOnce, error ];
 };
 
 export default useSTRController;

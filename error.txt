@@ -1,0 +1,21 @@
+propertyList changed: null
+Tourism.jsx:209 propertyList changed: null
+Tourism.jsx:172 calling usePropertyListing... properties Array(360)
+Tourism.jsx:209 propertyList changed: Array(1)
+usePropertyListing.jsx:191 indices to remove Array(0)
+usePropertyListing.jsx:206 true
+usePropertyListing.jsx:152 proceedToCalls false
+firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel?gsessionid=1_qIO2Y_9Lw0noLadg0Oio4SLTJ39wem-9KTKjxVUFU&VER=8&database=projects%2Fcapstone-forecasting%2Fdatabases%2F(default)&RID=rpc&SID=AiHOsa46AOyqSc4CI-kPEw&AID=0&CI=0&TYPE=xmlhttp&zx=iwke8kds4lhu&t=1:1 
+        
+        
+       Failed to load resource: net::ERR_QUIC_PROTOCOL_ERRORUnderstand this errorAI
+firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel?gsessionid=1_qIO2Y_9Lw0noLadg0Oio4SLTJ39wem-9KTKjxVUFU&VER=8&database=projects%2Fcapstone-forecasting%2Fdatabases%2F(default)&RID=rpc&SID=AiHOsa46AOyqSc4CI-kPEw&AID=112&CI=0&TYPE=xmlhttp&zx=s0ax8zrew41t&t=1:1 
+        
+        
+       Failed to load resource: net::ERR_INTERNET_DISCONNECTEDUnderstand this errorAI
+localhost/:1 Some resource load requests were throttled while the tab was in background, and no request was sent from the queue in the last 1 minute. This means previously requested in-flight requests haven't received any response from servers. See https://www.chromestatus.com/feature/5527160148197376 for more details
+localhost/:1 Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist.Understand this errorAI
+firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel?VER=8&database=projects%2Fcapstone-forecasting%2Fdatabases%2F(default)&gsessionid=1_qIO2Y_9Lw0noLadg0Oio4SLTJ39wem-9KTKjxVUFU&SID=AiHOsa46AOyqSc4CI-kPEw&RID=91295&TYPE=terminate&zx=7b3pngbu698p:1 
+        
+        
+       Failed to load resource: the server responded with a status of 400 ()

@@ -8,6 +8,7 @@
 html,
 body,
 :root {
+  /* background: #262B29; */
   background: linear-gradient(86deg, #414141 17.47%, #222A27 83.41%);
   overscroll-behavior: none;
   height: 100%;

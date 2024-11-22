@@ -219,8 +219,12 @@ function CalendarDay ({ month, availablePercent, monthName, thisWeek, onAddingCa
                       {item.addEvent[0] && 
                         <>
                           <p className={popHeaderEvent}>Local Events:</p>
-                          <p className={popEventName}>{item.addEvent[1].map(event => event.name)}</p>
-                          <blockquote>"{item.addEvent[1].map(event => event.description)}"</blockquote>
+                          { item.addEvent[1].map((event, index) => 
+                            <React.Fragment key={index} >
+                              <p className={popEventName}>{event.name}</p>
+                              <blockquote>"{event.description}"</blockquote>
+                            </React.Fragment>
+                          )}
                         </>
                       }
                     </div>
