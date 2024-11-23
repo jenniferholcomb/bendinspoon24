@@ -36,7 +36,7 @@ function Footer () {
         </div>
         <div className={keyGroup}>
           <img src={alertKey} alt="tourism alert key" />
-          <p className={keyText}>tourism probability<br />morning vs evening</p>
+          <p className={keyText}>tourism probability,<br />AM vs PM</p>
         </div>
       </div>
     </>

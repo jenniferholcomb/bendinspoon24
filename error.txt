@@ -19,3 +19,6 @@ firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel?VER=8&data
         
         
        Failed to load resource: the server responded with a status of 400 ()
+
+AI cost of goods thumbnail photo prompt;
+       "large plastic bag carrots light gray background soft filtered backlight"

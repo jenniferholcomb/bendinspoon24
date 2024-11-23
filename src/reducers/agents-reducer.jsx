@@ -14,7 +14,7 @@ const agentsReducer = (state, action) => {
       return {
           ...state,
           newWeatherLoaded: true,
-          forecastCall: newForecast
+          forecast: newForecast
         };
 
     case c.GET_WEATHER_LOADED:

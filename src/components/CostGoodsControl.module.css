@@ -42,6 +42,14 @@
   margin: 0;
 }
 
+.costGoodsHeader svg {
+  grid-column: 3;
+  justify-self: end;
+  padding-top: 10px;
+  padding-right: 20px;
+  height: 19px;
+}
+
 .redArrow {
   grid-column: 1;
   grid-row: 2;

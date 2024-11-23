@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useCallback } from 'react';
 import agentsReducer from '../reducers/agents-reducer';
 import { getFetchFailure, getWeatherLoaded, getWeatherSuccess } from '../actions';
 
@@ -8,22 +8,41 @@ import { collection, addDoc, doc, deleteDoc, onSnapshot } from 'firebase/firesto
 const initialState = {
   isLoaded: false,
   newWeatherLoaded: false,
-  forecastCall: [],
   forecast: [],
   id: null,
-
-  // lines below for static weather data, API also needs to be commented out
-  // isLoaded: true,
-  // forecast: [51, 48, 50, 49, 52, 62, 64, 87, 82, 83, 81, 84, 90, 95, 'c02d', 'c01d', 'c02d', 'c02d', 'c02d', 'c02d', 'c02d', 'Few clouds', 'Clear Sky', 'Few clouds', 'Few clouds', 'Few clouds', 'Few clouds', 'Few clouds'],
   error: null
 };
 
 function useWeather () {
 
-  const [state, dispatch] = useReducer(agentsReducer, initialState)
+  const [state, dispatch] = useReducer(agentsReducer, initialState);
+  const { newWeatherLoaded, forecast, id } = state;
 
-  const loadWeather = async () => {
-    const unSubscribe = onSnapshot(
+  // const loadWeather = async (callback) => {
+  //   const unSubscribe = onSnapshot( 
+  //     collection(db, "weather"),
+  //     (collectionSnapshot) => {
+  //       const weatherForecast = [];
+  //       collectionSnapshot.forEach((doc) => {
+  //         weatherForecast.push({
+  //           forecast: doc.data().forecast,
+  //           date: doc.data().date,
+  //           id: doc.id
+  //         });
+  //       });
+
+  //       if (callback) callback(weatherForecast); // Pass the data to the callback
+  //       handleWeatherData(weatherForecast);
+  //     },
+  //     (error) => {
+  //       dispatch(getFetchFailure(error.message));
+  //     }
+  //   );
+  //   return () => unSubscribe; // Return the unsubscribe function
+  // };
+
+  const loadWeather = useCallback((callback) => {
+    return onSnapshot(
       collection(db, "weather"),
       (collectionSnapshot) => {
         const weatherForecast = [];
@@ -31,98 +50,110 @@ function useWeather () {
           weatherForecast.push({
             forecast: doc.data().forecast,
             date: doc.data().date,
-            id: doc.id
+            id: doc.id,
           });
         });
+  
+        if (callback) callback(weatherForecast[0].forecast); // Notify the caller with the data
+        // dispatch(getWeatherLoaded(weatherForecast)); // Update state with Firestore data
         handleWeatherData(weatherForecast);
       },
       (error) => {
-        dispatch(error);
+        dispatch(getFetchFailure(error.message)); // Handle Firestore errors
       }
-    );  
-    return () => unSubscribe();
-  }
+    );
+  }, []);
+  
 
   const handleWeatherData = (weatherForecast) => {
-    const action = getWeatherLoaded(weatherForecast);
-    dispatch(action);
+    dispatch(getWeatherLoaded(weatherForecast));
 
     const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
     if (weatherForecast[0].date !== today) {
+      console.log('making API weather call')
       makeAPICall();
-      console.log('why here')
     } 
-  }
-
-  // const makeAPICall = async () => {
-  //   console.log('making weather call')
-  //   fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=Bend,OR&key=${process.env.REACT_APP_API_KEY_WEATHER}&units=I&days=7`)
-  //   .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error(`${response.status}: ${response.statusText}`);
-  //       } else {
-  //         return response.json()
-  //       }
-  //     })
-  //     .then((jsonifiedResponse) => {
-  //       console.log(jsonifiedResponse)
-  //       const action = getWeatherSuccess(jsonifiedResponse.data)
-  //       dispatch(action)
-  //     })
-  //     .catch((error) => {
-  //       const action = getFetchFailure(error.message)
-  //       dispatch(action)
-  //     });
-  // }
+  };
 
   const makeAPICall = async () => {
-    console.log('making weather call')
-    fetch('/.netlify/functions/getWeather', { cache: 'no-store' })  
-      .then(response => response.json()) 
-      .then((jsonifiedResponse) => {
-        if (jsonifiedResponse.data) {
-          const data = jsonifiedResponse.data;  
-          const action = getWeatherSuccess(data);  
-          dispatch(action);
-        } else {
-          throw new Error(`Error: ${jsonifiedResponse.error || 'Unknown error'}`);
-        }
-      })
-      .catch((error) => {
-        const action = getFetchFailure(error.message);  // Dispatch failure action
-        dispatch(action);
-      });
-  }
-  
-  useEffect(() => {
-    loadWeather();
-  }, [])
+    // fetch('/.netlify/functions/getWeather', { cache: 'no-store' })  
+    //   .then(response => response.json()) 
+    //   .then((jsonifiedResponse) => {
+    //     if (jsonifiedResponse.data) {
+    //       const data = jsonifiedResponse.data;  
+    //       const action = getWeatherSuccess(data);  
+    //       dispatch(action);
+    //     } else {
+    //       throw new Error(`Error: ${jsonifiedResponse.error || 'Unknown error'}`);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     const action = getFetchFailure(error.message);  // Dispatch failure action
+    //     dispatch(action);
+    //   });
 
-  
+    try {
+      const response = await fetch('/.netlify/functions/getWeather', { cache: 'no-store' });
+      const jsonifiedResponse = await response.json();
 
-  const { error, isLoaded, newWeatherLoaded, forecastCall, forecast, id } = state;
+      if (jsonifiedResponse.data) {
+        const data = jsonifiedResponse.data;  
+        dispatch(getWeatherSuccess(data)); // Dispatch action for success
+      } else {
+        throw new Error(`Error: ${jsonifiedResponse.error || 'Unknown error'}`);
+      }
+    } catch (error) {
+      dispatch(getFetchFailure(error.message)); // Dispatch failure action
+    }
+  };
+
 
   const handleAddingWeather = async () => {
     const addForecast = { 
-      forecast: forecastCall, 
+      forecast: forecast, 
       date: new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' })
     };
     await addDoc(collection(db, "weather"), addForecast);
-    await loadWeather();
-  }
+  };
 
   const deleteWeatherData = async (id) => {
     await deleteDoc(doc(db, "weather", id));
-  }
+  };
 
   useEffect(() => {
-    if(newWeatherLoaded) {
+    if (newWeatherLoaded) {
+      console.log('how many times new weather loaded')
       handleAddingWeather();
-      deleteWeatherData(id);
+      if (id) deleteWeatherData(id);
     }
-  }, [newWeatherLoaded])
+  }, [newWeatherLoaded, forecast, id]);
 
-  return [forecast, isLoaded, error];
+
+  // const loadWeather = async () => {
+  //   const unSubscribe = onSnapshot(
+  //     collection(db, "weather"),
+  //     (collectionSnapshot) => {
+  //       const weatherForecast = [];
+  //       collectionSnapshot.forEach((doc) => {
+  //         weatherForecast.push({
+  //           forecast: doc.data().forecast,
+  //           date: doc.data().date,
+  //           id: doc.id
+  //         });
+  //       });
+  //       handleWeatherData(weatherForecast);
+  //       console.log(weatherForecast)
+  //       return weatherForecast;
+  //     },
+  //     (error) => {
+  //       dispatch(error);
+  //     }
+  //   );  
+  //   return () => unSubscribe();
+  // }
+  
+
+  return [loadWeather];
 }
 
 export default useWeather;

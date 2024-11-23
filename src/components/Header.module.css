@@ -26,49 +26,45 @@
 }
 
 .subheadContainer {
-  padding-left: 146px;
-  padding-top: 10px;
-  align-self: center;
-  color: #E4E4E4;
+  padding: 0 0 10px 146px;
+  align-self: flex-end;
+  color: #FEFFDA;
   font-family: Dongle;
-  font-size: 34px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 400;
   line-height: 25px; /* 69.444% */
-  letter-spacing: 1.8px;
+  letter-spacing: 1.88px;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .locationContainer {
   justify-content: flex-end;
+  align-items: last baseline;
   width: 100%;
   display: flex;
   flex-direction: row;
 }
 
 .town {
-  padding-top: 10px;
-  color: #E4E4E4;
+  color: #FEFFDA;
+  align-self: flex-end;
+  text-align: center;
   font-family: Dongle;
-  font-size: 26px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
-  letter-spacing: .64px;
-  align-self: center;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
   margin: 0;
+  padding-bottom: 6px;
 }
 
 .pindrop {
-  margin: 0 21px 0px 10px;
-  align-self: center;
-}
-
-.info {
-  grid-column: 3;
-  justify-self: center;
-  align-self: center;
-  margin-right: 41px;
+  margin: 0 22px 17px 10px;
+  align-self: flex-end;
 }
 
 /* // .tagWrap {
