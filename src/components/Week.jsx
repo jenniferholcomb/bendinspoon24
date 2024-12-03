@@ -31,6 +31,8 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
     };
   }, [loadWeather]);
 
+  console.log(thisWeekUpdate)
+
   return (
     <>
       <div className={weekWrapper}>
@@ -140,13 +142,13 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
                               <p className={rentalsOccupiedText} style={{ color: thisWeek[index][2][0].color}}>STR</p>
                               <div className={centerContainer}>
                                 <div className={percentContainerA} style={{ color: thisWeek[index][2][0].color}}>
-                                  <p><span className={aMPM}>AM </span>{thisWeek[index][2][0].percent}</p>
-                                  <p className={percentSign}>%</p>
+                                  <p><span className={aMPM} style={{ color: thisWeek[index][2][0].color}}>AM </span>{thisWeek[index][2][0].percent}</p>
+                                  <p className={percentSign} style={{ color: thisWeek[index][2][0].color}}>%</p>
                                 </div>
                                 <div className={percentContainerB} style={{ color: day[2][0].color}}>
                                   <p>{day[2][0].percent}</p>
-                                  <p className={percentSign}>%</p>
-                                  <p><span className={aMPM}>PM</span></p>
+                                  <p className={percentSign} style={{ color: day[2][0].color}}>%</p>
+                                  <p><span className={aMPM} style={{ color: day[2][0].color}}>PM</span></p>
                                 </div>
                               </div>
                             </>

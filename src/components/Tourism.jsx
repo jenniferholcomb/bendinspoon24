@@ -134,8 +134,11 @@ const Tourism = (props) => {
       addHoliday: [false],
       addEvent: [false]
     }));
-
+    console.log('pre', preMonthArrBg)
+    console.log('mnth', thisMonthArr)
+    console.log('end', endMonthArrBg)
     const allMonth = [...preMonthArrBg, ...thisMonthArr, ...endMonthArrBg];
+    console.log(allMonth)
     setDates(allMonth);
   }
 

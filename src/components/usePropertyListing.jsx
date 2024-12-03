@@ -137,9 +137,9 @@ const usePropertyListing = () => {
     const oldData = new Date(parseInt(dataDate.substring(0, 4)), (parseInt(dataDate.substring(5, 7)) - 1), parseInt(dataDate.substring(8)));
     const daysPassed = (today.getTime() - oldData.getTime()) / (1000 * 60 * 60 * 24);
 
-    if (dataDate !== todayStr && (daysPassed > 5 || todayNum === 1 || todayNum === 4)) {
-    // if (dataDate !== todayStr && (daysPassed >= 1)) {
-    // if (daysPassed) {
+    // if (dataDate !== todayStr && (daysPassed > 5 || todayNum === 1 || todayNum === 4)) {
+    // if (dataDate !== todayStr && (daysPassed)) {
+    if (!daysPassed) {
       return true;    
     } else {
       return false;

@@ -444,8 +444,7 @@ span.weatherDegreeFocus {
 
 .backgroundLayer {
   min-height: 24px;
-  transform: translateX(-1.15px);
-  transform: translateY(.3px);
+  transform: scaleY(1.02);
 }
 
 .eventHolidayAlerts {
@@ -539,14 +538,12 @@ p.percentSign {
   height: 24px;
   display: flex;
   justify-content: flex-end;
+  transform: translateY(-.25px);
 }
 
 .holidayAlert Img {
   height: 21px;
   align-self: last baseline;
-  /* padding-bottom: .75px; */
-  /* width: 100%;
-  height: 100%; */
 }
 
 .hideHolidayAlert {
