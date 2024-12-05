@@ -1,3 +1,12 @@
+/*
+@media all and (min-width: 480px) {} mobile portrait
+@media all and (min-width: 667px) {} mobile landscape
+@media all and (min-width: 768px) {} mobile landscape wide / tablet portrait
+@media all and (min-width: 834px) {} tablet portrait wide
+@media all and (min-width: 1024px) {} tablet landscape
+@media all and (min-width: 1280px) {} desktop
+@media all and (min-width: 1440px) {} extra wide */
+
 .weekWrapper {
   grid-column: 1 / span 2;
   grid-row: 1;
@@ -21,6 +30,7 @@
   justify-self: center;
   width: 198px;
   height: 100%;
+  transform: translateY(-.5px);
   border-radius: 0px 0px 13px 13px;
   background: #323634;
   box-shadow: 4px -2px 3px 0px rgba(0, 0, 0, 0.14) inset;
@@ -38,7 +48,7 @@
   color: #FEFFDA;
   text-align: center;
   font-family: Dongle;
-  font-size: 22px;
+  font-size: 21px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
@@ -55,13 +65,16 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  gap: 2%;
+  gap: 1.3%;
   transform: translateY(-2px);
+  overflow-x: scroll;
 }
 
 .inFocusCard {
-  width: 339px;
-  height: 203px;
+  /* width: 339px;
+  height: 203px; */
+  width: 330px;
+  height: 200px;
   border-radius: 13px;
   background: rgba(38, 43, 41, 0.66);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.20) inset;
@@ -69,8 +82,8 @@
 }
 
 .dayCard {
-  width: 112px;
-  height: 203px;
+  width: 110px;
+  height: 200px;
   border-radius: 13px;
   background: rgba(38, 43, 41, 0.66);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.20) inset;
@@ -79,7 +92,7 @@
 
 .inFocusCard:hover, .dayCard:hover {
   transform: scale(1.04);
-  /* // transition: all 0.3s ease; */
+  transition: all 0.3s ease;
 }
 
 .dayCardContainer {
@@ -201,7 +214,7 @@ p.holidayTitle {
   color: #FFF;
   text-align: right;
   font-family: Akatab;
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 700;
   letter-spacing: 0.42px;
@@ -548,4 +561,43 @@ p.percentSign {
 
 .hideHolidayAlert {
   display: none;
+}
+
+
+/* tablet */
+@media all and (min-width: 1194px) {
+  .weekLabel {
+    font-size: 22px;
+  }
+
+  .weekdayCards {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5%;
+  }
+
+  .inFocusCard {
+    width: 339px;
+    height: 203px;
+  }
+
+  .dayCard {
+    width: 112px;
+    height: 203px;
+  }
+
+  .weatherDegreeFocus, .weatherDegree {
+    font-size: 16px;
+  }
+}
+
+
+/* desktop */
+
+@media all and (min-width: 1280px) {
+  .weekdayCards {
+    gap: 2%;
+  }
 }

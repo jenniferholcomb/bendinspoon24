@@ -11,26 +11,26 @@
   position: absolute;
   top: 0;
   left: 41px;
-  width: 86px;
-  height: 68px;
-  border-radius: 0px 0px 20px 20px ;
+  width: 75px;
+  height: 53px;
+  border-radius: 0px 0px 15px 15px ;
   background: #E4E4E4;
   box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.14) inset;
   display: grid;
-  padding-top: 18px;
+  padding-top: 14px;
   justify-content: center;
 }
 
 .logo {
-  width: 75px;
+  width: 65px;
 }
 
 .subheadContainer {
-  padding: 0 0 10px 146px;
+  padding: 0 0 3px 133px;
   align-self: flex-end;
   color: #FEFFDA;
   font-family: Dongle;
-  font-size: 30px;
+  font-size: 28px;
   font-style: normal;
   font-weight: 400;
   line-height: 25px; /* 69.444% */
@@ -52,52 +52,45 @@
   align-self: flex-end;
   text-align: center;
   font-family: Dongle;
-  font-size: 22px;
+  font-size: 21px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
   letter-spacing: 1.68px;
   text-transform: uppercase;
   margin: 0;
-  padding-bottom: 6px;
 }
 
 .pindrop {
-  margin: 0 22px 17px 10px;
+  margin: 0 22px 9px 10px;
   align-self: flex-end;
 }
 
-/* // .tagWrap {
-//   font-size: 15px;
-//   font-weight: 500;
-//   color: rgba(100, 99, 99, .95);
-//   margin-top: 11px;
-//   padding-bottom: 2px;
-//   border-bottom: .5px solid;
-//   border-color:rgba(77, 76, 76, 0.25);
-// };
 
-// .empty {
-//   width: 100%;
-//   display: inline-block;
-// };
+@media all and (min-width: 1194px) {
+  .logoContainer {
+    width: 86px;
+    height: 68px;
+    border-radius: 0px 0px 20px 20px ;
+    padding-top: 18px;
+  }
 
-// .locWrap {
-//   margin-top: 12px;
-//   margin-bottom: 14px;
-//   color: black;
-//   font-size: 20px;
-//   font-weight: 900;
-// };
+  .logo {
+    width: 75px;
+  }
 
-// .imgContainer {
-//   display: grid;
-//   justify-items: center;
-// }
+  .subheadContainer {
+    padding-bottom: 10px;
+    padding-left: 146px;
+    font-size: 30px;
+  }
 
-// img {
-//   display: flex;
-//   width: 100%;
-//   height: 100%;
-//   resize: none;
-// } */
+  .town {
+    padding-bottom: 6px;
+    font-size: 22px;
+  }
+
+  .pindrop {
+    margin-bottom: 17px;
+  }
+}

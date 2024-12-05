@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
 }
 
 .tourismWrapper:last-child {
@@ -36,7 +37,7 @@
   color: #FEFFDA;
   text-align: center;
   font-family: Dongle;
-  font-size: 22px;
+  font-size: 21px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
@@ -75,7 +76,7 @@
 
 .calendarWrapper {
   display: grid;
-  grid-template-columns: repeat(7, 60px);
+  grid-template-columns: repeat(7, 55px);
   grid-template-rows: 40px repeat(auto-fill, 55px);
   grid-auto-rows: 55px;
   justify-self: center;
@@ -83,3 +84,13 @@
   align-self: center;
 }
 
+
+@media all and (min-width: 1194px) {
+  .tourismLabel {
+    font-size: 22px;
+  }
+
+  .calendarWrapper {
+    grid-template-columns: repeat(7, 60px);
+  }
+}

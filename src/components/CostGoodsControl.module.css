@@ -33,7 +33,7 @@
   color: #FEFFDA;
   text-align: center;
   font-family: Dongle;
-  font-size: 22px;
+  font-size: 21px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
@@ -110,11 +110,13 @@
 
 .shadowTop {
   top: -1px;
+  transform: translateY(-.75px);
   background-image: linear-gradient(to bottom, #262B29, #00000000);
 }
 
 .shadowBottom {
   bottom: -1px;
+  transform: translateY(0.75px);
   background-image: linear-gradient(to bottom, #00000000, #262B29);
 }
 
@@ -196,4 +198,11 @@ button.nav5, button.nav6 {
 
 .nav5:hover, .nav6:hover {
   background-color: rgb(232, 230, 230);
+}
+
+
+@media all and (min-width: 1194px) {
+  .costLabel {
+    font-size: 22px;
+  }
 }

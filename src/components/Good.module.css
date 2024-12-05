@@ -38,12 +38,12 @@
 
 .decreasePercent p {
   color: #0ce6cd;
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .increasePercent p {
   color: #ff4747;
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .increasePercent p span {
@@ -118,7 +118,7 @@ svg {
 .item p {
   color: #D9D9D9;
   font-family: Akatab;
-  font-size: 14px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: 14px;
@@ -140,4 +140,15 @@ svg {
 
 .increaseImg, .decreasePercent {
   border-radius: 8px 0px 0px 8px; 
+}
+
+
+@media all and (min-width: 1194px) {
+  .item p {
+    font-size: 14px;
+  }
+
+  .increasePercent p, .decreasePercent p {
+    font-size: 18px;
+  }
 }
