@@ -10,7 +10,7 @@
 .weekWrapper {
   grid-column: 1 / span 2;
   grid-row: 1;
-  width: 100%;
+  max-width: 100vw;
   height: 100%;
   background: linear-gradient(183deg, rgba(189, 193, 192, 0.19) -5.5%, rgba(131, 132, 132, 0.19) 99.28%);
   display: flex;
@@ -22,7 +22,7 @@
   display: grid;
   grid-template-columns: .2fr 1fr .2fr;
   width: 100%;
-  height: 35px;
+  height: 44px;
 }
 
 .weekLabelContainer {
@@ -44,7 +44,7 @@
 }
 
 .weekLabel {
-  padding-top: 3px;
+  padding-top: 7px;
   color: #FEFFDA;
   text-align: center;
   font-family: Dongle;
@@ -58,16 +58,32 @@
 }
 
 .weekdayCards {
+  height: 100%;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.weekdayCardsContainer {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  width: 100%;
-  height: 100%;
   align-items: center;
-  justify-content: center;
-  gap: 1.3%;
+  justify-content: flex-start;
+  height: 100%;
+  width: auto;
+  /* gap: 1.3%; */
+  gap: 2%;
   transform: translateY(-2px);
-  overflow-x: scroll;
+}
+
+.weekdayCardsContainer:first-child {
+  margin-left: 40px;
+}
+
+.endDiv {
+  margin-right: 40px;
+  min-width: 20px;
+  height: 100%;
+  background: none;
 }
 
 .inFocusCard {
@@ -79,6 +95,7 @@
   background: rgba(38, 43, 41, 0.66);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.20) inset;
   cursor: pointer;
+  /* margin: 5px; */
 }
 
 .dayCard {
@@ -88,6 +105,7 @@
   background: rgba(38, 43, 41, 0.66);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.20) inset;
   cursor: pointer;
+  /* margin: 5px; */
 }
 
 .inFocusCard:hover, .dayCard:hover {
@@ -394,6 +412,13 @@ span.weatherDegreeFocus {
   letter-spacing: 1.98px;
 }
 
+.salesLabels {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 2px;
+}
+
 .factorLabel {
   color: #858786;
   font-family: Akatab;
@@ -402,7 +427,7 @@ span.weatherDegreeFocus {
   font-weight: 500;
   line-height: 12px;
   letter-spacing: 0.2px;
-  margin: 0 9px 0 9px;
+  margin: 0 0px 0 9px;
 }
 
 #laborLabel {
@@ -410,16 +435,9 @@ span.weatherDegreeFocus {
   margin: 2px 0 3px 0;
 }
 
-.salesLabels {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin-top: 2px;
-}
-
 #salesLabelA {
   text-align: left;
-  width: 100%;
+  /* width: 100%; */
 }
 
 #salesLabelB {
@@ -430,6 +448,7 @@ span.weatherDegreeFocus {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin: 0 9px 0 0;
 }
 
 .customBarContainer {
@@ -564,18 +583,41 @@ p.percentSign {
 }
 
 
+/* tablet portrait */
+@media all and (orientation: landscape) {
+  .weekHeader {
+    height: 35px;
+  }
+
+  .weekLabel {
+    padding-top: 3px;
+  }
+
+}
+
+
 /* tablet */
+
+@media all and (min-width: 1133px) {
+  /* .weekdayCards {
+    justify-content: center;
+    width: 100%;
+  } */
+}
+
+
 @media all and (min-width: 1194px) {
   .weekLabel {
     font-size: 22px;
   }
 
   .weekdayCards {
-    width: 100%;
+    /* width: 100%;
     height: 100%;
     align-items: center;
     justify-content: center;
-    gap: 1.5%;
+    gap: 1.5%; */
+    overflow-x: unset;
   }
 
   .inFocusCard {
@@ -590,6 +632,20 @@ p.percentSign {
 
   .weatherDegreeFocus, .weatherDegree {
     font-size: 16px;
+  }
+
+  .weekdayCardsContainer {
+    justify-content: center;
+    width: 100%;
+    gap: 1.9%;
+  }
+  
+  .weekdayCardsContainer:first-child {
+    margin-left: 0;
+  }
+  
+  .endDiv {
+    display: none;
   }
 }
 

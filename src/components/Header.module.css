@@ -26,8 +26,8 @@
 }
 
 .subheadContainer {
-  padding: 0 0 3px 133px;
-  align-self: flex-end;
+  padding: 0 0 0 133px;
+  align-self: center;
   color: #FEFFDA;
   font-family: Dongle;
   font-size: 28px;
@@ -41,15 +41,16 @@
 
 .locationContainer {
   justify-content: flex-end;
-  align-items: last baseline;
+  align-items: center;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
 }
 
 .town {
   color: #FEFFDA;
-  align-self: flex-end;
+  /* align-self: ; */
   text-align: center;
   font-family: Dongle;
   font-size: 21px;
@@ -62,8 +63,7 @@
 }
 
 .pindrop {
-  margin: 0 22px 9px 10px;
-  align-self: flex-end;
+  margin: 0px 22px 10px 10px;
 }
 
 
@@ -80,17 +80,19 @@
   }
 
   .subheadContainer {
-    padding-bottom: 10px;
     padding-left: 146px;
     font-size: 30px;
   }
 
   .town {
-    padding-bottom: 6px;
+    /* padding-bottom: 6px; */
     font-size: 22px;
   }
 
-  .pindrop {
-    margin-bottom: 17px;
+}
+
+@media all and (min-height: 720px) {
+  .logoContainer {
+    height: 62px;
   }
 }

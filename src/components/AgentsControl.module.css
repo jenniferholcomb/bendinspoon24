@@ -1,8 +1,22 @@
 .agentsWrapper {
   grid-row: 2;
   display: grid;
-  grid-template-columns: 38% 62%;
-  grid-template-rows: 40% 60%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 38.2% 61.8%;
   width: 100%;
   height: 100%;
+}
+
+@media all and (orientation: landscape) {
+  .agentsWrapper {
+    grid-template-columns: 38% 62%;
+    grid-template-rows: 40% 60%;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .agentsWrapper {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 38.2% 61.8%;
+  }
 }

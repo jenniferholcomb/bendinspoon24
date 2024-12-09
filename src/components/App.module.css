@@ -1,12 +1,30 @@
 .bodyWrapper {
   display: grid;
-  grid-template-rows: 5vh 89vh 6vh;
+  grid-template-rows: 138px 1fr 69px;
   min-height: 100vh;
   background: linear-gradient(86deg, #414141 17.47%, #222A27 83.41%);
 }
 
-@media all and (min-width: 1194px) {
+@media all and (orientation: landscape) {
   .bodyWrapper {
     grid-template-rows: 6vh 88vh 6vh;
   }
 }
+
+/* @media all and (min-width: 1050px) {
+  .bodyWrapper {
+    grid-template-rows: 6vh 88vh 6vh;
+  }
+} */
+
+/* @media all and (min-width: 1085px) {
+  .bodyWrapper {
+    grid-template-rows: 6vh 88vh 6vh;
+  }
+} */
+
+/* @media all and (min-height: 1360px) {
+  .bodyWrapper {
+    grid-template-rows: 138px 1fr 69px;
+  }
+} */
