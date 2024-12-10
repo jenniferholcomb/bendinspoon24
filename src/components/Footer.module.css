@@ -3,7 +3,7 @@
   max-width: 100%;
   min-height: 100%;
   display: grid;
-  grid-template-columns: 1fr 16px;
+  grid-template-columns: 1fr 2px 39px;
   background: rgba(29, 33, 32, 0.46);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;  
   padding: 0 25px 0 41px;
@@ -23,12 +23,26 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  overflow: hidden;
+}
+
+.keyScroll {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: scroll;
 }
 
 .keyGroup {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.keyContainer svg {
+  height: 69px;
 }
 
 .keyIcon, .closeIcon {
@@ -55,6 +69,10 @@
   margin-right: 10px;
 }
 
+.keyGroup p {
+  white-space: nowrap;
+}
+
 p.keyText {
   color: #BDC1C0;
   font-family: Akatab;
@@ -70,18 +88,17 @@ p.keyText {
   margin-right: 40px;
 }
 
-.keyGroup img.copyrightContainer {
+img.copyrightContainer {
   margin-right: 5px;
 }
 
 .copyrightContainer {
   max-width: 15px;
   max-height: 15px;
-  color: #666B69;
 }
 
 p.copyrightText {
-  color: #858786;
+  color: #555856;
   font-family: Akatab;
   font-size: 12px;
   font-style: normal;
@@ -91,8 +108,44 @@ p.copyrightText {
   margin: 0;
 }
 
+.empty {
+  height: 100%;
+  min-width: 60px;
+}
+
+.shadowSide {
+  position: sticky;
+  z-index: 10;
+  height: 85%;
+  min-width: 206px;
+  right: 0;
+  bottom: 0;
+  transform: rotate(180deg);
+  background: linear-gradient(269deg, rgba(34, 42, 39, 0.00) 33.61%, rgba(34, 42, 39, 1.00) 107.92%);
+  box-shadow: 0px 4px 4px 0px rgba(29, 33, 32, 0.05) inset;
+}
+
+.divider {
+  padding: 0;
+}
+
+.iconContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
 @media all and (min-width: 1194px) {
   p.keyText {
     margin-right: 65px;
+  }
+}
+
+@media all and (orientation: landscape) {
+  .divider {
+    height: 80%;
+    width: 100%;
   }
 }

@@ -99,8 +99,8 @@ p.percentSign {
 .dateBubble {
   display: grid;
   padding: none;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 49px;
   border-radius: 8px;
   box-shadow: 4px 8px 10px 0px rgba(16, 15, 15, 0.10);
 }
@@ -175,6 +175,12 @@ blockquote {
   margin: 0 10px 10px 15px;
 }
 
+@media all and (min-width: 1024px) {
+  .dateBubble {
+    width: 44px;
+    height: 44px;
+  }
+}
 
 @media all and (min-width: 1194px) {
   .dateBubble {

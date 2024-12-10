@@ -17,7 +17,7 @@ function GoodsList ({ allGoods }) {
   const increaseList = useRef([]);
   const [finalIncList, setFinalIncList] = useState([]);
   const [completeList, setCompleteList] = useState([]);
-  const [orientation] = useResize();
+  const [orientation, isMobile, isTablet] = useResize();
 
   const redArrowSVG =       
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none">
@@ -124,7 +124,7 @@ function GoodsList ({ allGoods }) {
 
   return (
     <>
-    { orientation === 'portrait' ?
+    { isTablet ?
       <>
         <div className={listOrderDec ? porArrowContainerDec : porArrowContainerInc} onClick={handleListOrder}>
           {listOrderDec ?

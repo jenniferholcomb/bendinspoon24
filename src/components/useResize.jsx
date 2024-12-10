@@ -37,7 +37,7 @@ function useResize() {
     }
   });
 
-  return [orientation, isMobile, isDesktop, isWdDesktop, isTablet];
+  return [orientation, isMobile, isTablet, isDesktop, isWdDesktop ];
 };
 
 export default useResize;

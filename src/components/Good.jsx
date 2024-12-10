@@ -44,7 +44,7 @@ function Good({ foodItem, decItem, incItem }) {
           </div>
         </>
       )}
-      { decItem || foodItem && (
+      { (decItem || foodItem) && (
         <>
           <div className={goodsCardDecrease}>
             { foodItem && (
@@ -67,7 +67,6 @@ function Good({ foodItem, decItem, incItem }) {
             )}
 
             {dividerLine}
-            {/* <div></div> */}
             <div className={costContainer}>
               <div className={cost}>
                 <p id={dollarSign}>$</p>
@@ -79,7 +78,6 @@ function Good({ foodItem, decItem, incItem }) {
               </div>
             </div>
             {dividerLine}
-            {/* <div></div> */}
             <div className={item}>
               <p>{foodItem ? foodItem.name : decItem.name}</p>
             </div>
@@ -93,7 +91,9 @@ function Good({ foodItem, decItem, incItem }) {
 }
 
 Good.propTypes = {
-  item: PropTypes.object
+  foodItem: PropTypes.object,
+  incItem: PropTypes.object,
+  decItem: PropTypes.object
 };
 
 export default Good;
