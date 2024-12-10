@@ -16,7 +16,7 @@ function useResize() {
     setIsMobile(true) 
     : (setIsMobile(false), setIsTablet(false));
   
-    window.innerWidth < 1024 ?
+    window.innerWidth < 1025 ?
       (setIsDesktop(false), setIsTablet(true))
       : setIsDesktop(true);
 

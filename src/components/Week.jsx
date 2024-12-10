@@ -9,9 +9,9 @@ import wideHighAlert from "/img/wideHighAlert.svg";
 import wideMediumAlert from "/img/wideMediumAlert.svg";
 import wideLowAlert from "/img/wideLowAlert.svg";
 
-const { weekWrapper, weekHeader, weekLabelContainer, info, weekLabel, weekdayCards, weekdayCardsContainer, inFocusCard, dayCard, endDiv, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, shadowTop, eventsContainer, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, centerContainer, percentContainerA, percentContainerB, aMPM, percentSign, eventHolidayAlerts, eventAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
+const { tabWeekWrapper, hiddenWeekWrapper, weekWrapper, weekHeader, weekLabelContainer, info, weekLabel, weekdayCards, weekdayCardsContainer, inFocusCard, dayCard, endDiv, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, shadowTop, eventsContainer, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, centerContainer, percentContainerA, percentContainerB, aMPM, percentSign, eventHolidayAlerts, eventAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
 
-function Week ({ thisWeek, dayInFocus, onChangingDay }) {
+function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile }) {
   const [loadWeather] = useWeather();
   const [weather, setWeather] = useState(null);
   const thisWeekUpdate = thisWeek.slice(1,8);
@@ -52,7 +52,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay }) {
 
   return (
     <>
-      <div className={weekWrapper}>
+      <div className={isMobile ? (selectedTab === 'week' ? tabWeekWrapper : hiddenWeekWrapper) : weekWrapper}>
         <div className={weekHeader}>
           <div className={weekLabelContainer}>
             <h3 className={weekLabel}>week-at-a-glance</h3>

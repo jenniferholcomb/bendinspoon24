@@ -4,7 +4,7 @@ import Week from './Week';
 import CostGoodsControl from './CostGoodsControl';
 import styles from "./AgentsControl.module.css";
 
-function AgentsControl () {
+function AgentsControl ({ selectedTab, isMobile }) {
   const [fullCalendar, setFullCalendar] = useState();
   const [thisWeek, setThisWeek] = useState();
   const [dayInFocus, setDayInFocus] = useState(0);
@@ -43,20 +43,26 @@ function AgentsControl () {
     handleThisWeek();
   }, [])
 
-
   return (
-    <div className={styles.agentsWrapper}>
-      {fullCalendar && (
-        <Week thisWeek={thisWeek} 
-              dayInFocus={dayInFocus} 
-              onChangingDay={handleChangingDayInFocus} />
-      )}
-      {thisWeek && (
-        <Tourism onAddingCalendarData={handleAddingCalendarData} 
-                thisWeek={thisWeek}/>
-      )}
-      <CostGoodsControl /> 
-    </div>
+    <>
+      <div className={isMobile ? styles.tabWrapper : styles.agentsWrapper}>
+        {fullCalendar && (
+          <Week thisWeek={thisWeek} 
+                dayInFocus={dayInFocus} 
+                onChangingDay={handleChangingDayInFocus} 
+                selectedTab={selectedTab} 
+                isMobile={isMobile} />
+        )}
+        {thisWeek && (
+          <Tourism onAddingCalendarData={handleAddingCalendarData} 
+                  thisWeek={thisWeek}
+                  selectedTab={selectedTab} 
+                  isMobile={isMobile} />
+        )}
+        <CostGoodsControl selectedTab={selectedTab} 
+                          isMobile={isMobile} /> 
+      </div>
+    </>
   );
 }
 

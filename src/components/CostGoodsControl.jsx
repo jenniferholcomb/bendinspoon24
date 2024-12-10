@@ -17,7 +17,7 @@ import { collection, addDoc, doc, deleteDoc, updateDoc, onSnapshot } from 'fireb
 
 const {goodsControlWrapper, loading} = styles2;
 const {barWrapper, nameWrapper, containerWrapper, nav5, nav6, goodsListWrapper} = styles2;
-const { costGoodsWrapper, costGoodsHeader, costLabelContainer, costLabel } = styles;
+const { tabCostGoodsWrapper, costGoodsWrapper, hiddenCostGoodsWrapper, costGoodsHeader, costLabelContainer, costLabel } = styles;
 
 const initialState = {
   formVisible: false,
@@ -35,7 +35,7 @@ const initialState = {
   error: null
 };
 
-function CostGoodsControl () {
+function CostGoodsControl ({ selectedTab, isMobile }) {
   const [state, dispatch] = useReducer(goodsControlReducer, initialState);
   const currentItems = useRef(state.createInvoice);
   const currentGoods = useRef(state.goodsData);
@@ -176,7 +176,7 @@ function CostGoodsControl () {
 
   return (
     <>
-      <div className={costGoodsWrapper}>
+      <div className={isMobile ? (selectedTab === 'costGoods' ? tabCostGoodsWrapper : hiddenCostGoodsWrapper) : costGoodsWrapper}>
         <div className={costGoodsHeader}>
           <div className={costLabelContainer}>
             <h3 className={costLabel}>cost of goods</h3>

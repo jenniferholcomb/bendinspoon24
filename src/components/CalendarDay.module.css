@@ -188,3 +188,10 @@ blockquote {
     height: 46px;
   }
 }
+
+@media (max-height: 768px) and (orientation: landscape) {
+  .dateBubble {
+    width: 44px;
+    height: 44px;
+  }
+}

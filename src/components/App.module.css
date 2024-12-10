@@ -11,6 +11,13 @@
   }
 }
 
+@media (max-height: 768px) and (orientation: landscape) {
+  .bodyWrapper {
+    grid-template-rows: 46px 675px 46px;
+    overflow-y: scroll;
+  }
+}
+
 /* @media all and (min-width: 1050px) {
   .bodyWrapper {
     grid-template-rows: 6vh 88vh 6vh;

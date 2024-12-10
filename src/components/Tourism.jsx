@@ -6,9 +6,9 @@ import styles from "./Tourism.module.css";
 // import { connectFirestoreEmulator } from "firebase/firestore";
 // import Events from "./Events";
 
-const { tourismWrapper, tourismHeader, tourismLabelContainer, tourismLabel, calendarContainer, tourismSubhead, calendarWrapper } = styles;
+const { tabTourismWrapper, hiddenTourismWrapper, tourismWrapper, tourismHeader, tourismLabelContainer, tourismLabel, calendarContainer, tourismSubhead, calendarWrapper } = styles;
 
-const Tourism = (props) => {
+const Tourism = ({ onAddingCalendarData, thisWeek, selectedTab, isMobile }) => {
   const selectedMonth = useRef();
   const [currentMonthName, setCurrentMonthName]  = useState();
   const currentYear = useRef();
@@ -215,29 +215,29 @@ const Tourism = (props) => {
 
   return (
     <>
-      <div className={tourismWrapper}>
+      <div className={isMobile ? (selectedTab === 'tourism' ? tabTourismWrapper : hiddenTourismWrapper) : tourismWrapper}>
         <div className={tourismHeader}>
           <div className={tourismLabelContainer}>
             <h3 className={tourismLabel}>tourism calculator</h3>
           </div>
         </div>
         <div className={calendarContainer}>
-        <div className={calendarWrapper}>
-          {percentLoaded ?
-            <CalendarDay month={dates} 
-                         availablePercent={monthAvail} 
-                         monthName={currentMonthName} 
-                         thisWeek={props.thisWeek.slice(1,8)} 
-                         onAddingCalendarData={props.onAddingCalendarData} 
-                         onNextMonth={handleIncrementingNewMonth}
-                         onPreviousMonth={handleDecrementingNewMonth} />
-            :
-            null
-          }
-        </div>
-        <div className={tourismSubhead}>
-          <p>% short term rentals (STR) occupied by night</p>
-        </div>
+          <div className={calendarWrapper}>
+            {percentLoaded ?
+              <CalendarDay month={dates} 
+                          availablePercent={monthAvail} 
+                          monthName={currentMonthName} 
+                          thisWeek={thisWeek.slice(1,8)} 
+                          onAddingCalendarData={onAddingCalendarData} 
+                          onNextMonth={handleIncrementingNewMonth}
+                          onPreviousMonth={handleDecrementingNewMonth} />
+              :
+              null
+            }
+          </div>
+          <div className={tourismSubhead}>
+            <p>% short term rentals (STR) occupied by night</p>
+          </div>
         </div>
       </div>
 
