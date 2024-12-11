@@ -69,20 +69,23 @@
 }
 
 .weekdayCardsContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
   height: 100%;
   width: auto;
   /* gap: 1.3%; */
-  gap: 2%;
   transform: translateY(-2px);
 }
 
 .weekdayCardsContainer:first-child {
   margin-left: 40px;
 }
+
+.landscapeWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2%;
+} 
 
 .endDiv {
   margin-right: 40px;
@@ -606,6 +609,8 @@ p.percentSign {
     grid-template-rows: 1fr 1fr;
     max-width: 100vw;
     overflow-x: hidden;
+    overflow-y: scroll;
+    row-gap: 10px;
   }
 
   .inFocusWrap {
@@ -634,12 +639,16 @@ p.percentSign {
     display: flex;
     flex-direction: row;
     padding-left: 22px;
-    padding-right: 22px;
     gap: 10px;
     overflow-x: scroll;
     height: 100%;
     width: 100%;
     align-items: center;
+  }
+
+  .endDiv {
+    margin-right: 13px;
+    width: 20px;
   }
 
   .inFocusCard:hover {

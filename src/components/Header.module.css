@@ -90,7 +90,8 @@
 
   .logoContainer {
     left: 22px;
-    height: 57px;
+    height: 55px;
+    padding-top: 18px;
   }
 }
 

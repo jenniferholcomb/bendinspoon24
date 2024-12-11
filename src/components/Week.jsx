@@ -9,7 +9,7 @@ import wideHighAlert from "/img/wideHighAlert.svg";
 import wideMediumAlert from "/img/wideMediumAlert.svg";
 import wideLowAlert from "/img/wideLowAlert.svg";
 
-const { tabWeekWrapper, hiddenWeekWrapper, weekWrapper, weekHeader, weekLabelContainer, info, weekLabel, weekdayCards, weekdayCardsContainer, inFocusWrap, inFocusCard, dayCard, cardHidden, mobileCardContainer, endDiv, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, shadowTop, eventsContainer, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, centerContainer, percentContainerA, percentContainerB, aMPM, percentSign, eventHolidayAlerts, eventAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
+const { tabWeekWrapper, hiddenWeekWrapper, weekWrapper, weekHeader, weekLabelContainer, weekLabel, weekdayCards, weekdayCardsContainer, inFocusWrap, landscapeWrap, inFocusCard, dayCard, cardHidden, mobileCardContainer, endDiv, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, shadowTop, eventsContainer, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, centerContainer, percentContainerA, percentContainerB, aMPM, percentSign, eventHolidayAlerts, eventAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
 
 function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile }) {
   const [loadWeather] = useWeather();
@@ -63,7 +63,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile }) {
         </div>
         <div className={weekdayCards}>
           <div className={weekdayCardsContainer}>
-            <div className={isMobile ? inFocusWrap : null}>
+            <div className={isMobile ? inFocusWrap : landscapeWrap}>
               {thisWeek && (
                 thisWeekUpdate.map((day, index) => 
                   <div key={index} className={index === dayInFocus ? inFocusCard : isMobile ? cardHidden : dayCard} onClick={!isMobile ? () => onChangingDay(index) : null}>
@@ -276,6 +276,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile }) {
                     </div>
                   )
                 )}
+                <div className={endDiv}></div>
               </div>
             )}
             <div className={endDiv}></div>
