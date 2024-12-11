@@ -8,7 +8,7 @@
 
 @media (max-width: 430px) and (orientation: portrait) {
   .bodyWrapper {
-    grid-template-rows: 95px 1fr 69px;
+    grid-template-rows: 90px 1fr 69px;
   }
 }
 

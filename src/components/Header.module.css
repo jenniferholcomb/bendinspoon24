@@ -66,6 +66,10 @@
   margin: 0px 22px 10px 10px;
 }
 
+.pindrop svg {
+  cursor: default;
+}
+
 @media (max-width: 430px) and (orientation: portrait) {
   .headerWrapper {
     flex-direction: column;
@@ -73,6 +77,15 @@
 
   .subheadContainer {
     align-self: flex-end;
+    padding: 20px 22px 0 0;
+  }
+
+  .locationContainer {
+    align-items: flex-start;
+  }
+
+  .pindrop {
+    align-self: flex-start;
   }
 
   .logoContainer {
