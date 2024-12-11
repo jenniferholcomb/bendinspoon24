@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Tourism from './Tourism';
 import Week from './Week';
 import CostGoodsControl from './CostGoodsControl';
+import Info from "./Info";
 import styles from "./AgentsControl.module.css";
 
 function AgentsControl ({ selectedTab, isMobile }) {
@@ -61,6 +62,8 @@ function AgentsControl ({ selectedTab, isMobile }) {
         )}
         <CostGoodsControl selectedTab={selectedTab} 
                           isMobile={isMobile} /> 
+        <Info selectedTab={selectedTab}
+              isMobile={isMobile} />
       </div>
     </>
   );

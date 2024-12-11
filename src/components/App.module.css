@@ -6,6 +6,12 @@
   background: linear-gradient(86deg, #414141 17.47%, #222A27 83.41%);
 }
 
+@media (max-width: 430px) and (orientation: portrait) {
+  .bodyWrapper {
+    grid-template-rows: 95px 1fr 69px;
+  }
+}
+
 @media all and (orientation: landscape) {
   .bodyWrapper {
     grid-template-rows: 6vh 88vh 6vh;

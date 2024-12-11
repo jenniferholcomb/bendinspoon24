@@ -66,6 +66,19 @@
   margin: 0px 22px 10px 10px;
 }
 
+@media (max-width: 430px) and (orientation: portrait) {
+  .headerWrapper {
+    flex-direction: column;
+  }
+
+  .subheadContainer {
+    align-self: flex-end;
+  }
+
+  .logoContainer {
+    left: 24px;
+  }
+}
 
 @media all and (min-width: 1194px) {
   .logoContainer {

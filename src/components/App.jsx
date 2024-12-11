@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className={styles.bodyWrapper}>
-      <Header />
+      <Header isMobile={isMobile} />
       <AgentsControl selectedTab={tab} 
                      isMobile={isMobile} />
       <Footer selectedTab={tab}
