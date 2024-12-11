@@ -633,8 +633,8 @@ p.percentSign {
     grid-row: 2;
     display: flex;
     flex-direction: row;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 22px;
+    padding-right: 22px;
     gap: 10px;
     overflow-x: scroll;
     height: 100%;
@@ -720,5 +720,11 @@ p.percentSign {
 @media all and (min-width: 1280px) {
   .weekdayCards {
     gap: 2%;
+  }
+}
+
+@media (hover: none) {
+  .inFocusCard:hover, .dayCard:hover {
+    transform: none;
   }
 }
