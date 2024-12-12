@@ -6,7 +6,7 @@ import styles from "./Tourism.module.css";
 // import { connectFirestoreEmulator } from "firebase/firestore";
 // import Events from "./Events";
 
-const { tabTourismWrapper, hiddenTourismWrapper, tourismWrapper, tourismHeader, tourismLabelContainer, tourismLabel, calendarContainer, tourismSubhead, calendarWrapper } = styles;
+const { tabTourismWrapper, hiddenTourismWrapper, tourismWrapper, tourismHeader, tourismLabelContainer, tourismLabel, calendarContainer, tourismSubhead, calendarPage, calendarWrapper } = styles;
 
 const Tourism = ({ onAddingCalendarData, thisWeek, selectedTab, isMobile }) => {
   const selectedMonth = useRef();
@@ -222,23 +222,24 @@ const Tourism = ({ onAddingCalendarData, thisWeek, selectedTab, isMobile }) => {
           </div>
         </div>
         <div className={calendarContainer}>
-          <div className={calendarWrapper}>
-            {percentLoaded ?
-              <CalendarDay month={dates} 
-                          availablePercent={monthAvail} 
-                          monthName={currentMonthName} 
-                          thisWeek={thisWeek.slice(1,8)} 
-                          onAddingCalendarData={onAddingCalendarData} 
-                          onNextMonth={handleIncrementingNewMonth}
-                          onPreviousMonth={handleDecrementingNewMonth} />
-              :
-              null
-            }
-          </div>
-          <div className={tourismSubhead}>
-            <p>% short term rentals (STR) occupied by night</p>
-          </div>
+          {/* <div className={calendarPage}>  */}
+            <div className={calendarWrapper}>
+              {percentLoaded ?
+                <CalendarDay month={dates} 
+                            availablePercent={monthAvail} 
+                            monthName={currentMonthName} 
+                            thisWeek={thisWeek.slice(1,8)} 
+                            onAddingCalendarData={onAddingCalendarData} 
+                            onNextMonth={handleIncrementingNewMonth}
+                            onPreviousMonth={handleDecrementingNewMonth} />
+                :
+                null
+              }
+            </div>
         </div>
+            <div className={tourismSubhead}>
+              <p>% short term rentals (STR) occupied by night</p>
+            </div>
       </div>
 
     </>

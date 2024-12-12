@@ -4,15 +4,13 @@
 }
 
 .tabTourismWrapper, .tourismWrapper {
-  width: 100%;
+  max-width: 100vw;
+  height: 100%;
   background: linear-gradient(119deg, #414141 8.04%, #222A27 129.51%);
   box-shadow: 0px 1px 15px 0px rgba(0, 0, 0, 0.25) inset;
   display: flex;
   flex-direction: column;
-}
-
-.tourismWrapper {
-  min-height: 100%;
+  align-items: center;
 }
 
 .hiddenTourismWrapper {
@@ -62,12 +60,12 @@
 }
 
 .calendarContainer {
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  padding-top: 8%;
-  overflow-y: scroll;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 2;
 }
 
 .calendarWrapper {
@@ -75,7 +73,6 @@
   grid-template-columns: repeat(7, 51px);
   grid-template-rows: 40px repeat(auto-fill, 68.5px);
   grid-auto-rows: 68.5px;
-  height: 100%;
   align-self: center;
 }
 
@@ -102,8 +99,7 @@
     /* background: linear-gradient(183deg, rgba(189, 193, 192, 0.19) -5.5%, rgba(131, 132, 132, 0.19) 99.28%); */
     background: linear-gradient(119deg, #414141 8.04%, #2e3131 129.51%);
     box-shadow: none;
-    min-height: 100%;
-    flex-grow: 2;
+    /* min-height: 100%; */
   }
 
   .tourismHeader {
@@ -113,6 +109,7 @@
   .tourismLabelContainer {
     background: #323634;
     box-shadow: 4px -2px 3px 0px rgba(0, 0, 0, 0.14) inset;
+    transform: translateY(-1px);
   }
 
   .tourismLabel {
@@ -121,16 +118,15 @@
 
   .calendarContainer {
     /* flex-grow: 3; */
-    padding-top: 0;
+    /* padding-top: 0;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
   }
 
   .calendarWrapper {
     grid-template-columns: repeat(7, 52px);
     grid-template-rows: 40px repeat(auto-fill, 55px);
     grid-auto-rows: 55px;
-    height: 100%;
   }
 }
 

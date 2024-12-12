@@ -169,3 +169,9 @@ p.copyrightText {
     width: 100%;
   }
 }
+
+@media (hover: none) {
+  .inFocusCard:hover, .dayCard:hover {
+    transform: none;
+  }
+}
