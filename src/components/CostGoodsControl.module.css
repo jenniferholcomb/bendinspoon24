@@ -58,7 +58,7 @@
 .controlContainer {
   display: flex;
   flex-direction: column;
-  flex-grow: 3;
+  flex-grow: 1;
   height: 100%;
   width: 100%;
 }
@@ -234,7 +234,9 @@ button.nav5, button.nav6 {
 @media (max-width: 430px) and (orientation: portrait) {
   .tabCostGoodsWrapper {
     /* background: #262B29; */
-    background: linear-gradient(119deg, #282c2a 8.04%, #262B29 129.51%);
+    background: linear-gradient(183deg, rgba(189, 193, 192, 0.19) -5.5%, rgba(131, 132, 132, 0.19) 99.28%);
+
+    /* background: linear-gradient(119deg, #282c2a 8.04%, #262B29 129.51%); */
     box-shadow: none;
   }
 
@@ -246,6 +248,18 @@ button.nav5, button.nav6 {
 
   .goodsContainer {
     max-height: 100%;
+  }
+
+  .shadowTop {
+    top: -1px;
+    transform: translateY(-.75px);
+    background-image: linear-gradient(to bottom, rgba(84, 86, 86, 0.674), #00000000);
+  }
+  
+  .shadowBottom {
+    bottom: -1px;
+    transform: translateY(0.75px);
+    background-image: linear-gradient(to bottom, #00000000, #262B29);
   }
 }
 
