@@ -244,19 +244,25 @@ button.nav5, button.nav6 {
   }
 
   .goodsContainer {
+    background: linear-gradient(119deg, #414141 8.04%, #2e31317e 129.51%);
     max-height: 100%;
   }
 
   .shadowTop {
     top: -1px;
+    min-height: 20px;
     transform: translateY(-.75px);
-    background-image: linear-gradient(to bottom, rgba(84, 86, 86, 0.674), #00000000);
+    background-image: linear-gradient(0deg, rgba(61, 65, 63, 0.00) -30.55%, #3C403F 73.84%);
   }
   
   .shadowBottom {
     bottom: -1px;
-    transform: translateY(0.75px);
-    background-image: linear-gradient(to bottom, #00000000, #262B29);
+    transform: translateY(2px);
+    background-image: linear-gradient(180deg, rgba(61, 65, 63, 0) -30.55%, #3a3c3c 73.84%);
+  }
+
+  .allGoodsContent {
+    padding-top: 10px;
   }
 }
 
