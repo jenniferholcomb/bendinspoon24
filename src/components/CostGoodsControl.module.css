@@ -6,12 +6,11 @@
 .tabCostGoodsWrapper, .costGoodsWrapper {
   background: #262B29;
   box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.25) inset;
-  max-width: 100%;
+  max-width: 100vw;
   min-height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 35px 48px 39vh 1fr;
-  padding: 0 5px 0 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hiddenCostGoodsWrapper {
@@ -19,10 +18,9 @@
 }
 
 .costGoodsHeader {
-  grid-column: 1 / span 2;
-  grid-row: 1;
   display: grid;
-  grid-template-columns: 40px 1fr 40px;
+  width: 100%;
+  grid-template-columns: .2fr 1fr .2fr;
 }
 
 .costLabelContainer {
@@ -52,28 +50,31 @@
 .costGoodsHeader svg {
   grid-column: 3;
   justify-self: end;
-  padding-top: 10px;
+  padding-top: 3px;
   padding-right: 20px;
   height: 19px;
+}
+
+.controlContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 3;
+  height: 100%;
+  width: 100%;
 }
 
 .porArrowContainerInc, .porArrowContainerDec {
   grid-column: 1 / span 2;
   justify-self: center;
-  align-self: last baseline;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  padding: 14px 0;
 }
 
 .porArrowContainerDec svg {
   transform: rotate(180deg);
   transform-origin: center; /* Default is the center, can also use 'top left', '50% 50%', etc. */  
-}
-
-.porArrowContainerInc:hover, .porArrowContainerDec:hover {
-  transform: scale(1.2);
-  transition: all 0.3s ease;
 }
 
 .redArrow {
@@ -94,6 +95,12 @@
   /* padding-bottom: 5px; */
 }
 
+
+.redArrow:hover, .greenArrow:hover {
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
 .goodsContainer {
   grid-column: 1 / span 2;
 }
@@ -111,12 +118,12 @@
 .goodsContainer, .decreaseContainer, .increaseContainer {
   display: flex;
   flex-direction: column;
+  flex-grow: 3;
   width: 100%;
-  height: 37vh;
-  padding-top: 0px;
+  height: 50vh;
   overflow-y: scroll;
-  position: relative;
   overscroll-behavior: none;
+  padding-top: 0px;
   background: linear-gradient(180deg, #32373658 30.33%, #2f33319f 88.5%),
               radial-gradient(
                 farthest-side at 50% 100%,
@@ -169,7 +176,6 @@
   grid-column: 1 / span 2;
   /* align-content: center; */
   display: grid;
-  height: 100%;
   grid-template-columns: .8fr 1.4fr .8fr;
   justify-content: center;
   align-items: end;
@@ -179,12 +185,9 @@
   width: 100%;
 }
 
-div.costGoodsSubhead {
-  grid-column: 2;
+.costGoodsSubhead {
   width: 100%;
-  max-height: 100%;
-  /* align-self: center; */
-  margin: 0;
+  padding-top: 14px;
 }
 
 .costGoodsSubhead p {
@@ -196,8 +199,6 @@ div.costGoodsSubhead {
   font-weight: 400;
   line-height: 18px;
   letter-spacing: 1.05px;
-  margin: 0;
-  padding-bottom: 14px;
 }
 
 .invoiceMgmntContainer {
@@ -230,6 +231,23 @@ button.nav5, button.nav6 {
   background-color: rgb(232, 230, 230);
 }
 
+@media (max-width: 430px) and (orientation: portrait) {
+  .tabCostGoodsWrapper {
+    /* background: #262B29; */
+    background: linear-gradient(119deg, #282c2a 8.04%, #262B29 129.51%);
+    box-shadow: none;
+  }
+
+  .costLabelContainer {
+    background: #323634;
+    box-shadow: 4px -2px 3px 0px rgba(0, 0, 0, 0.14) inset;
+    transform: translateY(-1px);
+  }
+
+  .goodsContainer {
+    max-height: 100%;
+  }
+}
 
 @media all and (min-width: 1194px) {
   .costLabel {

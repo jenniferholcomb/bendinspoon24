@@ -188,9 +188,6 @@ function GoodsList ({ allGoods }) {
 
       <div className={costFooter}>
         <div className={footerLeft}></div>
-        <div className={costGoodsSubhead}>
-          <p>cost flucuation by item</p>
-        </div>
         {/* <div className={invoiceMgmntContainer}>
           <button className={nav5} onClick={props.onManageInvoicesClick}>MANAGE INVOICES</button>
           <button className={nav6} onClick={props.onAddInvoiceClick}>ADD INVOICE</button>
