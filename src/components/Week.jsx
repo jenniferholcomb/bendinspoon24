@@ -202,7 +202,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile }) {
             {(thisWeek && isMobile) && (
               <div className={mobileCardContainer}>
                 {thisWeekUpdate.map((day, index) => 
-                  <div key={index} className={dayCard} onClick={() => onChangingDay(index)}>
+                  <div key={index} className={dayCard} style={index === dayInFocus ? {border: '1px solid #F54949'} : null} onClick={() => onChangingDay(index)}>
                     <div className={dayCardContainer}>
                       <div className={dateContainer}>    
                         <p className={dayDate}>

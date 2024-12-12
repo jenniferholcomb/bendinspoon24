@@ -238,7 +238,7 @@ function CalendarDay ({ month, availablePercent, monthName, thisWeek, onAddingCa
                   className={dateBubble}
                   style={{
                     background: `${item.background}`,
-                    ...(item.currentDay ? { outline: '3px solid #ff4747' } : { outline: 'none' }),
+                    ...(item.currentDay ? { outline: '2px solid #F54949' } : { outline: 'none' }),
                   }}
                 >
                   <p 

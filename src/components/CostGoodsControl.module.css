@@ -243,6 +243,14 @@ button.nav5, button.nav6 {
     transform: translateY(-1px);
   }
 
+  .costLabel {
+    padding-top: 6px;
+  }
+
+  .costGoodsHeader svg {
+    padding-top: 0;
+  }
+
   .goodsContainer {
     background: linear-gradient(119deg, #414141 8.04%, #2e31317e 129.51%);
     max-height: 100%;
@@ -252,7 +260,7 @@ button.nav5, button.nav6 {
     top: -1px;
     min-height: 20px;
     transform: translateY(-.75px);
-    background-image: linear-gradient(0deg, rgba(61, 65, 63, 0.00) -30.55%, #3C403F 73.84%);
+    background-image: linear-gradient(0deg, rgba(53, 57, 55, 0) -30.55%, #3C403F 73.84%);
   }
   
   .shadowBottom {

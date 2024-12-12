@@ -606,8 +606,13 @@ p.percentSign {
     height: 35px;
   }
 
+  
   .weekLabel {
-    padding-top: 3px;
+    padding-top: 6px;
+  }
+  
+  .weekHeader svg {
+    padding-top: 0;
   }
 
   .weekdayCardsContainer {

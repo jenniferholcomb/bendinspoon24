@@ -106,6 +106,14 @@
     height: 35px;
   }
 
+  .tourismLabel {
+    padding-top: 6px;
+  }
+
+  .tourismHeader svg {
+    padding-top: 0;
+  }
+
   .tourismLabelContainer {
     background: #323634;
     box-shadow: 4px -2px 3px 0px rgba(0, 0, 0, 0.14) inset;
