@@ -7,7 +7,7 @@ import styles from "./App.module.css";
 import useResize from './useResize';
 
 function App() {
-  const [tab, setTab] = useState('tourism');
+  const [tab, setTab] = useState('week');
   const [orientation, isMobile] = useResize();
 
   const handleTabClick = (clickedTab) => {

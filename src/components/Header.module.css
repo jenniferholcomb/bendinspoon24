@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  /* max-height: 100%; */
   background: #323634;
 }
 
@@ -50,7 +49,6 @@
 
 .town {
   color: #feffdab2;
-  /* align-self: ; */
   text-align: center;
   font-family: Dongle;
   font-size: 21px;
@@ -118,7 +116,6 @@
   }
 
   .town {
-    /* padding-bottom: 6px; */
     font-size: 22px;
   }
 

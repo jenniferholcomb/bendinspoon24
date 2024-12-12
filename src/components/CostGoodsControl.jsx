@@ -232,11 +232,7 @@ function CostGoodsControl ({ selectedTab, isMobile }) {
             </div>
           </>
         :
-          <>
-            <div className={goodsListWrapper}>
-              <p className={loading}>...Loading</p>
-            </div>
-          </>
+          null
         }   
       </div>
     </>

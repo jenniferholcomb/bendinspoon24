@@ -124,13 +124,6 @@
     padding-top: 3px;
   }
 
-  .calendarContainer {
-    /* flex-grow: 3; */
-    /* padding-top: 0;
-    justify-content: center;
-    align-items: center; */
-  }
-
   .calendarWrapper {
     grid-template-columns: repeat(7, 52px);
     grid-template-rows: 40px repeat(auto-fill, 55px);
@@ -164,17 +157,9 @@
   .tourismLabel {
     padding-top: 3px;
   }
-
-  .calendarContainer {
-    padding-top: 5.5%;
-  }
 }
 
 @media (max-height: 768px) and (orientation: landscape) {
-  .calendarContainer {
-    padding-top: 3.5%;
-  }
-
   .calendarWrapper {
     grid-template-columns: repeat(7, 55px);
     grid-template-rows: 40px repeat(auto-fill, 55px);

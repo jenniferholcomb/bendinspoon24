@@ -608,7 +608,7 @@ p.percentSign {
 
   
   .weekLabel {
-    padding-top: 6px;
+    padding-top: 4px;
   }
   
   .weekHeader svg {
@@ -684,10 +684,10 @@ p.percentSign {
 /* tablet */
 
 @media all and (min-width: 1133px) {
-  /* .weekdayCards {
-    justify-content: center;
-    width: 100%;
-  } */
+  .weekdayCardsContainer {
+    display: flex;
+    align-content: center;
+  }
 }
 
 
@@ -702,7 +702,22 @@ p.percentSign {
     align-items: center;
     justify-content: center;
     gap: 1.5%; */
-    overflow-x: unset;
+    /* overflow-x: unset; */
+  }
+
+  .weekdayCardsContainer {
+    justify-content: center;
+    width: 100%;
+    gap: 1.9%;
+  }
+  
+  .weekdayCardsContainer:first-child {
+    margin-left: 0;
+  }
+
+  .landscapeWrap {
+    width: 100%;
+    justify-content: center;
   }
 
   .inFocusCard {
@@ -717,16 +732,6 @@ p.percentSign {
 
   .weatherDegreeFocus, .weatherDegree {
     font-size: 16px;
-  }
-
-  .weekdayCardsContainer {
-    justify-content: center;
-    width: 100%;
-    gap: 1.9%;
-  }
-  
-  .weekdayCardsContainer:first-child {
-    margin-left: 0;
   }
   
   .endDiv {
