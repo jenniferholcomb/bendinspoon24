@@ -49,13 +49,13 @@
 }
 
 .town {
-  color: #FEFFDA;
+  color: #aaacab;
   /* align-self: ; */
   text-align: center;
   font-family: Dongle;
   font-size: 21px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 100;
   line-height: normal;
   letter-spacing: 1.68px;
   text-transform: uppercase;
