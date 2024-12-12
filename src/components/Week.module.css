@@ -598,6 +598,10 @@ p.percentSign {
 
 @media (max-width: 430px) and (orientation: portrait) {
 
+  .tabWeekWrapper {
+    background: linear-gradient(119deg, #414141 8.04%, #2e3131 129.51%);
+  }
+
   .weekHeader {
     height: 35px;
   }
