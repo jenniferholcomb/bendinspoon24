@@ -120,9 +120,3 @@
   }
 
 }
-
-@media all and (min-height: 720px) {
-  .logoContainer {
-    height: 62px;
-  }
-}
