@@ -7,6 +7,47 @@
   height: 100%;
 }
 
+.infoContainer {
+  position: fixed;
+  top: 90px;
+  background: linear-gradient(144deg, rgba(61, 65, 63, 0.90) 22.07%, rgba(53, 58, 55, 0.90) 106.75%);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  z-index: 9999;
+  height: calc((var(--vh, 1vh) * 100) - 159px);
+  /* max-height: 100%; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoBox {
+  width: 80%;
+  /* height: 438px; */
+  border-radius: 13px;
+  background: linear-gradient(32deg, #2a2c2c 7.93%, #212624 84.18%);
+  display: flex;
+  flex-direction: column;
+}
+
+.infoBox svg {
+  align-self: flex-end;
+  padding: 17px 21px 0 0;
+}
+
+.infoBox p {
+  color: #BDC1C0;
+  font-family: Akatab;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.05px;
+  padding: 28px 21px;
+  margin: 0;
+}
+
 @media all and (orientation: landscape) {
   .agentsWrapper {
     grid-template-columns: 38% 62%;

@@ -85,18 +85,18 @@
 }
 
 .redArrow {
-  grid-column: 1;
+  grid-column: 2;
   grid-row: 2;
-  justify-self: end;
+  justify-self: center;
   align-self: last baseline;
   padding-right: 36px;
   /* padding-bottom: 5px; */
 }
 
 .greenArrow {
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 2;
-  justify-self: start;
+  justify-self: center;
   align-self: last baseline;
   padding-left: 36px;
   /* padding-bottom: 5px; */
@@ -113,13 +113,11 @@
 }
 
 .decreaseContainer {
-  grid-column: 2;
-  /* margin-left: 10px; */
+  grid-column: 1;
 }
 
 .increaseContainer {
-  grid-column: 1;
-  /* margin-right: 10px; */
+  grid-column: 2;
 }
 
 .decreaseContainer, .increaseContainer {
@@ -177,13 +175,13 @@
 }
 
 .incGoodsContent {
-  justify-items: end;
-  padding-right: 3%;
+  justify-items: start;
+  padding-left: 2%;
 }
 
 .decGoodsContent {
-  justify-items: start;
-  padding-left: 3%;
+  justify-items: end;
+  padding-right: 2%;
 }
 
 .costFooter {
@@ -315,19 +313,26 @@ button.nav5, button.nav6 {
   }
 
   .redArrow {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1;
-    justify-self: end;
+    justify-self: center;
     align-self: last baseline;
-    /* padding-right: 36px; */
-    /* padding-bottom: 5px; */
   }
   
   .greenArrow {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 1;
-    justify-self: start;
+    justify-self: center;
     align-self: last baseline;
+  }
+
+  .greenArrow svg, .redArrow svg {
+    cursor: default;
+  }
+
+  .redArrow:hover, .greenArrow:hover {
+    transform: none;
+    transition: none;
   }
 
   .decreaseContainer, .increaseContainer {

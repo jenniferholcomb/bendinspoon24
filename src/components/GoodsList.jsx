@@ -155,21 +155,8 @@ function GoodsList ({ allGoods }) {
       </>
     :
       <>
-        <div className={redArrow}>{redArrowSVG}</div>
         <div className={greenArrow}>{greenArrowSVG}</div>
-        <div className={increaseContainer}>
-          <div className={shadowTop}></div>
-          <div className={incGoodsContent}>
-            { finalIncList && (
-              finalIncList.map((item, index) => 
-                <Good
-                  incItem={item} 
-                  key={index} />
-              )
-            )}
-          </div>
-          <div className={shadowBottom}></div>
-        </div>
+        <div className={redArrow}>{redArrowSVG}</div>
         <div className={decreaseContainer}>
           <div className={shadowTop}></div>
           <div className={decGoodsContent}>
@@ -177,6 +164,19 @@ function GoodsList ({ allGoods }) {
               finalDecList.map((item, index) => 
                 <Good
                   decItem={item} 
+                  key={index} />
+              )
+            )}
+          </div>
+          <div className={shadowBottom}></div>
+        </div>
+        <div className={increaseContainer}>
+          <div className={shadowTop}></div>
+          <div className={incGoodsContent}>
+            { finalIncList && (
+              finalIncList.map((item, index) => 
+                <Good
+                  incItem={item} 
                   key={index} />
               )
             )}
