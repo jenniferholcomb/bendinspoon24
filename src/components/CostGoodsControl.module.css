@@ -54,9 +54,13 @@
   margin: 0;
 }
 
-.costGoodsHeader svg {
+.infoIcon {
   grid-column: 3;
   justify-self: end;
+  padding-top: 8px;
+}
+
+.infoIcon svg {
   padding-top: 3px;
   padding-right: 20px;
   height: 19px;
