@@ -79,9 +79,9 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                           <>
                             <div className={dayDateFocusContainer}>
                               <p className={dayDateFocus}>{fullDaysOfWeek[day[1]]}, {day[0].substring(5,7)}/{day[0].substring(8,9) === '0' ? day[0].substring(9,10) : day[0].substring(8,10)}</p>
-                              { day[2][0].addHoliday[1].length > 0 && (
+                              { day.addHoliday[1].length > 0 && (
                                 <>
-                                  <p className={holidayTitle}>{day[2][0].addHoliday[1][0].name}</p>
+                                  <p className={holidayTitle}>{day.addHoliday[1][0].name}</p>
                                 </>
                               )}
                             </div>
@@ -117,8 +117,8 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                         <div className={index === dayInFocus ? eventInFocus : eventInFocusHidden}>
                           <div className={shadowTop}></div>
                           <div className={eventsContainer}>                      
-                            <h4 className={eventsHeader}><span className={day[2][0].addEvent[1].length > 0 ? noEventsHeader : null}>NO </span>LOCAL EVENTS</h4>
-                            {day[2][0].addEvent[1].map((event, i) => 
+                            <h4 className={eventsHeader}><span className={day.addEvent[1].length > 0 ? noEventsHeader : null}>NO </span>LOCAL EVENTS</h4>
+                            {day.addEvent[1].map((event, i) => 
                               <div key={i} className={singleEventContainer}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 7 7" fill="none">
                                   <circle cx="3.5" cy="3.50024" r="3.5" fill="#e74040"/>
@@ -158,30 +158,30 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                         </div>
                       </div>
                       <div className={customBarContainer}>
-                        <div className={colorLayer} style={{ background: day[2][0].background, backgroundSize: 'cover' }}>
-                          <div className={backgroundLayer} style={{ backgroundImage: `url(${thisWeek[index][2][0].percent >=85 ? index === dayInFocus ? wideHighAlert : highAlert : thisWeek[index][2][0].percent >= 65 ? index === dayInFocus ? wideMediumAlert : mediumAlert : index === dayInFocus ? wideLowAlert : lowAlert})`, backgroundRepeat: 'no-repeat', backgroundPosition: '-2px -2px', backgroundSize: 'auto' }}>
+                        <div className={colorLayer} style={{ background: day.background, backgroundSize: 'cover' }}>
+                          <div className={backgroundLayer} style={{ backgroundImage: `url(${thisWeek[index].percent >=85 ? index === dayInFocus ? wideHighAlert : highAlert : thisWeek[index].percent >= 65 ? index === dayInFocus ? wideMediumAlert : mediumAlert : index === dayInFocus ? wideLowAlert : lowAlert})`, backgroundRepeat: 'no-repeat', backgroundPosition: '-2px -2px', backgroundSize: 'auto' }}>
                             
                             <div className={eventHolidayAlerts}>
                               { index === dayInFocus ?
                                 <>
-                                  <p className={rentalsOccupiedText} style={{ color: thisWeek[index][2][0].color}}>STR</p>
+                                  <p className={rentalsOccupiedText} style={{ color: thisWeek[index].color}}>STR</p>
                                   <div className={centerContainer}>
-                                    <div className={percentContainerA} style={{ color: thisWeek[index][2][0].color}}>
-                                      <p><span className={aMPM} style={{ color: thisWeek[index][2][0].color}}>AM </span>{thisWeek[index][2][0].percent}</p>
-                                      <p className={percentSign} style={{ color: thisWeek[index][2][0].color}}>%</p>
+                                    <div className={percentContainerA} style={{ color: thisWeek[index].color}}>
+                                      <p><span className={aMPM} style={{ color: thisWeek[index].color}}>AM </span>{thisWeek[index].percent}</p>
+                                      <p className={percentSign} style={{ color: thisWeek[index].color}}>%</p>
                                     </div>
-                                    <div className={percentContainerB} style={{ color: day[2][0].color}}>
-                                      <p>{day[2][0].percent}</p>
-                                      <p className={percentSign} style={{ color: day[2][0].color}}>%</p>
-                                      <p><span className={aMPM} style={{ color: day[2][0].color}}>PM</span></p>
+                                    <div className={percentContainerB} style={{ color: day.color}}>
+                                      <p>{day.percent}</p>
+                                      <p className={percentSign} style={{ color: day.color}}>%</p>
+                                      <p><span className={aMPM} style={{ color: day.color}}>PM</span></p>
                                     </div>
                                   </div>
                                 </>
                               :
                                 <>
                                 <div className={eventAlerts}>
-                                  { day[2][0].addEvent[0] === true && (
-                                    day[2][0].addEvent[1].map((event, i) => {
+                                  { day.addEvent[0] === true && (
+                                    day.addEvent[1].map((event, i) => {
                                       return (
                                         <svg key={i} xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 7 7" fill="none">
                                           <circle cx="3.5" cy="3.50024" r="3.5" fill="#e74040"/>
@@ -193,7 +193,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                                 </>
                               }
                               <div className={holidayAlert}>
-                                <img className={day[2][0].addHoliday[0] === true ? `${holidayAlertImg}` : `${hideHolidayAlert}`} src={holidayIcon} alt='holiday alert icon' />
+                                <img className={day.addHoliday[0] === true ? `${holidayAlertImg}` : `${hideHolidayAlert}`} src={holidayIcon} alt='holiday alert icon' />
                               </div>
                             </div>
                           </div>
@@ -256,12 +256,12 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                       </div>
                       <div className={customBarContainer}>
                         <div className={colorLayer} style={{ background: day[2][0].background, backgroundSize: 'cover' }}>
-                          <div className={backgroundLayer} style={{ backgroundImage: `url(${thisWeek[index][2][0].percent >=85 ? highAlert : thisWeek[index][2][0].percent >= 65 ? mediumAlert : lowAlert})`, backgroundRepeat: 'no-repeat', backgroundPosition: '-2px -2px', backgroundSize: 'auto' }}>
+                          <div className={backgroundLayer} style={{ backgroundImage: `url(${thisWeek[index].percent >=85 ? highAlert : thisWeek[index].percent >= 65 ? mediumAlert : lowAlert})`, backgroundRepeat: 'no-repeat', backgroundPosition: '-2px -2px', backgroundSize: 'auto' }}>
                             
                             <div className={eventHolidayAlerts}>
                               <div className={eventAlerts}>
-                                { day[2][0].addEvent[0] === true && (
-                                  day[2][0].addEvent[1].map((event, i) => {
+                                { day.addEvent[0] === true && (
+                                  day.addEvent[1].map((event, i) => {
                                     return (
                                       <svg key={i} xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 7 7" fill="none">
                                         <circle cx="3.5" cy="3.50024" r="3.5" fill="#e74040"/>
@@ -271,7 +271,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                                 )}
                               </div>
                               <div className={holidayAlert}>
-                                <img className={day[2][0].addHoliday[0] === true ? `${holidayAlertImg}` : `${hideHolidayAlert}`} src={holidayIcon} alt='holiday alert icon' />
+                                <img className={day.addHoliday[0] === true ? `${holidayAlertImg}` : `${hideHolidayAlert}`} src={holidayIcon} alt='holiday alert icon' />
                               </div>
                             </div>
                           </div>

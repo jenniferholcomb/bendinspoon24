@@ -34,12 +34,16 @@ function AgentsControl ({ selectedTab, isMobile }) {
     const updatedArray = currentPercents.filter(item => item.percent);
     const today = new Date().toISOString().substring(0,10);
     setFullCalendar([{'month': today.substring(5,7), 'year': today.substring(0,4), 'monthName': monthName}, ...updatedArray]);
+    // const updatedThisWeek = thisWeek.map(day => {
+    //   const includesDate = updatedArray.filter(calendarDay => day[0] === calendarDay.date);
+    //   return [...day, includesDate];
+    // });
+    // console.log(updatedThisWeek)
+  };
 
-    const updatedThisWeek = thisWeek.map(day => {
-      const includesDate = updatedArray.filter(calendarDay => day[0] === calendarDay.date);
-      return [...day, includesDate];
-    });
-    setThisWeek(updatedThisWeek);
+  const handleAddingWeekData = (weekData) => {
+    console.log(weekData)
+    setThisWeek(weekData);
   };
 
   const handleThisWeek = () => {
@@ -53,6 +57,7 @@ function AgentsControl ({ selectedTab, isMobile }) {
       const newDayStr = newDay.toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
       calcThisWeek = [...calcThisWeek, [newDayStr, dayNum]];
     }
+    console.log(calcThisWeek)
     setThisWeek(calcThisWeek);
   };
 
@@ -79,10 +84,12 @@ function AgentsControl ({ selectedTab, isMobile }) {
     handleThisWeek();
   }, [])
 
+  console.log('week', thisWeek)
+
   return (
     <>
       <div className={isMobile ? styles.tabWrapper : styles.agentsWrapper}>
-        {fullCalendar && (
+        { fullCalendar && (
           <Week thisWeek={thisWeek} 
                 dayInFocus={dayInFocus} 
                 onChangingDay={handleChangingDayInFocus} 
@@ -90,8 +97,9 @@ function AgentsControl ({ selectedTab, isMobile }) {
                 isMobile={isMobile} 
                 onInfoInFocus={handleChangingInfoPage} />
         )}
-        {thisWeek && (
+        { thisWeek && (
           <Tourism onAddingCalendarData={handleAddingCalendarData} 
+                  onAddingWeekData={handleAddingWeekData}
                   thisWeek={thisWeek}
                   selectedTab={selectedTab} 
                   isMobile={isMobile} 

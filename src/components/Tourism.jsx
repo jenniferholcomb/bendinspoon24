@@ -8,7 +8,7 @@ import styles from "./Tourism.module.css";
 
 const { tabTourismWrapper, hiddenTourismWrapper, tourismWrapper, tourismHeader, tourismLabelContainer, tourismLabel, infoIcon, calendarContainer, tourismSubhead, calendarPage, calendarWrapper } = styles;
 
-const Tourism = ({ onAddingCalendarData, thisWeek, selectedTab, isMobile, onInfoInFocus }) => {
+const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab, isMobile, onInfoInFocus }) => {
   const selectedMonth = useRef();
   const [currentMonthName, setCurrentMonthName]  = useState();
   const currentYear = useRef();
@@ -23,15 +23,34 @@ const Tourism = ({ onAddingCalendarData, thisWeek, selectedTab, isMobile, onInfo
 
   const [percentLoaded, setPercentLoaded] = useState(false);
   const [monthAvail, setMonthAvail] = useState();
+  const [nextMonthAvail, setNextMonthAvail] = useState();
 
 
   const handleRentalPercents = () => {
     const availMonth = listingAvailability.filter(item => item.month === month.current);
     setMonthAvail(availMonth);
     setPercentLoaded(true);
-  }
 
-  const handleIncrementingNewMonth = () => {
+    const nextMonth = handleSettingNextMonth();
+    let year;
+    if (nextMonth === 0) {
+      year = currentYear.current + 1;
+    } else {
+      year = currentYear.current;
+    }
+
+    let nextMonthStr;
+    if (nextMonth < 10) {
+      nextMonthStr = year.toString() + '-0' + (nextMonth + 1).toString();
+    } else {
+      nextMonthStr = year.toString() + '-' + (nextMonth + 1).toString();
+    }
+
+    const availNextMonth = listingAvailability.filter(item => item.month === nextMonthStr);
+    setNextMonthAvail(availNextMonth);
+  };
+
+  const handleSettingNextMonth = () => {
     let newMonth;
 
     if (selectedMonth.current === 11) {
@@ -39,6 +58,12 @@ const Tourism = ({ onAddingCalendarData, thisWeek, selectedTab, isMobile, onInfo
     } else {
       newMonth = selectedMonth.current + 1;
     }
+
+    return newMonth;
+  };
+
+  const handleIncrementingNewMonth = () => {
+    const newMonth = handleSettingNextMonth();
 
     if (newMonth === 0) {
       currentYear.current = currentYear.current + 1;
@@ -57,7 +82,7 @@ const Tourism = ({ onAddingCalendarData, thisWeek, selectedTab, isMobile, onInfo
 
     handleSettingCalendarDates();
     handleRentalPercents();
-  }
+  };
 
   const handleDecrementingNewMonth = () => {
     let newMonth;
@@ -85,11 +110,9 @@ const Tourism = ({ onAddingCalendarData, thisWeek, selectedTab, isMobile, onInfo
 
     handleSettingCalendarDates();
     handleRentalPercents();
-  }
+  };
 
   const handleSettingCalendarDates = () => {
-    // const today = new Date();
-  
     const year = currentYear.current;
     const monthDays = [31, (( year % 4 ) === 0 ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     
@@ -134,13 +157,9 @@ const Tourism = ({ onAddingCalendarData, thisWeek, selectedTab, isMobile, onInfo
       addHoliday: [false],
       addEvent: [false]
     }));
-    console.log('pre', preMonthArrBg)
-    console.log('mnth', thisMonthArr)
-    console.log('end', endMonthArrBg)
     const allMonth = [...preMonthArrBg, ...thisMonthArr, ...endMonthArrBg];
-    console.log(allMonth)
     setDates(allMonth);
-  }
+  };
 
   useEffect(() => {
     const today = new Date();
@@ -189,29 +208,11 @@ const Tourism = ({ onAddingCalendarData, thisWeek, selectedTab, isMobile, onInfo
       handleRentalPercents();
     }
   }, [listingAvailability]);
-
-  // useEffect(() => {
-  //   if (percentsError) {
-  //     console.log(percentsError)
-  //   }
-  // }, [percentsError]);
-
-
-
-  // useEffect(() => {
-  //   if (listingAvailability) {
-  //     handleRentalPercents();
-  //   }
-  // }, [listingAvailability]);
-
-  // useEffect(() => {
-  //   console.log('listingsOccupied changed:', listingsOccupied);
-  // }, [listingsOccupied]);
   
   useEffect(() => {
     console.log('propertyList changed:', properties);
   }, [properties]);
-  
+
 
   return (
     <>
@@ -232,9 +233,11 @@ const Tourism = ({ onAddingCalendarData, thisWeek, selectedTab, isMobile, onInfo
               {percentLoaded ?
                 <CalendarDay month={dates} 
                             availablePercent={monthAvail} 
+                            nextMonthAvailPerc={nextMonthAvail}
                             monthName={currentMonthName} 
-                            thisWeek={thisWeek.slice(1,8)} 
+                            thisWeek={thisWeek.slice(0,8)} 
                             onAddingCalendarData={onAddingCalendarData} 
+                            onAddingWeekData={onAddingWeekData}
                             onNextMonth={handleIncrementingNewMonth}
                             onPreviousMonth={handleDecrementingNewMonth} />
                 :

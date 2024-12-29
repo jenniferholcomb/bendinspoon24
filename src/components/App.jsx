@@ -14,8 +14,6 @@ function App() {
     setTab(clickedTab);
   };
 
-  console.log('tab', tab)
-
   useEffect(() => {
     const setVh = () => {
       const vh = window.innerHeight * 0.01;

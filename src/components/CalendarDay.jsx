@@ -15,81 +15,109 @@ import holidayEventIcon from "/img/holidayEvent.svg";
 
 const {calMonth, calArrowLeft, calArrowLeftDisabled, calText, calArrowRight, calArrowRightDisabled, calendarDateContainer, percentContainer, propPercent, date, dateBubble, popDateBubble, listItemCal, popoverContent, popoverArrow, popHeaderHoliday, popHeaderEvent, popEventName } = styles;
 
-function CalendarDay ({ month, availablePercent, monthName, thisWeek, onAddingCalendarData, onNextMonth, onPreviousMonth }) {
+function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, thisWeek, onAddingCalendarData, onAddingWeekData, onNextMonth, onPreviousMonth }) {
   const [monthBg, setMonthBg] = useState();
   const [datesLoaded, setDatesLoaded] = useState(false);
   const [holidayList, holidaysSent] = useHolidays();
   const [eventsList, eventsSent] = useEvents();
   const [futureDate, setFutureDate] = useState();
+  const thisWeekUpdate = thisWeek.slice(1,8);
 
-  const handleCheckingDate = (sentList, item, type) => {
+  console.log('this week', thisWeekUpdate)
+  console.log('month', month)
+  console.log(nextMonthAvailPerc)
+
+  const handleCheckingDate = (sentList, date, type) => {
     let list;
     if (type === 'holiday') {
       list = sentList;
     } else {
       list = sentList[1].events;
     }
-    const dateMatch = list.filter(day => day.date.includes(item.date));
+    const dateMatch = list.filter(day => day.date.includes(date));
     const dateConfirmed = dateMatch.length > 0 ? true : false;
     return [dateConfirmed, dateMatch];
-  }
+  };
+
+  const populateDayData = (item, percent, currentDay, addHoliday, addEvent, currentWeek) => {
+    if (item.background) {
+      return { ...item };
+    } else {
+      if (percent >= 85) {
+        return {
+          ...item,
+          background: 'linear-gradient(311deg, #005054 7.46%, #006065 48.43%, #008B93 90.02%)',
+          color: '#D9D9D9',
+          percent: percent,
+          currentWeek: currentWeek ? currentWeek : undefined,
+          currentDay: currentDay,
+          addHoliday: addHoliday,
+          addEvent: addEvent
+        } 
+      } else if (percent >= 65) {
+        return {
+          ...item,
+          background: 'linear-gradient(309deg, #03A0A9 17.77%, #09C2CD 55.08%, #7FE4EA 92.96%)',
+          color: '#5A5C5B',
+          percent: percent,
+          currentWeek: currentWeek ? currentWeek : undefined,
+          currentDay: currentDay,
+          addHoliday: addHoliday,
+          addEvent: addEvent
+        }
+      } else {
+        return { 
+          ...item,
+          background: 'linear-gradient(303deg, #82BDBF -4.53%, #B0EAEC 41.72%, #C6F5F8 88.68%)',
+          color: '#5A5C5B',
+          percent: percent,
+          currentWeek: currentWeek ? currentWeek : undefined,
+          currentDay: currentDay,
+          addHoliday: addHoliday,
+          addEvent: addEvent
+        };
+      }
+    }      
+  };
+
+  const handleFillingWeek = () => {
+    const newWeek = thisWeek.map((item, index) => {
+      const found = month[15].date.slice(5,7) === item[0].slice(5,7) ? availablePercent[0].availability.find(avail => avail[item[0]]) :                             
+                                                                      nextMonthAvailPerc[0].availability.find(avail => avail[item[0]]);
+      const percent = found ? Math.floor(found[item[0]]) : undefined;
+      const dayKey = found ? Object.keys(found)[0] : undefined;
+      // const currentWeek = thisWeek.some(entry => entry[0] === dayKey);
+
+      const todayDateStr = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
+      const currentDay = dayKey === todayDateStr ? true : false;
+
+      const addHoliday = handleCheckingDate(holidayList, item[0], 'holiday');
+      const addEvent = handleCheckingDate(eventsList, item[0], 'event');
+
+      return populateDayData(item, percent, currentDay, addHoliday, addEvent);   
+    });
+    onAddingWeekData(newWeek);
+  };
 
   const handleFillingDays = () => {
     const newMonth = month.map((item, index) => {
       const found = availablePercent[0].availability.find(avail => avail[item.date]);
       const percent = found ? Math.floor(found[item.date]) : undefined;
       const dayKey = found ? Object.keys(found)[0] : undefined;
-      const currentWeek = thisWeek.some(entry => entry[0] === dayKey);
+      const currentWeek = thisWeekUpdate.some(entry => entry[0] === dayKey);
 
       const todayDateStr = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
       const currentDay = dayKey === todayDateStr ? true : false;
 
-      const addHoliday = handleCheckingDate(holidayList, item, 'holiday');
-      const addEvent = handleCheckingDate(eventsList, item, 'event');
+      const addHoliday = handleCheckingDate(holidayList, item.date, 'holiday');
+      const addEvent = handleCheckingDate(eventsList, item.date, 'event');
 
-      if (item.background) {
-        return { ...item };
-      } else {
-        if (percent >= 85) {
-          return {
-            ...item,
-            background: 'linear-gradient(311deg, #005054 7.46%, #006065 48.43%, #008B93 90.02%)',
-            color: '#D9D9D9',
-            percent: percent,
-            currentWeek: currentWeek,
-            currentDay: currentDay,
-            addHoliday: addHoliday,
-            addEvent: addEvent
-          } 
-        } else if (percent >= 65) {
-          return {
-            ...item,
-            background: 'linear-gradient(309deg, #03A0A9 17.77%, #09C2CD 55.08%, #7FE4EA 92.96%)',
-            color: '#5A5C5B',
-            percent: percent,
-            currentWeek: currentWeek,
-            currentDay: currentDay,
-            addHoliday: addHoliday,
-            addEvent: addEvent
-          }
-        } else {
-          return {
-            ...item,
-            background: 'linear-gradient(303deg, #82BDBF -4.53%, #B0EAEC 41.72%, #C6F5F8 88.68%)',
-            color: '#5A5C5B',
-            percent: percent,
-            currentWeek: currentWeek,
-            currentDay: currentDay,
-            addHoliday: addHoliday,
-            addEvent: addEvent
-          };
-        }
-      }      
+      return populateDayData(item, percent, currentDay, addHoliday, addEvent, currentWeek);   
     });
     setMonthBg(newMonth);
     onAddingCalendarData(newMonth, monthName);
     setDatesLoaded(true);
-  }
+  };
 
   const handleSettingLastMonth = () => {
     const today = new Date();
@@ -103,12 +131,13 @@ function CalendarDay ({ month, availablePercent, monthName, thisWeek, onAddingCa
 
     const dateString = futureMonth.toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' }).substring(0,7);
     setFutureDate(dateString);
-  }
+  };
 
   useEffect(() => {
     if (eventsSent && holidaysSent && !datesLoaded) {
       handleFillingDays();
       handleSettingLastMonth();
+      handleFillingWeek();
     } 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [thisWeek, holidaysSent, eventsSent, datesLoaded]);
@@ -271,7 +300,9 @@ CalendarDay.propTypes = {
   availablePercent: PropTypes.array, 
   monthName: PropTypes.string, 
   thisWeek: PropTypes.array, 
+  nextMonthAvailPerc: PropTypes.array,
   onAddingCalendarData: PropTypes.func, 
+  onAddingWeekData: PropTypes.func,
   onNextMonth: PropTypes.func,
   onPreviousMonth: PropTypes.func
 };
