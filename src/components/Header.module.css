@@ -18,13 +18,14 @@
   display: grid;
   padding-top: 14px;
   justify-content: center;
+  z-index: 99999;
 }
 
 .logo {
   width: 65px;
 }
 
-.subheadContainer {
+.subheadContainerPortrait, .subheadContainerLandscape {
   padding: 0 0 0 133px;
   align-self: center;
   color: #FEFFDA;
@@ -75,19 +76,23 @@
   margin: 0px 24px 5px 10px;
 }
 
-@media (max-width: 430px) and (orientation: portrait) {
+@media all and (orientation: portrait) {
   .headerWrapper {
     flex-direction: column;
   }
 
-  .subheadContainer {
+  .subheadContainerPortrait {
     align-self: flex-end;
     padding: 0px 20px 23px 0;
   }
 
+  .subheadContainerLandscape {
+    display: none;
+  }
+
   .locationContainer {
     align-items: flex-start;
-    padding-top: 3px;
+    padding-top: 8px;
   }
 
   .town, .about {
@@ -108,6 +113,16 @@
     left: 22px;
     height: 55px;
     padding-top: 18px;
+  }
+}
+
+@media all and (orientation: landscape) {
+  .subheadContainerPortrait {
+    display: none;
+  }
+
+  .subheadContainerLandscape {
+    display: unset;
   }
 }
 

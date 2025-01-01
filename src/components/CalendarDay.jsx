@@ -23,10 +23,6 @@ function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, 
   const [futureDate, setFutureDate] = useState();
   const thisWeekUpdate = thisWeek.slice(1,8);
 
-  console.log('this week', thisWeekUpdate)
-  console.log('month', month)
-  console.log(nextMonthAvailPerc)
-
   const handleCheckingDate = (sentList, date, type) => {
     let list;
     if (type === 'holiday') {

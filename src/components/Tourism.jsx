@@ -25,7 +25,6 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
   const [monthAvail, setMonthAvail] = useState();
   const [nextMonthAvail, setNextMonthAvail] = useState();
 
-
   const handleRentalPercents = () => {
     const availMonth = listingAvailability.filter(item => item.month === month.current);
     setMonthAvail(availMonth);
@@ -171,7 +170,11 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
     const year = today.getFullYear();
     currentYear.current = year;
 
-    month.current = year.toString() + '-' + (selectedMonth.current + 1).toString();
+    if (selectedMonth.current > 8) {
+      month.current = year.toString() + '-' + (selectedMonth.current + 1).toString();
+    } else {
+      month.current = year.toString() + '-0' + (selectedMonth.current + 1).toString();
+    }
   }, []);
 
   useEffect(() => {
@@ -191,7 +194,7 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
       // const shortenedList = properties[0].propertiesId.slice(0, 28);
       const propertyList = properties[0].propertiesId;
 
-      console.log('calling usePropertyListing...','properties', propertyList);
+      // console.log('calling usePropertyListing...','properties', propertyList);
 
       handlePropList(propertyList);
     } 
@@ -210,7 +213,7 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
   }, [listingAvailability]);
   
   useEffect(() => {
-    console.log('propertyList changed:', properties);
+    // console.log('propertyList changed:', properties);
   }, [properties]);
 
 

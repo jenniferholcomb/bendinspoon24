@@ -49,7 +49,7 @@ const useHolidays = () => {
     const listYear = holidays[0].addDate.slice(0,4);
 
     if (month === 0 && year !== listYear) {
-      console.log("calling for holidays")
+      // console.log("calling for holidays")
       makeAPICall();
     } 
   }
@@ -76,7 +76,7 @@ const useHolidays = () => {
   // }
 
   const makeAPICall = async () => {
-    console.log('making weather call')
+    // console.log('making weather call')
     fetch('/.netlify/functions/getHolidays')  
       .then(response => response.json()) 
       .then((jsonifiedResponse) => {

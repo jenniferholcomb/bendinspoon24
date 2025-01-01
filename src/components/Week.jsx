@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useWeather from "./useWeather";
+import Info from "./Info";
 import styles from "./Week.module.css";
 import holidayIcon from "/img/holidayAlert.svg";
 import highAlert from "/img/highAlert.svg";
@@ -8,10 +9,6 @@ import lowAlert from "/img/lowAlert.svg";
 import wideHighAlert from "/img/wideHighAlert.svg";
 import wideMediumAlert from "/img/wideMediumAlert.svg";
 import wideLowAlert from "/img/wideLowAlert.svg";
-import holidayKey from "/img/holidayKey.svg";
-import eventKey from "/img/eventKey.svg";
-import laborKey from "/img/laborKey.svg";
-import salesKey from "/img/salesKey.svg";
 
 const { tabWeekWrapper, hiddenWeekWrapper, weekWrapper, weekHeader, weekLabelContainer, weekLabel, infoIcon, weekdayCards, weekdayCardsContainer, inFocusWrap, landscapeWrap, inFocusCard, dayCard, cardHidden, mobileCardContainer, endDiv, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, shadowTop, eventsContainer, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, centerContainer, percentContainerA, percentContainerB, aMPM, percentSign, eventHolidayAlerts, eventAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
 
@@ -37,22 +34,20 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
     });
 
     return formattedDate; 
-  }
+  };
 
   useEffect(() => {
-    console.log("Attaching weather listener...");
+    // console.log("Attaching weather listener...");
     const unsubscribe = loadWeather((weatherData) => {
-      console.log("Weather data received:", weatherData);
+      // console.log("Weather data received:", weatherData);
       setWeather(weatherData);
     });
     
     return () => {
-      console.log("Cleaning up listener...");
+      // console.log("Cleaning up listener...");
       if (typeof unsubscribe === "function") unsubscribe(); 
     };
   }, [loadWeather]);
-
-  console.log('this week update', thisWeekUpdate)
 
   return (
     <>
@@ -78,7 +73,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                         { index === dayInFocus ?
                           <>
                             <div className={dayDateFocusContainer}>
-                              <p className={dayDateFocus}>{fullDaysOfWeek[day[1]]}, {day[0].substring(5,7)}/{day[0].substring(8,9) === '0' ? day[0].substring(9,10) : day[0].substring(8,10)}</p>
+                              <p className={dayDateFocus}>{fullDaysOfWeek[day[1]]}, {day[0].substring(5,6) === '0' ? day[0].substring(6,7) : day[0].substring(5,7)}/{day[0].substring(8,9) === '0' ? day[0].substring(9,10) : day[0].substring(8,10)}</p>
                               { day.addHoliday[1].length > 0 && (
                                 <>
                                   <p className={holidayTitle}>{day.addHoliday[1][0].name}</p>
@@ -90,7 +85,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                           <p className={dayDate}>
                             <span className={dayWeek}>{daysOfWeek[day[1]]}</span>
                             <br />
-                            {day[0].substring(5,7)}/{day[0].substring(8,9) === '0' ? day[0].substring(9,10) : day[0].substring(8,10)}
+                            {day[0].substring(5,6) === '0' ? day[0].substring(6,7) : day[0].substring(5,7)}/{day[0].substring(8,9) === '0' ? day[0].substring(9,10) : day[0].substring(8,10)}
                           </p>
                         }              
                         { weather && (
@@ -255,7 +250,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                         </div>
                       </div>
                       <div className={customBarContainer}>
-                        <div className={colorLayer} style={{ background: day[2][0].background, backgroundSize: 'cover' }}>
+                        <div className={colorLayer} style={{ background: day.background, backgroundSize: 'cover' }}>
                           <div className={backgroundLayer} style={{ backgroundImage: `url(${thisWeek[index].percent >=85 ? highAlert : thisWeek[index].percent >= 65 ? mediumAlert : lowAlert})`, backgroundRepeat: 'no-repeat', backgroundPosition: '-2px -2px', backgroundSize: 'auto' }}>
                             
                             <div className={eventHolidayAlerts}>

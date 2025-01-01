@@ -110,7 +110,7 @@ function GoodsList ({ allGoods }) {
     if (goodsListCode) {
       goodsListCode.map(item => handleSortingGood(item))
     }
-    const finalDecList = decreaseList.current.sort((a,b) => a.percentDecrease - b.percentDecrease).reverse();
+    const finalDecList = decreaseList.current.sort((a,b) => a.percentDecrease - b.percentDecrease);
     setFinalDecList(finalDecList);
     decreaseList.current = [];
 
@@ -118,7 +118,7 @@ function GoodsList ({ allGoods }) {
     setFinalIncList(finalIncList);
     increaseList.current = [];
 
-    setCompleteList([...finalIncList, ...finalDecList.reverse()]);
+    setCompleteList([...finalIncList, ...finalDecList]);
 
   }, [goodsListCode]);
 

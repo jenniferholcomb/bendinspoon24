@@ -149,7 +149,7 @@ const usePropertyListing = () => {
   useEffect(() => {
     const processCalls = async () => {
       const proceedToCalls = handleCheckingScheduledNewData();
-      console.log('proceedToCalls', proceedToCalls)
+      // console.log('proceedToCalls', proceedToCalls)
       if (proceedToCalls) {
         await handleSequentialCalls();
       }
@@ -188,7 +188,7 @@ const usePropertyListing = () => {
   const handleCheckingExpiredMonths = async (percents) => {
     try {
       const { indicesToRemove } = processPercentData(percents);
-      console.log('indices to remove', indicesToRemove)
+      // console.log('indices to remove', indicesToRemove)
       if (indicesToRemove.length > 0) {
         await Promise.all(indicesToRemove.map(item => handleDeleteMonth(percents[item])));
       }
@@ -203,7 +203,7 @@ const usePropertyListing = () => {
   const handleCheckingPercents = async (percents) => {
     const proceed = await handleCheckingExpiredMonths(percents);
     if (proceed) {
-      console.log(proceed)
+      // console.log(proceed)
       setListingsOccupied(percents);
     } else {
       setError("please stand by ...");
@@ -253,12 +253,12 @@ const usePropertyListing = () => {
 
   const handlePropList = async (properties) => {
     if (!properties || properties.length === 0) {
-      console.log("No properties to process.");
+      // console.log("No properties to process.");
       return;
     }
     
     if (properties === propertyList) {
-      console.log("Properties unchanged; skipping processing.");
+      // console.log("Properties unchanged; skipping processing.");
       return;
     }
     

@@ -4,7 +4,7 @@
   grid-template-rows: 95px 1fr 69px;
   /* min-height: 100vh; */
   background: linear-gradient(86deg, #414141 17.47%, #222A27 83.41%);
-}
+} 
 
 @media (max-width: 430px) and (orientation: portrait) {
   .bodyWrapper {

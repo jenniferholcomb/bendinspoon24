@@ -1,48 +1,165 @@
-.infoWrapper, .tabInfoWrapper {
-  max-width: 100vw;
-  height: 100%;
-  background: linear-gradient(183deg, rgba(189, 193, 192, 0.19) -5.5%, rgba(131, 132, 132, 0.19) 99.28%);
+.infoContainer {
+  position: fixed;
+  top: 90px;
+  background: linear-gradient(144deg, rgba(61, 65, 63, 0.90) 22.07%, rgba(53, 58, 55, 0.90) 106.75%);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  z-index: 9999;
+  height: calc((var(--vh, 1vh) * 100) - 159px);
+  /* max-height: 100%; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-.hiddenInfoWrapper {
-  display: none;
+.infoBox {
+  width: 80%;
+  /* height: 438px; */
+  border-radius: 13px;
+  background: linear-gradient(32deg, #2a2c2c 7.93%, #212624 84.18%);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.blurb, .blurbWeek, .infoKey p {
+  color: #BDC1C0;
+  font-family: Akatab;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.05px;
+  margin: 0;
+}
+
+.blurb {
+  padding: 35px 21px 28px 21px;
+}
+
+.blurbWeek {
+  padding: 10px 21px 17px 21px;
+}
+
+.infoKey {
+  display: flex;
+  flex-direction: column;
 }
 
 .infoHeader {
-  width: 160px;
-  height: 38px;
-}
-
-.infoLabelContainer {
-  justify-self: center;
-  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 17px;
   width: 100%;
-  transform: translateY(-.5px);
-  border-radius: 0px 0px 13px 13px;
-  background: #323634;
-  box-shadow: 4px -2px 3px 0px rgba(0, 0, 0, 0.14) inset;
 }
 
-.infoHeader svg {
-  grid-column: 3;
-  justify-self: end;
-  padding-top: 10px;
-  padding-right: 20px;
-}
-
-.infoLabel {
-  padding-top: 3px;
+.infoHeader h3 {
   color: #FEFFDA;
-  text-align: center;
   font-family: Dongle;
-  font-size: 21px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
-  letter-spacing: 1.68px;
   text-transform: uppercase;
+  margin: 0 auto 0 0;
+  padding: 0 0 0 21px;
+  transform: translateY(4px);
+}
+
+.infoHeader svg {
+  padding: 0 21px 0 0;
+}
+
+.tourismSubhead {
+  padding: 0 0 10px 21px;
+}
+
+.tourismSubheadWeek {
+  padding: 5px 0 5px 0;
+}
+
+.infoTourism1 {
+  padding-left: 21px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 20px;
+}
+
+.infoTourism2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-left: 21px;
+  padding-bottom: 28px;
+}
+
+.costGoodsContain {
+  padding-bottom: 28px;
+}
+
+.keyGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 100%;
+}
+
+.keyContainer {
+  padding-bottom: 10px;
+}
+
+.keyGroup img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+/* .keyGroup p {
+  white-space: nowrap;
+} */
+
+p.keyText, .tourismSubhead {
+  color: #BDC1C0;
+  font-family: Akatab;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+  letter-spacing: 0.84px;
   margin: 0;
+}
+
+.infoWeek1{
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 0 21px 5px 21px;
+}
+
+.infoWeek2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 10px;
+}
+
+
+@media (min-width: 667px) and (orientation: portrait) {
+  .infoContainer {
+    top: 95px;
+    height: 100%;
+    overflow-x: hidden;
+  }
+}
+
+@media all and (orientation: landscape) {
+  .infoContainer {
+    top: 6vh;
+    height: 94vh;
+  }
+
+  .infoBox {
+    width: 50%;
+    padding-bottom: 20px;
+  }
 }
