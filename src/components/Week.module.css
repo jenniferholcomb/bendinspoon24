@@ -113,7 +113,7 @@
 
 .dayCard {
   width: 110px;
-  height: 200px;
+  /* height: 200px; */
   border-radius: 13px;
   background: rgba(38, 43, 41, 0.66);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.20) inset;
@@ -133,8 +133,8 @@
 .dayCardContainer {
   width: 100%;
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+
 }
 
 .dateContainer {
@@ -142,6 +142,7 @@
   flex-direction: row;
   width: 100%;
   height: 100%;
+  padding-bottom: 3px;
 }
 
 .dayDateFocusContainer {
@@ -279,7 +280,7 @@ span.weatherDegreeFocus {
 }
 
 .notInFocusContainer {
-  height: 128px;
+  /* height: 128px; */
 }
 
 .eventInFocus {
@@ -381,6 +382,7 @@ span.weatherDegreeFocus {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 3px;
 }
 
 .dividerLine {
@@ -433,6 +435,7 @@ span.weatherDegreeFocus {
   display: flex;
   flex-direction: row;
   width: 100%;
+  padding-bottom: 3px;
 }
 
 .factorLabel {
@@ -468,11 +471,11 @@ span.weatherDegreeFocus {
 }
 
 .customBarContainer {
-  min-height: 100%;
-  width: 100%;
+  height: 101%;
+  width: 99%;
   display: flex;
-  justify-content: flex-end;
-  transform: translateY(-2px);
+  justify-self: flex-start;
+  align-content: flex-end;
 }
 
 .customBar {
@@ -481,7 +484,7 @@ span.weatherDegreeFocus {
   border-radius: 0px 0px 13px 13px;
   box-shadow: 2px 2px 4px 0px rgba(16, 15, 15, 0.25);
   background-repeat: no-repeat, no-repeat;
-  background-position: -2px -2px, center;
+  background-position: 2px -2px, center;
   background-size: auto, cover;
 }
 
@@ -494,6 +497,10 @@ span.weatherDegreeFocus {
 .backgroundLayer {
   min-height: 24px;
   transform: scaleY(1.02);
+}
+
+.colorLayer {
+  height: 24px;
 }
 
 .eventHolidayAlerts {
