@@ -1,11 +1,10 @@
-.infoContainer {
+.infoContainer, .infoContainerMobLan {
   position: fixed;
-  top: 90px;
   background: linear-gradient(144deg, rgba(61, 65, 63, 0.90) 22.07%, rgba(53, 58, 55, 0.90) 106.75%);
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
   z-index: 9999;
+  top: 90px;
   height: calc((var(--vh, 1vh) * 100) - 159px);
-  /* max-height: 100%; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -55,17 +54,31 @@
   width: 100%;
 }
 
-.infoHeader h3 {
-  color: #FEFFDA;
+.infoSubhead {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.infoSubhead h3, .infoSubhead p {
   font-family: Dongle;
   font-size: 22px;
   font-style: normal;
   font-weight: 300;
-  line-height: normal;
+  line-height: 18px;
   text-transform: uppercase;
   margin: 0 auto 0 0;
   padding: 0 0 0 21px;
   transform: translateY(4px);
+}
+
+.infoSubhead h3 {
+  color: #FEFFDA;
+}
+
+.infoSubhead p {
+  display: none;
+  color: #BDC1C0;
 }
 
 .infoHeader svg {
@@ -150,9 +163,13 @@ p.keyText, .tourismSubhead {
     height: 100%;
     overflow-x: hidden;
   }
+
+  .infoSubhead p {
+    display: unset;
+  }
 }
 
-@media all and (orientation: landscape) {
+@media (min-height: 650px) and (orientation: landscape) {
   .infoContainer {
     top: 6vh;
     height: 94vh;
@@ -161,5 +178,20 @@ p.keyText, .tourismSubhead {
   .infoBox {
     width: 50%;
     padding-bottom: 20px;
+  }
+
+  .infoSubhead p {
+    display: unset;
+  }
+}
+
+@media (max-height: 650px) and (orientation: landscape) {
+  .infoContainer {
+    top: 0;
+    height: 100%;
+  }
+
+  .infoSubhead p {
+    display: unset;
   }
 }

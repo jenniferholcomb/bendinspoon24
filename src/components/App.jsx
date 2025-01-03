@@ -8,7 +8,7 @@ import useResize from './useResize';
 
 function App() {
   const [tab, setTab] = useState('week');
-  const [orientation, isMobile] = useResize();
+  const [orientation, isMobile, isTablet, isShort] = useResize();
 
   const handleTabClick = (clickedTab) => {
     setTab(clickedTab);

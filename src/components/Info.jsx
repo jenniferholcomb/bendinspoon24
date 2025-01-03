@@ -12,14 +12,14 @@ import alertKey from "/img/alertKey.svg";
 import arrowDwnKey from "/img/arrowDwnKey.svg";
 import arrowUpKey from "/img/arrowUpKey.svg";
 
-const { infoContainer, infoBox, infoHeader, closeInfo, blurbWeek, blurb, infoKey, infoWeek1, keyGroup, keyContainer, keyText, infoWeek2, tourismSubheadWeek, infoTourism1, tourismSubhead, infoTourism2, costGoodsContain } = styles;
+const { infoContainer, infoBox, infoHeader, infoSubhead, pageTitle, closeInfo, blurbWeek, blurb, infoKey, infoWeek1, keyGroup, keyContainer, keyText, infoWeek2, tourismSubheadWeek, infoTourism1, tourismSubhead, infoTourism2, costGoodsContain } = styles;
 
 function Info ({ selectedInfo, onClosingInfoPage }) {
 
   const infoHead = [ 'week-at-a-glance info', 'tourism calendar info', 'cost of goods info'];
   const infoParagraph = [ "Factors for predicting seven days of profit margins. Tourism probability, weather, holidays, and local events specific to Bend, OR. Labor estimates and past sales figures are static - they demonstrate how application could be linked to accounting software.",
                           "The tourism calendar is populated with the percent of short term rentals booked on a given day within Bend, OR. This information is obtained by calculating availability data of each rental listing.",
-                          "Displays any inventory items that cost to purchase has increased or decreased. Invoice management database and application are connected, calculations flucuate with invoice entry. All data presented is for demonstration purposes only, information is static. "
+                          "Displays any inventory items where distributor price has increased or decreased. Invoice management database and application are connected, calculations flucuate with invoice entry. All data presented is for demonstration purposes only, information is static. "
   ];
 
   return (
@@ -27,13 +27,24 @@ function Info ({ selectedInfo, onClosingInfoPage }) {
       <div className={infoContainer}>
         <div className={infoBox}>
           <div className={infoHeader}>
-            { selectedInfo === 'week' ?
-              <h3>info - week-at-a-glance</h3>
-            : selectedInfo === 'tourism' ?
-              <h3>info - tourism calendar</h3>
-              :
-              <h3>info - cost of goods</h3>
-            }
+            <div className={infoSubhead}>
+              { selectedInfo === 'week' ?
+                <>
+                  <h3>info</h3>
+                  <p>week-at-a-glance</p>
+                </>
+              : selectedInfo === 'tourism' ?
+                <>
+                  <h3>info</h3>
+                  <p>tourism calendar</p>
+                </>
+                :
+                <>
+                  <h3>info</h3>
+                  <p>cost of goods</p>
+                </>
+              }
+            </div>
             <svg className={closeInfo} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" onClick={onClosingInfoPage} >
               <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="#666B69"/>
             </svg>

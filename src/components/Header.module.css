@@ -155,3 +155,9 @@
   }
 
 }
+
+@media (max-height: 650px) and (orientation: landscape) {
+  .logoContainer {
+    z-index: 0;
+  }
+}
