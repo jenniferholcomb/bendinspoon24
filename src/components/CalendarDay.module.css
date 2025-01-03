@@ -175,14 +175,21 @@ blockquote {
   margin: 0 10px 10px 15px;
 }
 
-@media (max-width: 430px) and (orientation: portrait) {
+@media (max-width: 666px) and (orientation: portrait) {
   .dateBubble {
     width: 44px;
     height: 44px;
   }
 }
 
-@media all and (min-width: 1024px) {
+@media (min-width: 667px) and (orientation: portrait) {
+  .dateBubble {
+    width: 40px;
+    height: 50px;
+  }
+}
+
+@media all and (min-width: 1025px) {
   .dateBubble {
     width: 44px;
     height: 44px;

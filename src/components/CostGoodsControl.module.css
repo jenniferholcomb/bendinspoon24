@@ -140,10 +140,9 @@
   overflow-y: scroll;
   overscroll-behavior: none;
   padding-top: 0px;
-  background: linear-gradient(180deg, #32373658 30.33%, #2f33319f 88.5%),
-              radial-gradient(
+  background: radial-gradient(
                 farthest-side at 50% 100%,
-                rgba(174, 173, 173, 0.2),
+                rgba(174, 173, 173, 0.138),
                 rgba(155, 155, 155, 0)
               ) center bottom;
 }
@@ -296,7 +295,7 @@ button.nav5, button.nav6 {
   }
 }
 
-@media all and (orientation: landscape) {
+@media (min-width: 1025px) and (orientation: landscape) {
   .costGoodsHeader {
     height: 35px;
   }

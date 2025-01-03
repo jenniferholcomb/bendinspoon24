@@ -49,6 +49,8 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
     };
   }, [loadWeather]);
 
+  console.log(thisWeek)
+
   return (
     <>
       <div className={isMobile ? (selectedTab === 'week' ? tabWeekWrapper : hiddenWeekWrapper) : weekWrapper}>

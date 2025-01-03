@@ -6,11 +6,16 @@ function useResize() {
   const [isTablet, setIsTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isWdDesktop, setIsWdDesktop] = useState(false);
+  const [isShort, setIsShort] = useState(false);
 
   const handleResize = () => {
     window.innerWidth < window.innerHeight ?
     setOrientation('portrait')
     : setOrientation('landscape');
+
+    window.innerHeight < 836 ?
+    setIsShort(true)
+    : setIsShort(false);
 
     window.innerWidth < 667 ?
     setIsMobile(true) 
@@ -37,7 +42,7 @@ function useResize() {
     }
   });
 
-  return [orientation, isMobile, isTablet, isDesktop, isWdDesktop ];
+  return [orientation, isMobile, isTablet, isShort, isDesktop, isWdDesktop ];
 };
 
 export default useResize;

@@ -7,7 +7,7 @@
 }
 
 .logoContainer {
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 41px;
   width: 75px;
@@ -16,7 +16,7 @@
   background: #E4E4E4;
   box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.14) inset;
   display: grid;
-  padding-top: 14px;
+  padding: 14px 5px 5px 5px;
   justify-content: center;
   z-index: 99999;
 }
@@ -25,8 +25,15 @@
   width: 65px;
 }
 
+.portraitContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .subheadContainerPortrait, .subheadContainerLandscape {
-  padding: 0 0 0 133px;
+  padding: 0 0 0 63px;
   align-self: center;
   color: #FEFFDA;
   font-family: Dongle;
@@ -78,7 +85,7 @@
 
 @media all and (orientation: portrait) {
   .headerWrapper {
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 
   .subheadContainerPortrait {
@@ -111,7 +118,7 @@
 
   .logoContainer {
     left: 22px;
-    height: 55px;
+    width: 75px;
     padding-top: 18px;
   }
 }

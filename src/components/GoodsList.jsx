@@ -19,44 +19,6 @@ function GoodsList ({ allGoods }) {
   const [completeList, setCompleteList] = useState([]);
   const [orientation, isMobile, isTablet] = useResize();
 
-  const redArrowSVG =       
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none">
-                        <g filter="url(#filter0_i_1052_1327)">
-                          <path d="M-1.07288e-06 13L27 13L13.5 -1.17426e-06L-1.07288e-06 13Z" fill="#F54949"/>
-                        </g>
-                        <defs>
-                          <filter id="filter0_i_1052_1327" x="-6" y="-6" width="33" height="19" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                            <feOffset dx="-6" dy="-6"/>
-                            <feGaussianBlur stdDeviation="4"/>
-                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.14 0"/>
-                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1052_1327"/>
-                          </filter>
-                        </defs>
-                      </svg> ;
-
-  const greenArrowSVG = 
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none">
-                        <g filter="url(#filter0_i_1052_1324)">
-                          <path d="M27 1.18021e-06L0 0L13.5 13L27 1.18021e-06Z" fill="#0ce6cd"/>
-                        </g>
-                        <defs>
-                          <filter id="filter0_i_1052_1324" x="-6" y="-6" width="33" height="19" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                            <feOffset dx="-6" dy="-6"/>
-                            <feGaussianBlur stdDeviation="4"/>
-                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.42 0"/>
-                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1052_1324"/>
-                          </filter>
-                        </defs>
-                      </svg> ;
-
   const handleSortingGood = (good) => {
     const sortedArray = good.sort((a,b) => {
       return new Date(a.date) - new Date(b.date);
@@ -129,13 +91,77 @@ function GoodsList ({ allGoods }) {
         <div className={listOrderDec ? porArrowContainerDec : porArrowContainerInc} onClick={handleListOrder}>
           {listOrderDec ?
             <>
-              {greenArrowSVG}
-              {redArrowSVG}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="green arrow icon">
+                <g filter="url(#filter0_i_1052_1324)">
+                  <path d="M27 1.18021e-06L0 0L13.5 13L27 1.18021e-06Z" fill="#0ce6cd"/>
+                </g>
+                <defs>
+                  <filter id="filter0_i_1052_1324" x="-6" y="-6" width="33" height="19" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dx="-6" dy="-6"/>
+                    <feGaussianBlur stdDeviation="4"/>
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.42 0"/>
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1052_1324"/>
+                  </filter>
+                </defs>
+              </svg> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="red arrow icon">
+                <g filter="url(#filter0_i_1052_1327)">
+                  <path d="M-1.07288e-06 13L27 13L13.5 -1.17426e-06L-1.07288e-06 13Z" fill="#F54949"/>
+                </g>
+                <defs>
+                  <filter id="filter0_i_1052_1327" x="-6" y="-6" width="33" height="19" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dx="-6" dy="-6"/>
+                    <feGaussianBlur stdDeviation="4"/>
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.14 0"/>
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1052_1327"/>
+                  </filter>
+                </defs>
+              </svg> 
             </>
           :
             <>
-              {redArrowSVG}
-              {greenArrowSVG}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="red arrow icon">
+                <g filter="url(#filter0_i_1052_1327)">
+                  <path d="M-1.07288e-06 13L27 13L13.5 -1.17426e-06L-1.07288e-06 13Z" fill="#F54949"/>
+                </g>
+                <defs>
+                  <filter id="filter0_i_1052_1327" x="-6" y="-6" width="33" height="19" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dx="-6" dy="-6"/>
+                    <feGaussianBlur stdDeviation="4"/>
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.14 0"/>
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1052_1327"/>
+                  </filter>
+                </defs>
+              </svg> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="green arrow icon">
+                <g filter="url(#filter0_i_1052_1324)">
+                  <path d="M27 1.18021e-06L0 0L13.5 13L27 1.18021e-06Z" fill="#0ce6cd"/>
+                </g>
+                <defs>
+                  <filter id="filter0_i_1052_1324" x="-6" y="-6" width="33" height="19" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dx="-6" dy="-6"/>
+                    <feGaussianBlur stdDeviation="4"/>
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.42 0"/>
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1052_1324"/>
+                  </filter>
+                </defs>
+              </svg> 
             </>
           }
         </div>
@@ -155,8 +181,44 @@ function GoodsList ({ allGoods }) {
       </>
     :
       <>
-        <div className={greenArrow}>{greenArrowSVG}</div>
-        <div className={redArrow}>{redArrowSVG}</div>
+        <div className={greenArrow}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="green arrow icon">
+            <g filter="url(#filter0_i_1052_1324)">
+              <path d="M27 1.18021e-06L0 0L13.5 13L27 1.18021e-06Z" fill="#0ce6cd"/>
+            </g>
+            <defs>
+              <filter id="filter0_i_1052_1324" x="-6" y="-6" width="33" height="19" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="-6" dy="-6"/>
+                <feGaussianBlur stdDeviation="4"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.42 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1052_1324"/>
+              </filter>
+            </defs>
+          </svg> 
+        </div>
+        <div className={redArrow}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="red arrow icon">
+            <g filter="url(#filter0_i_1052_1327)">
+              <path d="M-1.07288e-06 13L27 13L13.5 -1.17426e-06L-1.07288e-06 13Z" fill="#F54949"/>
+            </g>
+            <defs>
+              <filter id="filter0_i_1052_1327" x="-6" y="-6" width="33" height="19" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dx="-6" dy="-6"/>
+                <feGaussianBlur stdDeviation="4"/>
+                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.14 0"/>
+                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1052_1327"/>
+              </filter>
+            </defs>
+          </svg> 
+        </div>
         <div className={decreaseContainer}>
           <div className={shadowTop}></div>
           <div className={decGoodsContent}>

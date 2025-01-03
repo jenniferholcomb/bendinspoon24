@@ -1,6 +1,7 @@
 .tourismWrapper {
   grid-row: 2;
   grid-column: 1;
+  overflow-y: scroll;
 }
 
 .tabTourismWrapper, .tourismWrapper {
@@ -70,7 +71,7 @@
 
 .calendarWrapper {
   display: grid;
-  grid-template-columns: repeat(7, 51px);
+  grid-template-columns: repeat(7, 48px);
   grid-template-rows: 40px repeat(auto-fill, 68.5px);
   grid-auto-rows: 68.5px;
   align-self: center;
@@ -94,7 +95,7 @@
   /* transform: translateY(3px); */
 }
 
-@media (max-width: 430px) and (orientation: portrait) {
+@media (max-width: 666px) and (orientation: portrait) {
   .tabTourismWrapper {
     /* background: linear-gradient(183deg, rgba(189, 193, 192, 0.19) -5.5%, rgba(131, 132, 132, 0.19) 99.28%); */
     background: linear-gradient(119deg, #414141 8.04%, #2e3131 129.51%);
@@ -131,6 +132,14 @@
   }
 }
 
+@media (min-width: 800px) and (orientation: portrait) {
+  .calendarWrapper {
+    grid-template-columns: repeat(7, 51px);
+    grid-auto-rows: 68.5px;
+    align-self: center;
+  }
+}
+
 @media all and (min-width: 1024px) {
   .calendarWrapper {
     grid-template-columns: repeat(7, 55px);
@@ -159,7 +168,7 @@
   }
 }
 
-@media (max-height: 768px) and (orientation: landscape) {
+@media (max-height: 836px) and (orientation: landscape) {
   .calendarWrapper {
     grid-template-columns: repeat(7, 55px);
     grid-template-rows: 40px repeat(auto-fill, 55px);

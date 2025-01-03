@@ -6,6 +6,7 @@ import {
 } from "./usePopover";
 import useHolidays from "./useHolidays.jsx";
 import useEvents from "./useEvents.jsx";
+import useResize from "./useResize.jsx";
 import styles from "./CalendarDay.module.css";
 import PropTypes from 'prop-types';
 
@@ -22,6 +23,9 @@ function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, 
   const [eventsList, eventsSent] = useEvents();
   const [futureDate, setFutureDate] = useState();
   const thisWeekUpdate = thisWeek.slice(1,8);
+  const [orientation, isMobile, isTablet, isShort] = useResize();
+
+  console.log(thisWeek)
 
   const handleCheckingDate = (sentList, date, type) => {
     let list;
@@ -215,7 +219,12 @@ function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, 
                         ...(item.addHoliday[0] && item.addEvent[0]
                           ? { background: `url(${holidayEventIcon}), ${item.background}` }
                           : item.addHoliday[0]
-                          ? { background: `url(${holidayIcon}), ${item.background}` }
+                          ? isTablet && !isShort ? 
+                            { background: `url(${holidayIcon}), ${item.background}`,
+                              backgroundPosition: '25% 0%',
+                              backgroundSize: 'auto 139%, cover'}
+                            :
+                            { background: `url(${holidayIcon}), ${item.background}`}
                           : item.addEvent[0]
                           ? { background: `url(${eventIcon}), ${item.background}` }
                           : { background: `${item.background}` }),
