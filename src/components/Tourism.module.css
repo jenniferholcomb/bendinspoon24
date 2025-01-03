@@ -175,3 +175,9 @@
     grid-auto-rows: 55px;
   }
 }
+
+@media (max-width: 840px) and (orientation: landscape) {
+  .calendarWrapper {
+    grid-template-columns: repeat(7, 50px);
+  }
+}
