@@ -594,7 +594,7 @@ p.percentSign {
   height: 24px;
   display: flex;
   justify-content: flex-end;
-  transform: translateY(-.25px);
+  /* transform: translateY(-.25px); */
 }
 
 .holidayAlert Img {
