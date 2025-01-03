@@ -49,8 +49,6 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
     };
   }, [loadWeather]);
 
-  console.log(thisWeek)
-
   return (
     <>
       <div className={isMobile ? (selectedTab === 'week' ? tabWeekWrapper : hiddenWeekWrapper) : weekWrapper}>
@@ -211,7 +209,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                         <p className={dayDate}>
                           <span className={dayWeek}>{daysOfWeek[day[1]]}</span>
                           <br />
-                          {day[0].substring(5,7)}/{day[0].substring(8,9) === '0' ? day[0].substring(9,10) : day[0].substring(8,10)}
+                          {day[0].substring(5,6) === '0' ? day[0].substring(6,7) : day[0].substring(5,7)}/{day[0].substring(8,9) === '0' ? day[0].substring(9,10) : day[0].substring(8,10)}
                         </p>
           
                         { weather && (
