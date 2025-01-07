@@ -25,7 +25,6 @@ function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, 
   const thisWeekUpdate = thisWeek.slice(1,8);
   const [orientation, isMobile, isTablet, isShort] = useResize();
 
-  console.log(thisWeek)
 
   const handleCheckingDate = (sentList, date, type) => {
     let list;
@@ -88,10 +87,13 @@ function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, 
       const dayKey = found ? Object.keys(found)[0] : undefined;
       // const currentWeek = thisWeek.some(entry => entry[0] === dayKey);
 
-      const todayDateStr = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
+      // const todayDateStr = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
+      const todayDateStr = '2024-12-29';
+
       const currentDay = dayKey === todayDateStr ? true : false;
 
       const addHoliday = handleCheckingDate(holidayList, item[0], 'holiday');
+      console.log(item[0])
       const addEvent = handleCheckingDate(eventsList, item[0], 'event');
 
       return populateDayData(item, percent, currentDay, addHoliday, addEvent);   
@@ -106,7 +108,8 @@ function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, 
       const dayKey = found ? Object.keys(found)[0] : undefined;
       const currentWeek = thisWeekUpdate.some(entry => entry[0] === dayKey);
 
-      const todayDateStr = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
+      // const todayDateStr = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
+      const todayDateStr = '2024-12-29';
       const currentDay = dayKey === todayDateStr ? true : false;
 
       const addHoliday = handleCheckingDate(holidayList, item.date, 'holiday');

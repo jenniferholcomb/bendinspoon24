@@ -14,6 +14,8 @@ function AgentsControl ({ selectedTab, isMobile }) {
   const [infoOpen, setInfoOpen] = useState(false);
   const [infoPage, setInfoPage] = useState("week");
 
+  const tempWeek = [['2024-12-28', 6], ['2024-12-29', 0], ['2024-12-30', 1], ['2024-12-31', 2], ['2024-01-01', 3], ['2024-01-02', 4], ['2024-01-03', 5], ['2024-01-04', 6], ['2024-01-05', 0]];
+
   const handleAddingCalendarData = (currentPercents, monthName) => {
     const updatedArray = currentPercents.filter(item => item.percent);
     const today = new Date().toISOString().substring(0,10);
@@ -39,7 +41,8 @@ function AgentsControl ({ selectedTab, isMobile }) {
       const newDayStr = newDay.toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
       calcThisWeek = [...calcThisWeek, [newDayStr, dayNum]];
     }
-    setThisWeek(calcThisWeek);
+    // setThisWeek(calcThisWeek);
+    setThisWeek(tempWeek);
   };
 
   const handleChangingDayInFocus = (day) => {

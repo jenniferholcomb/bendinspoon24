@@ -18,8 +18,11 @@ const initialState = {
       {'name': 'Hot Buttered Rum', 'date': ['2024-11-10'], 'description': 'A bluegrass and Americana band performing at the Midtown Ballroom.', 'month': ['11']},
       {'name': 'Curtis Salgado', 'date': ['2024-11-15'], 'description': 'A  blues performance at the Midtown Ballroom.', 'month': ['11']},
       {'name': 'Terrapin Flyer', 'date': ['2024-11-17'], 'description': 'A popular Grateful Dead tribute band performing at the Volcanic Theatre Pub', 'month': ['11']},
-      // {'name': 'Bend Fall Festival', 'date': ['2024-11-2', '2024-11-3'], 'description': '', 'month': ['11']},
-      // {'name': 'Bend Fall Festival', 'date': ['2024-11-2', '2024-11-3'], 'description': '', 'month': ['11']},
+      {'name': 'SANTA SLAYED: A La Bon Burlesque Murder Mystery', 'date': ['2024-12-28'], 'description': 'Interactive and immersive investigative experience.', 'month': ['12']},
+      {'name': 'Sweeney Todd: The Demon Barber of Fleet Street', 'date': ['2024-12-29'], 'description': 'Musical showing at Greenhouse Cabaret; pie-shop owner Sweeney embarks on quest for vengeance.', 'month': ['12']},
+      {'name': 'Disco Inferno Ball New Year’s Eve with Patrick Lamb', 'date': ['2024-12-31'], 'description': 'Riverhouse Lodge celebration includes 4-course dinner, spirits tasting, dancing and costume contest.', 'month': ['12']},
+      // {'name': 'Sweeney Todd: The Demon Barber of Fleet Street', 'date': ['2024-12-29'], 'description': 'Musical where pie-shop owner Sweeney embarks on a quest for vengeance.', 'month': ['12']},
+      // {'name': 'Sweeney Todd: The Demon Barber of Fleet Street', 'date': ['2024-12-29'], 'description': 'Musical where pie-shop owner Sweeney embarks on a quest for vengeance.', 'month': ['12']},    
     ]}
   ],
   error: null

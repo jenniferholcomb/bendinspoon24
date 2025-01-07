@@ -162,12 +162,16 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
 
   useEffect(() => {
     const today = new Date();
-    const monthNow = today.getMonth();  // const month = dateStr.substring(0, 7);
-    const monthName = today.toLocaleString('default', { month: 'long' }).toUpperCase();
+    // const monthNow = today.getMonth();  // const month = dateStr.substring(0, 7);
+    const monthNow = 11;
+    // const monthName = today.toLocaleString('default', { month: 'long' }).toUpperCase();
+    const monthName = 'DECEMBER';
+    console.log(monthName)
     selectedMonth.current = monthNow;
     setCurrentMonthName(monthName);
 
-    const year = today.getFullYear();
+    // const year = today.getFullYear();
+    const year = 2024;
     currentYear.current = year;
 
     if (selectedMonth.current > 8) {
