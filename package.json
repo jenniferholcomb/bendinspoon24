@@ -13,7 +13,7 @@
     "@babel/runtime": "^7.24.4",
     "@floating-ui/react": "^0.26.27",
     "axios": "^1.7.7",
-    "fetch-blob": "^3.2.0",
+    "fetch-blob": "^4.0.0",
     "firebase": "^11.0.1",
     "formdata-polyfill": "^4.0.10",
     "node-fetch": "^3.3.2",

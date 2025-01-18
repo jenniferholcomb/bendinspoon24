@@ -1,6 +1,7 @@
 // Netlify/functions/getWeather.js
 
 import fetch from 'node-fetch';
+import { Blob } from 'fetch-blob';
 
 export async function handler(event, context) {
   console.log('were connected to weather');
