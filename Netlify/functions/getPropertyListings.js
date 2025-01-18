@@ -10,6 +10,7 @@ export async function handler(event, context) {
   if (!singleId) {
     return {
       statusCode: 400,
+      headers: { "Content-Type": "application/json" }, 
       body: JSON.stringify({ error: "singleId is required" })
     };
   }
@@ -27,11 +28,13 @@ export async function handler(event, context) {
     // Return the JSON response
     return {
       statusCode: 200,
+      headers: { "Content-Type": "application/json" }, 
       body: JSON.stringify(jsonifiedResponse)
     };
   } catch (error) {
     return {
       statusCode: 500,
+      headers: { "Content-Type": "application/json" }, 
       body: JSON.stringify({ error: error.message })
     };
   }
