@@ -71,15 +71,16 @@ const usePropertyListing = () => {
 
   const apiCall = async (singleId, index) => {
     const unprocessed = processedIndices.filter(id => id === singleId);
+    console.log(unprocessed.length)
     if (unprocessed.length === 0) {
       try {
         const response = await fetch(`/.netlify/functions/getPropertyListings?singleId=${singleId}`);
-        console.log(response)
-        console.log(response.headers.get('content-type'));
-        const text = await response.text();
-        console.log('raw', text)
+
+        const text = await response.text();  // Check raw text if JSON fails
+        console.log('Raw response:', text);
+
         const jsonifiedResponse = await response.json();
-        console.log(jsonifiedResponse)
+        console.log('json', singleId, index, jsonifiedResponse)
         if (jsonifiedResponse.error) {
           errorCount.current = errorCount.current + 1;
           return;
