@@ -1,5 +1,11 @@
 [build]
-  functions = "Netlify/functions"
+  functions = "Netlify/functions"  # Path to your functions directory
 
 [functions]
-  timeout = { seconds = 20 }
+  timeout = 20  # Set the timeout for functions (20 seconds)
+
+[build.environment]
+  NODE_VERSION = "18"  # Ensure the correct Node.js version is used
+
+[functions.node_bundler]
+  type = "esbuild"  # Use esbuild bundler to handle modern JavaScript (including ESM support)
