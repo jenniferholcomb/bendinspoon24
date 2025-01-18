@@ -1,10 +1,9 @@
 // Netlify/functions/getWeather.js
 
-import fetch from 'node-fetch';
-import { Blob } from 'fetch-blob';
-
 export async function handler(event, context) {
   console.log('were connected to weather');
+  // Dynamically import node-fetch to avoid top-level await
+  const fetch = (await import('node-fetch')).default;
 
   try {
     const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=Bend,OR&key=${process.env.API_KEY_WEATHER}&units=I&days=7`);

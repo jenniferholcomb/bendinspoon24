@@ -1,9 +1,9 @@
 // netlify/functions/getSTRData.js
 
-import fetch from 'node-fetch';
-import { Blob } from 'fetch-blob';
-
 export async function handler(event, context) {
+  // Dynamically import node-fetch to avoid top-level await
+  const fetch = (await import('node-fetch')).default;
+
   try {
     const response = await fetch(`https://airdna1.p.rapidapi.com/properties?rapidapi-key=${process.env.API_KEY}&location=bend`);
     if (!response.ok) {
