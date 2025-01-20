@@ -11,7 +11,7 @@ const usePropertyListing = () => {
 
   const [listingsOccupied, setListingsOccupied] = useState(null);
   const [percentsError, setError] = useState(null);
-
+  
 
   const handleSendingAvail = async (percents) => {
     console.log('handle sending', percents)
@@ -71,14 +71,9 @@ const usePropertyListing = () => {
 
   const apiCall = async (singleId, index) => {
     const unprocessed = processedIndices.filter(id => id === singleId);
-    console.log(unprocessed.length)
     if (unprocessed.length === 0) {
       try {
         const response = await fetch(`/.netlify/functions/getPropertyListings?singleId=${singleId}`);
-
-        const text = await response.text();  // Check raw text if JSON fails
-        console.log('Raw response:', text);
-
         const jsonifiedResponse = await response.json();
         console.log('json', singleId, index, jsonifiedResponse)
         if (jsonifiedResponse.error) {
@@ -142,7 +137,7 @@ const usePropertyListing = () => {
     const daysPassed = (today.getTime() - oldData.getTime()) / (1000 * 60 * 60 * 24);
 
     // if (dataDate !== todayStr && (daysPassed > 5 || todayNum === 1 || todayNum === 4)) {
-    // if (dataDate !== todayStr && (daysPassed > 5)) {
+    // if (dataDate !== todayStr && (daysPassed >= 1)) {
     if (!daysPassed) {
       return true;    
     } else {

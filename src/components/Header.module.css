@@ -12,7 +12,7 @@
   left: 41px;
   width: 75px;
   height: 53px;
-  border-radius: 0px 0px 15px 15px ;
+  border-radius: 0px 0px 13px 13px ;
   background: #ffffff;
   box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.14) inset;
   display: grid;
@@ -137,7 +137,7 @@
   .logoContainer {
     width: 86px;
     height: 68px;
-    border-radius: 0px 0px 20px 20px ;
+    border-radius: 0px 0px 13px 13px ;
     padding-top: 18px;
   }
 

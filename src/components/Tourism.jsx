@@ -192,7 +192,7 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
 
   useEffect(() => {
     if (properties) {
-      // const shortenedList = properties[0].propertiesId.slice(0, 28);
+      // const shortenedList = properties[0].propertiesId.slice(0, 10);
       const propertyList = properties[0].propertiesId;
 
       // console.log('calling usePropertyListing...','properties', propertyList);
