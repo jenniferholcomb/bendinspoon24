@@ -497,7 +497,7 @@ span.weatherDegreeFocus {
 
 .backgroundLayer {
   min-height: 24px;
-  transform: scaleY(1.02);
+  transform: scaleY(1);
 }
 
 .colorLayer {
