@@ -8,13 +8,13 @@ A dashboard forecasting tool for small restaurants. It tracks occupancy rates fo
 ---
 
 ## 📌 **Features**  
-✅ Fetches and calculates **daily short term rental occupancy percentages** using data from 2 different **API's**
-✅ Provides weather, holidays, and local events from **three different API's**
-✅ Stores and retrieves data using **Firestore**  
-✅ Uses **Netlify Serverless Functions** for backend processing  
-✅ Built with **Vite** for fast and optimized development  
-✅ Fully **responsive** and **mobile-friendly**  
-✅ **Deployed on Netlify** with CI/CD  
+✅ Fetches and calculates **daily short term rental occupancy percentages** using data from 2 different **API's**  
+✅ Provides weather, holidays, and local events from **three different API's** <br>
+✅ Stores and retrieves data using **Firestore** <br>
+✅ Uses **Netlify Serverless Functions** for backend processing <br>
+✅ Built with **Vite** for fast and optimized development <br>
+✅ Fully **responsive** and **mobile-friendly** <br>
+✅ **Deployed on Netlify** with CI/CD <br>
 
 ---
 
