@@ -2,6 +2,8 @@
 
 A web application that fetches and integrates data from three separate APIs, stores data in **Firestore**, and is deployed on **Netlify** using serverless functions. Built with **Vite** for fast development and optimized performance.  
 
+A dashboard forecasting tool for small restaurants. It tracks occupancy rates for local short-term rentals, cost of goods fluctuations, and provides a weekly breakdown of labor estimates, past sales, weather, events, holidays, and tourism. The app utilizes APIs for short-term rental availability, holidays, weather, and local events. 
+
 ## 🚀 **Live Demo**  
 🔗 [Deployed Site on Netlify](https://bendinspoon.netlify.app/)  
 
@@ -33,6 +35,11 @@ A web application that fetches and integrates data from three separate APIs, sto
 - 📡 **AirBnb-listings, RapidAPI** – Retrieves availability data for each property by ID, fetched from AirDNA API
 - 📡 **Weatherbit: Weather API** – Provides daily weather with icons by location
 - 📡 **Calendarific: Holiday Calendar API** – Fetches yearly holidays
+
+### **Design Tools**
+-![Figma](https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg)
+![Illustrator](https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg)
+![Photoshop](https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg)
 
 ---
 
