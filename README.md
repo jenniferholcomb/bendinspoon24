@@ -37,7 +37,7 @@ A dashboard forecasting tool for small restaurants. It tracks occupancy rates fo
 - 📡 **Calendarific: Holiday Calendar API** – Fetches yearly holidays
 
 ### **Design Tools**
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop" width="40"> Photoshop
+- <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop" width="20"> Photoshop
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Illustrator" width="40">
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma" width="40">
 
