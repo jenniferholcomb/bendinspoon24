@@ -1,7 +1,5 @@
 # **📊 Bend In Spoon**  
 
-A web application that fetches and integrates data from three separate APIs, stores data in **Firestore**, and is deployed on **Netlify** using serverless functions. Built with **Vite** for fast development and optimized performance.  
-
 A dashboard forecasting tool for small restaurants. It tracks occupancy rates for local short-term rentals, cost of goods fluctuations, and provides a weekly breakdown of labor estimates, past sales, weather, events, holidays, and tourism. The app utilizes APIs for short-term rental availability, holidays, weather, and local events. 
 
 ## 🚀 **Live Demo**  
@@ -10,7 +8,8 @@ A dashboard forecasting tool for small restaurants. It tracks occupancy rates fo
 ---
 
 ## 📌 **Features**  
-✅ Fetches and integrates data from **three separate APIs**  
+✅ Fetches and calculates **daily short term rental occupancy percentages** using data from 2 different **API's** 
+✅ Provides weather, holidays, and local events from **three different API's**
 ✅ Stores and retrieves data using **Firestore**  
 ✅ Uses **Netlify Serverless Functions** for backend processing  
 ✅ Built with **Vite** for fast and optimized development  
