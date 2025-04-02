@@ -77,6 +77,7 @@ Create a `.env` file in the root directory and add the required API keys:
 VITE_API_KEY_1=your_api_key_here
 VITE_API_KEY_2=your_api_key_here
 VITE_API_KEY_3=your_api_key_here
+VITE_API_KEY_4=your_api_key_here
 VITE_FIREBASE_CONFIG=your_firebase_config_here
 ```
 
