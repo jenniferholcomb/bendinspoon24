@@ -94,7 +94,7 @@ const usePropertyListing = () => {
     if (!newPercentsTallied.current) {
       const results = [];
       const updatedIndices = [];
-      const delay = 200;
+      const delay = 1500;
 
       for (const [index, propertyId] of propertyList.entries()) {
         try {
