@@ -20,9 +20,9 @@ A web application that fetches and integrates data from three separate APIs, sto
 ## 🛠️ **Tech Stack**  
 
 ### **Frontend**  
-- ⚡ [Vite](https://vitejs.dev/) – Lightning-fast build tool  
-- ⚛️ React.js – Component-based UI  
-- 🎨 CSS / SCSS – Styled UI elements  
+- ⚡ Vite
+- ⚛️ React.js
+- 🎨 CSS
 
 ### **Backend & Database**  
 - 🔥 Firestore – NoSQL database for data storage  
@@ -33,6 +33,21 @@ A web application that fetches and integrates data from three separate APIs, sto
 - 📡 **AirBnb-listings, RapidAPI** – Retrieves availability data for each property by ID, fetched from AirDNA API
 - 📡 **Weatherbit: Weather API** – Provides daily weather with icons by location
 - 📡 **Calendarific: Holiday Calendar API** – Fetches yearly holidays
+
+---
+
+## Screenshots
+
+### Mobile Views
+<p align="center">
+  <img src="./public/img/BendInSpoon_week.webp" alt="Mobile Screenshot 1" width="200"/>
+  <img src="./public/img/BendInSpoon_tourism.webp" alt="Mobile Screenshot 2" width="200"/>
+</p>
+
+### Desktop View  
+<p align="center">
+  <img src="./public/img/BendInSpoon_desktop.webp" alt="Desktop Screenshot" width="700"/>  
+</p>
 
 ---
 
