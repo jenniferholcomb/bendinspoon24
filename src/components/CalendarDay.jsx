@@ -16,15 +16,140 @@ import holidayEventIcon from "/img/holidayEvent.svg";
 
 const {calMonth, calArrowLeft, calArrowLeftDisabled, calText, calArrowRight, calArrowRightDisabled, calendarDateContainer, percentContainer, propPercent, date, dateBubble, popDateBubble, listItemCal, popoverContent, popoverArrow, popHeaderHoliday, popHeaderEvent, popEventName } = styles;
 
-function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, thisWeek, onAddingCalendarData, onAddingWeekData, onNextMonth, onPreviousMonth }) {
+function getBubbleStyle({ 
+  addHoliday = [], 
+  addEvent = [], 
+  background = '', 
+  currentDay = false, 
+  isTablet = false, 
+  isShort = false,
+  icons = {} 
+}) {
+  const { holidayIcon, eventIcon, holidayEventIcon } = icons;
+
+  const style = {
+    background: background,
+    backgroundPosition: undefined,
+    backgroundSize: undefined,
+    outline: currentDay ? '3px solid #C13F07' : 'none',
+  };
+
+  if (addHoliday[0] && addEvent[0]) {
+    style.background = `url(${holidayEventIcon}), ${background}`;
+  } else if (addHoliday[0]) {
+    style.background = `url(${holidayIcon}), ${background}`;
+    if (isTablet && !isShort) {
+      style.backgroundPosition = '25% 0%';
+      style.backgroundSize = 'auto 139%, cover';
+    }
+  } else if (addEvent[0]) {
+    style.background = `url(${eventIcon}), ${background}`;
+  }
+
+  return style;
+}
+
+function DateStyle ({item, index}) {
+  const [orientation, isMobile, isTablet, isShort] = useResize();
+  const bubbleStyle = getBubbleStyle({
+    addHoliday: item.addHoliday,
+    addEvent: item.addEvent,
+    background: item.background,
+    currentDay: item.currentDay,
+    isTablet,
+    isShort,
+    icons: {
+      holidayIcon,
+      eventIcon,
+      holidayEventIcon,
+    }
+  });   
+
+  return (
+    <div
+      className={listItemCal}
+      key={index}
+      style={item.currentWeek ? { background: '#595F5D' } : null}
+    >
+      {item.addHoliday[0] || item.addEvent[0] ? (
+        <Popover>
+          <PopoverTrigger asChild>
+            <div
+              className={dateBubble}
+              id={popDateBubble}
+              style={bubbleStyle}
+            >
+                <p className={date} style={{ color: `${item.color}` }}>
+                  {item.date.charAt(8) === '0' ? item.date.substring(9) : item.date.substring(8)}
+                </p>
+              <div className={percentContainer}>
+                <p
+                  className={propPercent}
+                  style={item.percent ? (item.percent >= 85 ? { color: '#FFF' } : { color: '#2D3230' }) : null}
+                >
+                  {item.percent}
+                </p>
+              </div>
+            </div>
+          </PopoverTrigger>
+          
+          <PopoverContent style={{outline: 'none', zIndex: '9999'}}>
+            <div className={popoverContent}>
+              {item.addHoliday[0] && 
+                <p className={popHeaderHoliday}>{item.addHoliday[1][0].name}</p>
+              }
+              {item.addEvent[0] && 
+                <>
+                  <p className={popHeaderEvent}>Local Events:</p>
+                  { item.addEvent[1].map((event, index) => 
+                    <React.Fragment key={index} >
+                      <p className={popEventName}>{event.name}</p>
+                      <blockquote>"{event.description}"</blockquote>
+                    </React.Fragment>
+                  )}
+                </>
+              }
+            </div>
+            <svg className={popoverArrow} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" fill="none">
+              <path d="M10.7692 14L0 0H20L10.7692 14Z" fill="#D9D9D9"/>
+            </svg>
+          </PopoverContent>
+        </Popover>
+      ) : (
+        <div
+          className={dateBubble}
+          style={{
+            background: `${item.background}`,
+            ...(item.currentDay ? { outline: '2px solid #F54949' } : { outline: 'none' }),
+          }}
+        >
+          <p 
+            className={date} 
+            style={{ color: `${item.color}` }}
+          >
+            {item.date.charAt(8) === '0' ? item.date.substring(9) : item.date.substring(8)}
+          </p>
+          <div className={percentContainer}>
+            <p
+              className={propPercent}
+              style={item.percent ? (item.percent >= 85 ? { color: '#FFF' } : { color: '#2D3230' }) : null}
+            >
+              {item.percent}
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, thisWeek, onAddingCalendarData, onAddingWeekData, onNextMonth, onPreviousMonth, year }) {
   const [monthBg, setMonthBg] = useState();
   const [datesLoaded, setDatesLoaded] = useState(false);
   const [holidayList, holidaysSent] = useHolidays();
   const [eventsList, eventsSent] = useEvents();
   const [futureDate, setFutureDate] = useState();
   const thisWeekUpdate = thisWeek.slice(1,8);
-  const [orientation, isMobile, isTablet, isShort] = useResize();
-
 
   const handleCheckingDate = (sentList, date, type) => {
     let list;
@@ -177,7 +302,7 @@ function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, 
                 </defs>
               </svg>
             </div>
-            <p className={calText}>{monthName}</p>
+            <p className={calText}>{monthName} <span>'{year - 2000}</span></p>
             <div className={month[15].date.substring(0,7) === futureDate ? calArrowRightDisabled : calArrowRight} onClick={onNextMonth}>
               <svg xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16" fill="none">
                 <g filter="url(#filter0_i_845_1400)">
@@ -204,96 +329,10 @@ function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, 
           </div>
 
           {monthBg.map((item, index) => (
-            <div
-              className={listItemCal}
-              key={index}
-              style={item.currentWeek ? { background: '#595F5D' } : null}
-            >
-              {item.addHoliday[0] || item.addEvent[0] ? (
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <div
-                      className={dateBubble}
-                      id={popDateBubble}
-                      style={{
-                        ...(item.addHoliday[0] && item.addEvent[0]
-                          ? { background: `url(${holidayEventIcon}), ${item.background}` }
-                          : item.addHoliday[0]
-                          ? isTablet && !isShort ? 
-                            { background: `url(${holidayIcon}), ${item.background}`,
-                              backgroundPosition: '25% 0%',
-                              backgroundSize: 'auto 139%, cover'}
-                            :
-                            { background: `url(${holidayIcon}), ${item.background}`}
-                          : item.addEvent[0]
-                          ? { background: `url(${eventIcon}), ${item.background}` }
-                          : { background: `${item.background}` }),
-                        ...(item.currentDay ? { outline: '3px solid #C13F07' } : { outline: 'none' }),
-                      }}
-                    >
-                        <p className={date} style={{ color: `${item.color}` }}>
-                          {item.date.charAt(8) === '0' ? item.date.substring(9) : item.date.substring(8)}
-                        </p>
-                      <div className={percentContainer}>
-                        <p
-                          className={propPercent}
-                          style={item.percent ? (item.percent >= 85 ? { color: '#FFF' } : { color: '#2D3230' }) : null}
-                        >
-                          {item.percent}
-                        </p>
-                      </div>
-                    </div>
-                  </PopoverTrigger>
-                  
-                  <PopoverContent style={{outline: 'none', zIndex: '9999'}}>
-                    <div className={popoverContent}>
-                      {item.addHoliday[0] && 
-                        <p className={popHeaderHoliday}>{item.addHoliday[1][0].name}</p>
-                      }
-                      {item.addEvent[0] && 
-                        <>
-                          <p className={popHeaderEvent}>Local Events:</p>
-                          { item.addEvent[1].map((event, index) => 
-                            <React.Fragment key={index} >
-                              <p className={popEventName}>{event.name}</p>
-                              <blockquote>"{event.description}"</blockquote>
-                            </React.Fragment>
-                          )}
-                        </>
-                      }
-                    </div>
-                    <svg className={popoverArrow} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" fill="none">
-                      <path d="M10.7692 14L0 0H20L10.7692 14Z" fill="#D9D9D9"/>
-                    </svg>
-                  </PopoverContent>
-                </Popover>
-              ) : (
-                <div
-                  className={dateBubble}
-                  style={{
-                    background: `${item.background}`,
-                    ...(item.currentDay ? { outline: '2px solid #F54949' } : { outline: 'none' }),
-                  }}
-                >
-                  <p 
-                    className={date} 
-                    style={{ color: `${item.color}` }}
-                  >
-                    {item.date.charAt(8) === '0' ? item.date.substring(9) : item.date.substring(8)}
-                  </p>
-                  <div className={percentContainer}>
-                    <p
-                      className={propPercent}
-                      style={item.percent ? (item.percent >= 85 ? { color: '#FFF' } : { color: '#2D3230' }) : null}
-                    >
-                      {item.percent}
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
+            <DateStyle item={item} 
+                       index={index} 
+                       key={index} />
           ))}
-
         </>
       )}
     </>
@@ -313,6 +352,8 @@ CalendarDay.propTypes = {
 };
 
 export default CalendarDay;
+
+
 
 // {monthBg.map((item, index) => 
 //   <>

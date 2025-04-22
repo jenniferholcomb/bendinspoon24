@@ -1,7 +1,6 @@
 // Netlify/functions/getWeather.js
 
 export async function handler(event, context) {
-  console.log('were connected to weather');
   // Dynamically import node-fetch to avoid top-level await
   const fetch = (await import('node-fetch')).default;
 

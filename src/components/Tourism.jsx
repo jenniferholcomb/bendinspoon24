@@ -39,7 +39,7 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
     }
 
     let nextMonthStr;
-    if (nextMonth < 10) {
+    if (nextMonth < 9) {
       nextMonthStr = year.toString() + '-0' + (nextMonth + 1).toString();
     } else {
       nextMonthStr = year.toString() + '-' + (nextMonth + 1).toString();
@@ -76,7 +76,7 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
     month.current = 
       currentYear.current.toString() + 
       '-' + 
-      (selectedMonth.current >= 10 ? '' : '0') +
+      (selectedMonth.current >= 9 ? '' : '0') +
       (selectedMonth.current + 1).toString();
 
     handleSettingCalendarDates();
@@ -217,6 +217,9 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
     // console.log('propertyList changed:', properties);
   }, [properties]);
 
+  useEffect(() => (
+    console.log('rerender')
+  ), []);
 
   return (
     <>
@@ -243,7 +246,8 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
                             onAddingCalendarData={onAddingCalendarData} 
                             onAddingWeekData={onAddingWeekData}
                             onNextMonth={handleIncrementingNewMonth}
-                            onPreviousMonth={handleDecrementingNewMonth} />
+                            onPreviousMonth={handleDecrementingNewMonth} 
+                            year={currentYear.current} />
                 :
                 null
               }
