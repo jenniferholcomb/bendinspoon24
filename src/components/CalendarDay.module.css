@@ -5,6 +5,10 @@
   /* padding-top: 8px; */
 }
 
+.yearHidden {
+  display: none;
+}
+
 .calArrowLeft, .calArrowRight {
   align-self: center;
 }

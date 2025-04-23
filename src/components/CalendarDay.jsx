@@ -14,7 +14,7 @@ import holidayIcon from "/img/holiday.svg";
 import eventIcon from "/img/event.svg";
 import holidayEventIcon from "/img/holidayEvent.svg";
 
-const {calMonth, calArrowLeft, calArrowLeftDisabled, calText, calArrowRight, calArrowRightDisabled, calendarDateContainer, percentContainer, propPercent, date, dateBubble, popDateBubble, listItemCal, popoverContent, popoverArrow, popHeaderHoliday, popHeaderEvent, popEventName } = styles;
+const {calMonth, calArrowLeft, calArrowLeftDisabled, calText, calArrowRight, calArrowRightDisabled, calendarDateContainer, percentContainer, propPercent, date, dateBubble, popDateBubble, listItemCal, popoverContent, popoverArrow, popHeaderHoliday, popHeaderEvent, popEventName, yearHidden } = styles;
 
 function getBubbleStyle({ 
   addHoliday = [], 
@@ -150,6 +150,7 @@ function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, 
   const [eventsList, eventsSent] = useEvents();
   const [futureDate, setFutureDate] = useState();
   const thisWeekUpdate = thisWeek.slice(1,8);
+  const thisYear = new Date().getFullYear();
 
   const handleCheckingDate = (sentList, date, type) => {
     let list;
@@ -302,7 +303,7 @@ function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, 
                 </defs>
               </svg>
             </div>
-            <p className={calText}>{monthName} <span>'{year - 2000}</span></p>
+            <p className={calText}>{monthName} <span className={thisYear === year ? yearHidden : null}>'{year - 2000}</span></p>
             <div className={month[15].date.substring(0,7) === futureDate ? calArrowRightDisabled : calArrowRight} onClick={onNextMonth}>
               <svg xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16" fill="none">
                 <g filter="url(#filter0_i_845_1400)">

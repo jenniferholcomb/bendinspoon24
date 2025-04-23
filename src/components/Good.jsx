@@ -31,9 +31,9 @@ function Good({ foodItem, decItem, incItem }) {
                 <p>{incItem.priceDollars}</p>
                 <p id={cents}>{incItem.priceCents === 0 ? '00' : incItem.priceCents}</p>
               </div>
-              <div className={date}>
+              {/* <div className={date}>
                 <p>{incItem.date}</p>
-              </div>
+              </div> */}
             </div>
             {dividerLine}
             {/* <div></div> */}
@@ -73,9 +73,9 @@ function Good({ foodItem, decItem, incItem }) {
                 <p>{foodItem ? foodItem.priceDollars : decItem.priceDollars}</p>
                 <p id={cents}>{foodItem ? (foodItem.priceCents === 0 ? '00' : foodItem.priceCents) : (decItem.priceCents === 0 ? '00' : decItem.priceCents)}</p>
               </div>
-              <div className={date}>
+              {/* <div className={date}>
                 <p>{foodItem ? foodItem.date : decItem.date}</p>
-              </div>
+              </div> */}
             </div>
             {dividerLine}
             <div className={item}>

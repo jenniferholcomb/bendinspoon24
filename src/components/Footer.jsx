@@ -75,7 +75,7 @@ function Footer ({ selectedTab, onChangingTab, isMobile }) {
                   </div>
                   <div className={keyGroup}>
                     <img src={eventKey} alt="event key" />
-                    <p className={keyText}>popular local events</p>
+                    <p className={keyText}>local event</p>
                   </div>
                   <div className={keyGroup}>
                     <img src={laborKey} alt="labor key" />

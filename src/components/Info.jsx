@@ -18,7 +18,7 @@ function Info ({ selectedInfo, onClosingInfoPage }) {
 
   const infoHead = [ 'week-at-a-glance info', 'tourism calendar info', 'cost of goods info'];
   const infoParagraph = [ "Factors for predicting seven days of profit margins. Tourism probability, weather, holidays, and local events specific to Bend, OR. Labor estimates and past sales figures are static - they demonstrate how application could be linked to accounting software.",
-                          "The tourism calendar is populated with the percent of short term rentals booked on a given day within Bend, OR. This information is obtained by calculating availability data of each rental listing.",
+                          "The tourism calendar is populated with the percent of short term rentals booked on a given day within Bend, OR. This information is obtained by calculating availability data of each rental listing. It also includes holidays & local events.",
                           "Displays any inventory items where distributor price has increased or decreased. Invoice management database and application are connected, calculations flucuate with invoice entry. All data presented is for demonstration purposes only, information is static. "
   ];
 

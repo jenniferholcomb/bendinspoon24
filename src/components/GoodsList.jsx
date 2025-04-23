@@ -72,7 +72,7 @@ function GoodsList ({ allGoods }) {
     if (goodsListCode) {
       goodsListCode.map(item => handleSortingGood(item))
     }
-    const finalDecList = decreaseList.current.sort((a,b) => a.percentDecrease - b.percentDecrease);
+    const finalDecList = decreaseList.current.sort((a,b) => a.percentDecrease - b.percentDecrease).reverse();
     setFinalDecList(finalDecList);
     decreaseList.current = [];
 
