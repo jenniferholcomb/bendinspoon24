@@ -11,7 +11,7 @@ import copyright from "/img/copyright.svg";
 const { tabFooterWrapper, inFocusTab, iconTab, footerWrapper, keyContainer, keyScroll, copyrightGroup, copyrightContainer, copyrightText, keyGroup, keyText, keyIcon, empty, shadowSide, divider, iconContainer, closeIcon } = styles;
 
 function Footer ({ selectedTab, onChangingTab, isMobile }) {
-  const [keyExpand, setKeyExpand] = useState(false);
+  const [keyExpand, setKeyExpand] = useState(true);
 
   const handleKeyClick = () => {
     setKeyExpand(!keyExpand);
