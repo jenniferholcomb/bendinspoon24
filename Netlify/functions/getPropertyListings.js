@@ -8,7 +8,7 @@ export async function handler(event, context) {
   // Extract `singleId` from the query string parameters
   const { singleId } = event.queryStringParameters;
 
-  // Check if `singleId` exists
+  // Check if `singleId` exists 
   if (!singleId) {
     return {
       statusCode: 400,

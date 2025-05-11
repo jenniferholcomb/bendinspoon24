@@ -171,6 +171,9 @@ const useEvents = () => {
     loadEvents();
   }, [])
 
+
+  // get content post from "Portfolio stretch goals" doc in Google Docs!!!
+
   // useEffect(() => {
   //   // get data from serverless function
   //   const fetchEvents = async () => {

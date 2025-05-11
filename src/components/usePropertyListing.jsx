@@ -67,7 +67,7 @@ const usePropertyListing = () => {
     await Promise.all(finalByMonth.map(item => handleSendingAvail(item)));
     console.log('final percents by month', finalByMonth);
     return finalByMonth;
-  };
+  }; 
 
   const apiCall = async (singleId, index) => {
     const unprocessed = processedIndices.filter(id => id === singleId);

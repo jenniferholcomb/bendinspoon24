@@ -70,6 +70,10 @@ function Footer ({ selectedTab, onChangingTab, isMobile }) {
               :
                 <>
                   <div className={keyGroup}>
+                    <img src={alertKey} alt="tourism alert key" />
+                    <p className={keyText}>tourism probability</p>
+                  </div>
+                  <div className={keyGroup}>
                     <img src={holidayKey} alt="holiday key" />
                     <p className={keyText}>holiday</p>
                   </div>
@@ -84,10 +88,6 @@ function Footer ({ selectedTab, onChangingTab, isMobile }) {
                   <div className={keyGroup}>
                     <img src={salesKey} alt="sales key" />
                     <p className={keyText}>total sales on equivalent<br />day of previous year</p>
-                  </div>
-                  <div className={keyGroup}>
-                    <img src={alertKey} alt="tourism alert key" />
-                    <p className={keyText}>tourism probability,<br />AM vs PM</p>
                   </div>
                   <div className={empty}></div>
                 </>
