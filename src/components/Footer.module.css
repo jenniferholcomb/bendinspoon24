@@ -14,6 +14,10 @@
   gap: 22%;
 }
 
+.tabButton {
+  all: unset;
+}
+
 svg {
   cursor: pointer;
 }
@@ -41,7 +45,7 @@ svg {
   overflow: hidden;
 }
 
-.keyScroll {
+.legend {
   min-width: 100%;
   height: 100%;
   display: flex;
@@ -78,17 +82,17 @@ svg {
   margin-right: 1.5%;
 } */
 
-.keyGroup img {
+.keyGroup dt img {
   width: 24px;
   height: 24px;
   margin-right: 10px;
 }
 
-.keyGroup p {
+.keyGroup dd {
   white-space: nowrap;
 }
 
-p.keyText {
+dd.keyText {
   color: #BDC1C0;
   font-family: Akatab;
   font-size: 12px;
@@ -99,7 +103,7 @@ p.keyText {
   margin: 0 41px 0 0;
 }
 
-p.keyText {
+dd.keyText {
   margin-right: 40px;
 }
 
@@ -150,6 +154,10 @@ p.copyrightText {
   display: flex;
   align-items: center;
   justify-content: end;
+}
+
+.iconContainer button {
+  all: unset;
 }
 
 @media (max-width: 430px) and (orientation: portrait) {

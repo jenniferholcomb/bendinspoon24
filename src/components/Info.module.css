@@ -12,6 +12,10 @@
   justify-content: center;
 }
 
+.infoContainer:focus {
+  outline: none;
+}
+
 .infoBox {
   width: 80%;
   /* height: 438px; */
@@ -22,7 +26,7 @@
   overflow-y: scroll;
 }
 
-.blurb, .blurbWeek, .infoKey p {
+.blurb, .blurbWeek, .infoKey p, .infoKey h4 {
   color: #BDC1C0;
   font-family: Akatab;
   font-size: 15px;
@@ -50,17 +54,38 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-top: 17px;
   width: 100%;
+}
+
+.infoHeader button {
+  all: unset;
+  height: 3rem;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.infoHeader button svg {
+  align-self: center;
+}
+
+.infoHeader button:focus {
+  outline: none;
+}
+
+.infoHeader button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -3px;
 }
 
 .infoSubhead {
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-top: 17px;
 }
 
-.infoSubhead h3, .infoSubhead p {
+.infoSubhead h2, .infoSubhead h3 {
   font-family: Dongle;
   font-size: 22px;
   font-style: normal;
@@ -72,17 +97,17 @@
   transform: translateY(4px);
 }
 
-.infoSubhead h3 {
+.infoSubhead h2 {
   color: #FEFFDA;
 }
 
-.infoSubhead p {
+.infoSubhead h3 {
   display: none;
   color: #BDC1C0;
 }
 
 .infoHeader svg {
-  padding: 0 21px 0 0;
+  /* padding: 0 21px 0 0; */
 }
 
 .tourismSubhead {
@@ -132,7 +157,7 @@
   white-space: nowrap;
 } */
 
-p.keyText, .tourismSubhead {
+dd.keyText, .tourismSubhead {
   color: #BDC1C0;
   font-family: Akatab;
   font-size: 12px;
@@ -164,7 +189,7 @@ p.keyText, .tourismSubhead {
     overflow-x: hidden;
   }
 
-  .infoSubhead p {
+  .infoSubhead h3 {
     display: unset;
   }
 }
@@ -180,7 +205,7 @@ p.keyText, .tourismSubhead {
     padding-bottom: 20px;
   }
 
-  .infoSubhead p {
+  .infoSubhead h3 {
     display: unset;
   }
 }
@@ -191,7 +216,7 @@ p.keyText, .tourismSubhead {
     height: 100%;
   }
 
-  .infoSubhead p {
+  .infoSubhead h3 {
     display: unset;
   }
 }

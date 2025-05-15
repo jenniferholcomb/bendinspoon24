@@ -8,10 +8,15 @@ import useResize from './useResize';
 
 function App() {
   const [tab, setTab] = useState('week');
+  const [infoOpen, setInfoOpen] = useState(false);
   const [orientation, isMobile, isTablet, isShort] = useResize();
 
   const handleTabClick = (clickedTab) => {
     setTab(clickedTab);
+  };
+
+  const handleInfoPage = (bool) => {
+    setInfoOpen(bool);
   };
 
   useEffect(() => {
@@ -30,10 +35,13 @@ function App() {
     <div className={styles.bodyWrapper}>
       <Header isMobile={isMobile} />
       <AgentsControl selectedTab={tab} 
-                     isMobile={isMobile} />
+                     isMobile={isMobile}
+                     handleInfoPage={handleInfoPage}
+                     infoOpen={infoOpen} />
       <Footer selectedTab={tab}
               onChangingTab={handleTabClick} 
-              isMobile={isMobile} />
+              isMobile={isMobile}
+              infoOpen={infoOpen} />
     </div>
   );
 }

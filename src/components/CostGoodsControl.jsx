@@ -35,7 +35,7 @@ const initialState = {
   error: null
 };
 
-function CostGoodsControl ({ selectedTab, isMobile, onInfoInFocus }) {
+function CostGoodsControl ({ selectedTab, isMobile, onInfoInFocus, infoOpen }) {
   const [state, dispatch] = useReducer(goodsControlReducer, initialState);
   const currentItems = useRef(state.createInvoice);
   const currentGoods = useRef(state.goodsData);
@@ -176,7 +176,7 @@ function CostGoodsControl ({ selectedTab, isMobile, onInfoInFocus }) {
 
   return (
     <>
-      <div className={isMobile ? (selectedTab === 'costGoods' ? tabCostGoodsWrapper : hiddenCostGoodsWrapper) : costGoodsWrapper}>
+      <div className={isMobile ? (selectedTab === 'costGoods' ? tabCostGoodsWrapper : hiddenCostGoodsWrapper) : costGoodsWrapper} aria-hidden={infoOpen ? "true" : "false"}>
         <div className={costGoodsHeader}>
           <div className={costLabelContainer}>
             <h3 className={costLabel}>cost of goods</h3>

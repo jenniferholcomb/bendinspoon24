@@ -8,7 +8,7 @@ import styles from "./Tourism.module.css";
 
 const { tabTourismWrapper, hiddenTourismWrapper, tourismWrapper, tourismHeader, tourismLabelContainer, tourismLabel, infoIcon, calendarContainer, tourismSubhead, calendarPage, calendarWrapper } = styles;
 
-const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab, isMobile, onInfoInFocus }) => {
+const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab, isMobile, onInfoInFocus, infoOpen }) => {
   const selectedMonth = useRef();
   const [currentMonthName, setCurrentMonthName]  = useState();
   const currentYear = useRef();
@@ -223,7 +223,7 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
 
   return (
     <>
-      <div className={isMobile ? (selectedTab === 'tourism' ? tabTourismWrapper : hiddenTourismWrapper) : tourismWrapper}>
+      <div className={isMobile ? (selectedTab === 'tourism' ? tabTourismWrapper : hiddenTourismWrapper) : tourismWrapper} aria-hidden={infoOpen ? "true" : "false"}>
         <div className={tourismHeader}>
           <div className={tourismLabelContainer}>
             <h3 className={tourismLabel}>tourism calendar</h3>

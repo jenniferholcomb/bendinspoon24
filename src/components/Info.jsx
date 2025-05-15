@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./Info.module.css";
 
 import holidayKey from "/img/holidayKey.svg";
@@ -14,7 +14,9 @@ import arrowUpKey from "/img/arrowUpKey.svg";
 
 const { infoContainer, infoBox, infoHeader, infoSubhead, pageTitle, closeInfo, blurbWeek, blurb, infoKey, infoWeek1, keyGroup, keyContainer, keyText, infoWeek2, tourismSubheadWeek, infoTourism1, tourismSubhead, infoTourism2, costGoodsContain } = styles;
 
-function Info ({ selectedInfo, onClosingInfoPage }) {
+function Info ({ isOpen, selectedInfo, onClosingInfoPage }) {
+  const closeButtonRef = useRef(null);
+  const modalRef = useRef(null);
 
   const infoHead = [ 'week-at-a-glance info', 'tourism calendar info', 'cost of goods info'];
   const infoParagraph = [ "Factors for predicting seven days of profit margins. Tourism probability, weather, holidays, and local events specific to Bend, OR. Labor estimates and past sales figures are static - they demonstrate how application could be linked to accounting software.",
@@ -22,118 +24,163 @@ function Info ({ selectedInfo, onClosingInfoPage }) {
                           "Displays any inventory items where distributor price has increased or decreased. Invoice management database and application are connected, calculations flucuate with invoice entry. All data presented is for demonstration purposes only, information is static. "
   ];
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousFocus = document.activeElement;
+
+    const handleKeyDown = (e) => {
+      console.log(e.key)
+      if (e.key === 'Escape') {
+        onClosingInfoPage();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previousFocus?.focus();
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    modalRef.current?.focus();
+  }, []);
+
+  if (!isOpen) return null;
+
   return (
     <>
-      <div className={infoContainer}>
+      <div 
+        ref={modalRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Information"
+        className={infoContainer}
+      >
         <div className={infoBox}>
           <div className={infoHeader}>
             <div className={infoSubhead}>
               { selectedInfo === 'week' ?
                 <>
-                  <h3>info</h3>
-                  <p>week-at-a-glance</p>
+                  <h2>Info</h2>
+                  <h3>week-at-a-glance</h3>
                 </>
               : selectedInfo === 'tourism' ?
                 <>
-                  <h3>info</h3>
-                  <p>tourism calendar</p>
+                  <h2>info</h2>
+                  <h3>tourism calendar</h3>
                 </>
                 :
                 <>
-                  <h3>info</h3>
-                  <p>cost of goods</p>
+                  <h2>info</h2>
+                  <h3>cost of goods</h3>
                 </>
               }
             </div>
-            <svg className={closeInfo} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" onClick={onClosingInfoPage} >
-              <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="#666B69"/>
-            </svg>
+            <button
+              ref={closeButtonRef}
+              tabIndex={0}
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={() => onClosingInfoPage(false)}
+              aria-label="close modal"
+            >
+              <svg className={closeInfo} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="#666B69"/>
+              </svg>
+            </button>
           </div>
           <p className={selectedInfo === "week" ? blurbWeek : blurb}>{selectedInfo === 'week' ? infoParagraph[0] : selectedInfo === 'tourism' ? infoParagraph[1] : infoParagraph[2]}</p>
           <div className={infoKey}>
             { selectedInfo === "week" ?
               <>
-                <div className={infoWeek1} >
+                <dl className={infoWeek1} >
                   <div className={`${keyGroup} ${keyContainer}`}>
-                    <img src={laborKey} alt="labor estimate key" />
-                    <p className={keyText}>total labor estimate</p>
+                    <dt><img src={laborKey} alt="" aria-hidden="true" /></dt>
+                    <dd className={keyText}>total labor estimate</dd>
                   </div>
                   <div className={`${keyGroup} ${keyContainer}`}>
-                    <img src={salesKey} alt="previous sales key" />
-                    <p className={keyText}>total sales on equivalent day of previous year</p>
+                    <dt><img src={salesKey} alt="" aria-hidden="true" /></dt>
+                    <dd className={keyText}>total sales on equivalent day of previous year</dd>
                   </div>
                   <div className={infoWeek2}>
                     <div className={keyGroup}>
-                      <img src={holidayKey} alt="holiday key" />
-                      <p className={keyText}>holiday</p>
+                      <dt><img src={holidayKey} alt="" aria-hidden="true" /></dt>
+                      <dd className={keyText}>holiday</dd>
                     </div>
                     <div className={keyGroup}>
-                      <img src={eventKey} alt="event key" />
-                      <p className={keyText}>local events</p>
+                      <dt><img src={eventKey} alt="" aria-hidden="true" /></dt>
+                      <dd className={keyText}>local events</dd>
                     </div>
                   </div>
-                  <p className={tourismSubheadWeek}>Tourism probability</p>
+                  <h4 className={tourismSubheadWeek}>Tourism probability</h4>
                   <div className={infoWeek2}>
                     <div className={keyGroup}>
-                      <img src={lowKey} alt="low tourism probability key" />
-                      <p className={keyText}>low</p>
+                      <dt><img src={lowKey} alt="" aria-hidden="true" /></dt>
+                      <dd className={keyText}>low</dd>
                     </div>
                     <div className={keyGroup}>
-                      <img src={midKey} alt="mid tourism probability key" />
-                      <p className={keyText}>mid</p>
+                      <dt><img src={midKey} alt="" aria-hidden="true" /></dt>
+                      <dd className={keyText}>mid</dd>
                     </div>
                   </div>
                   <div className={infoWeek2}>
                     <div className={keyGroup}>
-                      <img src={highKey} alt="high tourism probability key" />
-                      <p className={keyText}>low</p>
+                      <dt><img src={highKey} alt="" aria-hidden="true" /></dt>
+                      <dd className={keyText}>low</dd>
                     </div>
                     <div className={keyGroup}>
-                    <img src={alertKey} alt="tourism alert key" />
-                    <p className={keyText}>AM vs PM</p>
+                      <dt><img src={alertKey} alt="" aria-hidden="true" /></dt>
+                      <dd className={keyText}>AM vs PM</dd>
                     </div>
                   </div>
-                </div>
+                </dl>
               </>
             :
               selectedInfo === "tourism" ?
               <>
-                <div className={infoTourism1}>
-                  <div className={keyGroup}>
-                    <img src={holidayKey} alt="holiday key" />
-                    <p className={keyText}>holiday</p>
+                <dl>
+                  <div className={infoTourism1}>
+                    <div className={keyGroup}>
+                      <dt><img src={holidayKey} alt="" aria-hidden="true" /></dt>
+                      <dd className={keyText}>holiday</dd>
+                    </div>
+                    <div className={keyGroup}>
+                      <dt><img src={eventKey} alt="" aria-hidden="true" /></dt>
+                      <dd className={keyText}>local events</dd>
+                    </div>
                   </div>
-                  <div className={keyGroup}>
-                    <img src={eventKey} alt="event key" />
-                    <p className={keyText}>local events</p>
+                  <h4 className={tourismSubhead}>Tourism probability</h4>
+                  <div className={infoTourism2}>
+                    <div className={keyGroup}>
+                      <dt><img src={lowKey} alt="" aria-hidden="true" /></dt>
+                      <dd className={keyText}>low</dd>
+                    </div>
+                    <div className={keyGroup}>
+                      <dt><img src={midKey} alt="" aria-hidden="true" /></dt>
+                      <dd className={keyText}>mid</dd>
+                    </div>
+                    <div className={keyGroup}>
+                      <dt><img src={highKey} alt="" aria-hidden="true" /></dt>
+                      <dd className={keyText}>high</dd>
+                    </div>
                   </div>
-                </div>
-                <p className={tourismSubhead}>Tourism probability</p>
-                <div className={infoTourism2}>
-                  <div className={keyGroup}>
-                    <img src={lowKey} alt="low tourism probability key" />
-                    <p className={keyText}>low</p>
-                  </div>
-                  <div className={keyGroup}>
-                    <img src={midKey} alt="mid tourism probability key" />
-                    <p className={keyText}>mid</p>
-                  </div>
-                  <div className={keyGroup}>
-                    <img src={highKey} alt="high tourism probability key" />
-                    <p className={keyText}>high</p>
-                  </div>
-                </div>
+                </dl>
               </> 
               :
               <div className={`${infoTourism1} ${costGoodsContain}`} >
+                <dl>
                   <div className={keyGroup}>
-                    <img src={arrowUpKey} alt="cost increase key" />
-                    <p className={keyText}>item cost increased</p>
+                    <dt><img src={arrowUpKey} alt="" aria-hidden="true" /></dt>
+                    <dd className={keyText}>item cost increased</dd>
                   </div>
                   <div className={keyGroup}>
-                    <img src={arrowDwnKey} alt="cost decrease key" />
-                    <p className={keyText}>item cost decreased</p>
+                    <dt><img src={arrowDwnKey} alt="" aria-hidden="true" /></dt>
+                    <dd className={keyText}>item cost decreased</dd>
                   </div>
+                </dl>
               </div>
             }
           </div>

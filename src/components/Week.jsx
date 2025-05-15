@@ -10,9 +10,9 @@ import wideHighAlert from "/img/wideHighAlert.svg";
 import wideMediumAlert from "/img/wideMediumAlert.svg";
 import wideLowAlert from "/img/wideLowAlert.svg";
 
-const { tabWeekWrapper, hiddenWeekWrapper, weekWrapper, weekHeader, weekLabelContainer, weekLabel, infoIcon, weekdayCards, weekdayCardsContainer, inFocusWrap, landscapeWrap, inFocusCard, dayCard, cardHidden, mobileCardContainer, endDiv, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, shadowTop, eventsContainer, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, centerContainer, percentContainerA, percentContainerB, aMPM, percentSign, eventHolidayAlerts, eventAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
+const { tabWeekWrapper, hiddenWeekWrapper, weekWrapper, weekHeader, weekLabelContainer, weekLabel, infoIcon, weekdayCards, weekdayCardsContainer, inFocusWrap, landscapeWrap, inFocusCard, dayCard, cardHidden, mobileCardContainer, endDiv, dayCardContainer, dateContainer, dayDate, dayDateFocusContainer, dayDateFocus, dayWeek, holidayTitle, weatherContainerFocus, weatherDegreeContainer, hiLoLabel, weatherDegreeFocus, weatherNudge, weatherContainer, iconContainer, weatherIcon, weatherDegree, inFocusContainer, notInFocusContainer, eventInFocus, eventInFocusHidden, shadowTop, eventsContainer, eventsHeader, noEventsHeader, singleEventContainer, eventDescription, eventTitle, eventQuote, salesLaborContainer, dividerLine, factorContainer, dollarSignLabor, dollarSignSales, laborTotalA, laborTotalB, factorLabel, laborLabel, salesLabels, salesLabelA, salesLabelB, salesTotalA, salesTotalB, customBarContainer, backgroundLayer, colorLayer, rentalsOccupiedText, centerContainer, percentContainerA, percentContainerB, aMPM, percentSign, eventHolidayAlerts, eventAlerts, holidayAlert, holidayAlertImg, hideHolidayAlert } = styles;
 
-function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onInfoInFocus }) {
+function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onInfoInFocus, infoOpen }) {
   const [loadWeather] = useWeather();
   const [weather, setWeather] = useState(null);
   const thisWeekUpdate = thisWeek.slice(1,8);
@@ -36,6 +36,28 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
     return formattedDate; 
   };
 
+  const formatDateString = (dateStr, dayIndex) => {
+    const dayOfWeek = fullDaysOfWeek[dayIndex];
+    const month = parseInt(dateStr.substring(5, 7), 10);
+    const day = parseInt(dateStr.substring(8, 10), 10);
+    if (dayIndex) {
+      return `${dayOfWeek}, ${month}/${day}`;
+    } else {
+      return `${month}/${day}`;
+    }
+  };
+
+  const formatWeatherString = (label, temp, id) => {
+    return (
+      <p className={hiLoLabel} aria-label={`${label} temperature: ${temp} degrees`}>
+        {label}
+        <span className={weatherDegreeFocus} {...(id ? { id } : {})}>
+          {temp}°
+        </span>
+      </p>
+    );
+  };
+
   useEffect(() => {
     // console.log("Attaching weather listener...");
     const unsubscribe = loadWeather((weatherData) => {
@@ -51,15 +73,20 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
 
   return (
     <>
-      <div className={isMobile ? (selectedTab === 'week' ? tabWeekWrapper : hiddenWeekWrapper) : weekWrapper}>
+      <section className={isMobile ? (selectedTab === 'week' ? tabWeekWrapper : hiddenWeekWrapper) : weekWrapper} aria-hidden={infoOpen ? "true" : "false"} aria-labelledby="week-label">
         <div className={weekHeader}>
           <div className={weekLabelContainer}>
-            <h3 className={weekLabel}>week-at-a-glance</h3>
+            <h2 className={weekLabel} id="week-label">week-at-a-glance</h2>
           </div>
-          <div className={infoIcon} onClick={() => onInfoInFocus("week")}> 
-            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none"  >
-              <path d="M8.55 14.25H10.45V8.55H8.55V14.25ZM9.5 6.65C9.76917 6.65 9.99479 6.55896 10.1769 6.37687C10.359 6.19479 10.45 5.96917 10.45 5.7C10.45 5.43083 10.359 5.20521 10.1769 5.02312C9.99479 4.84104 9.76917 4.75 9.5 4.75C9.23083 4.75 9.00521 4.84104 8.82312 5.02312C8.64104 5.20521 8.55 5.43083 8.55 5.7C8.55 5.96917 8.64104 6.19479 8.82312 6.37687C9.00521 6.55896 9.23083 6.65 9.5 6.65ZM9.5 19C8.18583 19 6.95083 18.7506 5.795 18.2519C4.63917 17.7531 3.63375 17.0762 2.77875 16.2212C1.92375 15.3662 1.24687 14.3608 0.748125 13.205C0.249375 12.0492 0 10.8142 0 9.5C0 8.18583 0.249375 6.95083 0.748125 5.795C1.24687 4.63917 1.92375 3.63375 2.77875 2.77875C3.63375 1.92375 4.63917 1.24687 5.795 0.748125C6.95083 0.249375 8.18583 0 9.5 0C10.8142 0 12.0492 0.249375 13.205 0.748125C14.3608 1.24687 15.3662 1.92375 16.2212 2.77875C17.0762 3.63375 17.7531 4.63917 18.2519 5.795C18.7506 6.95083 19 8.18583 19 9.5C19 10.8142 18.7506 12.0492 18.2519 13.205C17.7531 14.3608 17.0762 15.3662 16.2212 16.2212C15.3662 17.0762 14.3608 17.7531 13.205 18.2519C12.0492 18.7506 10.8142 19 9.5 19ZM9.5 17.1C11.6217 17.1 13.4187 16.3637 14.8912 14.8912C16.3637 13.4187 17.1 11.6217 17.1 9.5C17.1 7.37833 16.3637 5.58125 14.8912 4.10875C13.4187 2.63625 11.6217 1.9 9.5 1.9C7.37833 1.9 5.58125 2.63625 4.10875 4.10875C2.63625 5.58125 1.9 7.37833 1.9 9.5C1.9 11.6217 2.63625 13.4187 4.10875 14.8912C5.58125 16.3637 7.37833 17.1 9.5 17.1Z" fill="#7B817B"/>
-            </svg>
+          <div className={infoIcon}>
+            <button 
+              onClick={() => onInfoInFocus("week")}
+              aria-label="information"
+            > 
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none" aria-hidden="true">
+                <path d="M8.55 14.25H10.45V8.55H8.55V14.25ZM9.5 6.65C9.76917 6.65 9.99479 6.55896 10.1769 6.37687C10.359 6.19479 10.45 5.96917 10.45 5.7C10.45 5.43083 10.359 5.20521 10.1769 5.02312C9.99479 4.84104 9.76917 4.75 9.5 4.75C9.23083 4.75 9.00521 4.84104 8.82312 5.02312C8.64104 5.20521 8.55 5.43083 8.55 5.7C8.55 5.96917 8.64104 6.19479 8.82312 6.37687C9.00521 6.55896 9.23083 6.65 9.5 6.65ZM9.5 19C8.18583 19 6.95083 18.7506 5.795 18.2519C4.63917 17.7531 3.63375 17.0762 2.77875 16.2212C1.92375 15.3662 1.24687 14.3608 0.748125 13.205C0.249375 12.0492 0 10.8142 0 9.5C0 8.18583 0.249375 6.95083 0.748125 5.795C1.24687 4.63917 1.92375 3.63375 2.77875 2.77875C3.63375 1.92375 4.63917 1.24687 5.795 0.748125C6.95083 0.249375 8.18583 0 9.5 0C10.8142 0 12.0492 0.249375 13.205 0.748125C14.3608 1.24687 15.3662 1.92375 16.2212 2.77875C17.0762 3.63375 17.7531 4.63917 18.2519 5.795C18.7506 6.95083 19 8.18583 19 9.5C19 10.8142 18.7506 12.0492 18.2519 13.205C17.7531 14.3608 17.0762 15.3662 16.2212 16.2212C15.3662 17.0762 14.3608 17.7531 13.205 18.2519C12.0492 18.7506 10.8142 19 9.5 19ZM9.5 17.1C11.6217 17.1 13.4187 16.3637 14.8912 14.8912C16.3637 13.4187 17.1 11.6217 17.1 9.5C17.1 7.37833 16.3637 5.58125 14.8912 4.10875C13.4187 2.63625 11.6217 1.9 9.5 1.9C7.37833 1.9 5.58125 2.63625 4.10875 4.10875C2.63625 5.58125 1.9 7.37833 1.9 9.5C1.9 11.6217 2.63625 13.4187 4.10875 14.8912C5.58125 16.3637 7.37833 17.1 9.5 17.1Z" fill="#7B817B"/>
+              </svg>
+            </button>
           </div>
         </div>
         <div className={weekdayCards}>
@@ -67,86 +94,101 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
             <div className={isMobile ? inFocusWrap : landscapeWrap}>
               {thisWeek && (
                 thisWeekUpdate.map((day, index) => 
-                  <div key={index} className={index === dayInFocus ? inFocusCard : isMobile ? cardHidden : dayCard} onClick={!isMobile ? () => onChangingDay(index) : null}>
+                  <div 
+                    role="button"
+                    tabIndex="0"
+                    aria-expanded={index === dayInFocus}
+                    aria-label={`Card for ${fullDaysOfWeek[day[1]]} - ${index === dayInFocus ? "expanded" : "collapsed"}`}
+                    key={index} 
+                    className={index === dayInFocus ? inFocusCard : isMobile ? cardHidden : dayCard} 
+                    onClick={!isMobile ? () => onChangingDay(index) : null} 
+                    onKeyDown={!isMobile ? 
+                      (e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        onChangingDay(index);
+                      }}
+                    :
+                      null
+                    }
+                  >
                     <div className={dayCardContainer}>
                       <div className={dateContainer}>    
                         { index === dayInFocus ?
                           <>
                             <div className={dayDateFocusContainer}>
-                              <p className={dayDateFocus}>{fullDaysOfWeek[day[1]]}, {day[0].substring(5,6) === '0' ? day[0].substring(6,7) : day[0].substring(5,7)}/{day[0].substring(8,9) === '0' ? day[0].substring(9,10) : day[0].substring(8,10)}</p>
+                              <h3 className={dayDateFocus}>{formatDateString(day[0], day[1])}</h3>
                               { day.addHoliday[1].length > 0 && (
                                 <>
-                                  <p className={holidayTitle}>{day.addHoliday[1][0].name}</p>
+                                  <p className={holidayTitle} aria-label="Holiday:">{day.addHoliday[1][0].name}</p>
                                 </>
                               )}
                             </div>
                           </>
                         :
-                          <p className={dayDate}>
-                            <span className={dayWeek}>{daysOfWeek[day[1]]}</span>
-                            <br />
-                            {day[0].substring(5,6) === '0' ? day[0].substring(6,7) : day[0].substring(5,7)}/{day[0].substring(8,9) === '0' ? day[0].substring(9,10) : day[0].substring(8,10)}
-                          </p>
+                          <h3 className={dayDate} aria-label={`${fullDaysOfWeek[day[1]]}, ${formatDateString(day[0])}`}>
+                            <span className={dayWeek} aria-hidden="true">{daysOfWeek[day[1]]}</span>
+                            <br aria-hidden="true" />
+                            {formatDateString(day[0])}
+                          </h3>
                         }              
                         { weather && (
                           index === dayInFocus ?
-                            <div className={weatherContainerFocus}>
-                              <img src={`/img/icons/${weather[index+14]}.png`} alt="weatherIcon" />
-                              {/* <img src={require(`./../img/icons/${forecast[index+14]}.png`)} alt="weatherIcon" /> */}
+                            <div className={weatherContainerFocus} aria-label="weather">
+                              <img src={`/img/icons/${weather[index+14]}.png`} alt={`${weather[index+21]}`} />
                               <div className={weatherDegreeContainer}>
-                                <p className={hiLoLabel}>LO<span className={weatherDegreeFocus}>{weather[index]}&ordm;</span></p>
-                                <p className={hiLoLabel}>HI<span className={weatherDegreeFocus} id={weatherNudge}>{weather[index+7]}&ordm;</span></p>
+                                {formatWeatherString("LO", weather[index])}
+                                {formatWeatherString("HI", weather[index + 7], weatherNudge)}
                               </div>
                             </div>
                           :
                             <div className={weatherContainer}>
                               <div className={iconContainer}>                  
-                                <img className={weatherIcon} src={`/img/icons/${weather[index+14]}.png`} alt='weather icon' /> 
-                                {/* <img className={weatherIcon} src={require(`./../img/icons/${forecast[index+14]}.png`)} alt='weather icon' /> */}
+                                <img className={weatherIcon} src={`/img/icons/${weather[index+14]}.png`} alt={`${weather[index+21]}`} /> 
                               </div>
-                              <p className={weatherDegree}>{weather[index+7]}&ordm;</p>
+                              <p className={weatherDegree} aria-label={`HI temperature: ${weather[index+7]} degrees`}>{weather[index+7]}°</p>
                             </div> 
                         )}
                       </div>
                       <div className={index === dayInFocus ? inFocusContainer : notInFocusContainer}>
                         <div className={index === dayInFocus ? eventInFocus : eventInFocusHidden}>
                           <div className={shadowTop}></div>
-                          <div className={eventsContainer}>                      
-                            <h4 className={eventsHeader}><span className={day.addEvent[1].length > 0 ? noEventsHeader : null}>NO </span>LOCAL EVENTS</h4>
+                          <ul className={eventsContainer} aria-label={day.addEvent[1].length > 0 ? "Local events" : "No local events"}>                      
+                            <h4 className={eventsHeader} aria-hidden="true"><span className={day.addEvent[1].length > 0 ? noEventsHeader : null}>NO </span>LOCAL EVENTS</h4>
                             {day.addEvent[1].map((event, i) => 
-                              <div key={i} className={singleEventContainer}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 7 7" fill="none">
+                              <li key={i} className={singleEventContainer}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 7 7" fill="none" aria-hidden="true">
                                   <circle cx="3.5" cy="3.50024" r="3.5" fill="#e74040"/>
                                 </svg>
                                 <div className={eventDescription}>
                                   <p className={eventTitle}>{event.name}</p>
-                                  <blockquote>"{event.description}"</blockquote>
+                                  <p className={eventQuote}>"{event.description}"</p>
                                 </div>
-                              </div>
+                              </li>
                             )}
-                          </div>
+                          </ul>
                         </div>
                         <div className={salesLaborContainer}>
-                          <div className={dividerLine}>
+                          <div className={dividerLine} aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="112" height="2" viewBox="0 0 99 2" fill="none">
                               <path d="M98 1.49999C98.2761 1.49999 98.5 1.27613 98.5 0.999991C98.5 0.723849 98.2761 0.499991 98 0.499991L98 1.49999ZM4.37114e-08 1.5L98 1.49999L98 0.499991L-4.37114e-08 0.5L4.37114e-08 1.5Z" fill="#484A49"/>
                             </svg>
                           </div>
-                          <div className={factorContainer}>
-                            <p className={dollarSignLabor}>$</p>
-                            <p className={laborTotalA}>{labor[day[1]].slice(0,1)}<span className={laborTotalB}>{labor[day[1]].slice(1)}</span></p>
+                          <div className={factorContainer} aria-label={`Labor estimate: $${labor[day[1]]}`}>
+                            <p className={dollarSignLabor} aria-hidden="true">$</p>
+                            <p className={laborTotalA} aria-hidden="true">{labor[day[1]].slice(0,1)}<span className={laborTotalB}>{labor[day[1]].slice(1)}</span></p>
                           </div>
-                          <p className={factorLabel} id={laborLabel}>labor</p>
-                          <div className={dividerLine}>
+                          <p className={factorLabel} id={laborLabel} aria-hidden="true">labor</p>
+                          <div className={dividerLine} aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="99" height="2" viewBox="0 0 99 2" fill="none">
                               <path d="M98 1.49999C98.2761 1.49999 98.5 1.27613 98.5 0.999991C98.5 0.723849 98.2761 0.499991 98 0.499991L98 1.49999ZM4.37114e-08 1.5L98 1.49999L98 0.499991L-4.37114e-08 0.5L4.37114e-08 1.5Z" fill="#484A49"/>
                             </svg>
                           </div>
-                          <div className={factorContainer}>
-                            <p className={dollarSignSales}>$</p>
-                            <p className={salesTotalA}>{sales[day[1]].slice(0,1)}<span className={salesTotalB}>{sales[day[1]].slice(1)}</span></p>
+                          <div className={factorContainer} aria-label={`Sales from ${handleLastYearDate(day[0])}: $${sales[day[1]]}`}>
+                            <p className={dollarSignSales} aria-hidden="true">$</p>
+                            <p className={salesTotalA} aria-hidden="true">{sales[day[1]].slice(0,1)}<span className={salesTotalB}>{sales[day[1]].slice(1)}</span></p>
                           </div>  
-                          <div className={salesLabels}>
+                          <div className={salesLabels} aria-hidden="true">
                             <p className={factorLabel} id={salesLabelA}>sales</p>
                             <p className={factorLabel} id={salesLabelB}>{handleLastYearDate(day[0])}</p>
                           </div>
@@ -159,8 +201,8 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                             <div className={eventHolidayAlerts}>
                               { index === dayInFocus ?
                                 <>
-                                  <p className={rentalsOccupiedText} style={{ color: thisWeek[index].color}}>STR</p>
-                                  <div className={centerContainer}>
+                                  <p className={rentalsOccupiedText} style={{ color: thisWeek[index].color}} aria-label={`Short term rental probability: AM ${thisWeek[index].percent}%, PM ${day.percent}%`}>STR</p>
+                                  <div className={centerContainer} aria-hidden="true">
                                     <div className={percentContainerA} style={{ color: thisWeek[index].color}}>
                                       <p><span className={aMPM} style={{ color: thisWeek[index].color}}>AM </span>{thisWeek[index].percent}</p>
                                       <p className={percentSign} style={{ color: thisWeek[index].color}}>%</p>
@@ -281,7 +323,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
             <div className={endDiv}></div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

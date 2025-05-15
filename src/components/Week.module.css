@@ -41,6 +41,20 @@
   padding-right: 20px;
 }
 
+.infoIcon button {
+  background-color: transparent;
+  border: none;
+}
+
+.infoIcon button:focus {
+  outline: none;
+}
+
+.infoIcon button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 .weekLabel {
   padding-top: 7px;
   color: #FEFFDA;
@@ -127,7 +141,7 @@
 
 .inFocusCard:hover, .dayCard:hover {
   transform: scale(1.04);
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
 }
 
 .dayCardContainer {
@@ -150,13 +164,13 @@
   min-width: 215px;
 }
 
-.dayDateFocusContainer, p.dayDate {
+.dayDateFocusContainer, h3.dayDate {
   margin: 0;
   padding: 15px 0 0 9px;
   align-self: center;
 }
 
-p.dayDate, p.dayDateFocus {
+h3.dayDate, h3.dayDateFocus {
   color: rgba(188, 188, 188, 0.27);
   font-family: Dongle;
   font-size: 22px;
@@ -171,7 +185,7 @@ p.dayDate, p.dayDateFocus {
   margin: 0;
 }
 
-p.dayDateFocus {
+h3.dayDateFocus {
   white-space: nowrap;
 }
 
@@ -308,6 +322,7 @@ span.weatherDegreeFocus {
 .eventsContainer {
   max-width: 100%;
   max-height: 100%;
+  margin: 0;
   padding: 6px 5px 6px 12px;
 }
 
@@ -351,7 +366,7 @@ span.weatherDegreeFocus {
   letter-spacing: 0.35px;
 }
 
-.singleEventContainer blockquote {
+.eventQuote {
   margin: 0;
   padding-left: 0px;
   font-size: 11px;

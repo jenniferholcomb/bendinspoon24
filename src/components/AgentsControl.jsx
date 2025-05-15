@@ -7,11 +7,11 @@ import styles from "./AgentsControl.module.css";
 
 const { infoContainer, infoBox, closeInfo, infoKey, infoHeader, infoWeek1, infoWeek2, infoTourism1, infoTourism2, infoCostGoods, blurbWeek, blurb, keyGroup, keyContainer, keyText, tourismSubhead, tourismSubheadWeek, costGoodsContain } = styles;
 
-function AgentsControl ({ selectedTab, isMobile }) {
+function AgentsControl ({ selectedTab, isMobile, handleInfoPage, infoOpen }) {
   const [fullCalendar, setFullCalendar] = useState();
   const [thisWeek, setThisWeek] = useState();
   const [dayInFocus, setDayInFocus] = useState(0);
-  const [infoOpen, setInfoOpen] = useState(false);
+  // const [infoOpen, setInfoOpen] = useState(false);
   const [infoPage, setInfoPage] = useState("week");
 
   const handleAddingCalendarData = (currentPercents, monthName) => {
@@ -46,18 +46,18 @@ function AgentsControl ({ selectedTab, isMobile }) {
     setDayInFocus(day);
   };
 
-  const handleClosingInfoPage = () => {
-    setInfoOpen(false);
-  }
+  // const handleClosingInfoPage = () => {
+  //   setInfoOpen(false);
+  // };
 
   const handleChangingInfoPage = (page) => {
-    setInfoOpen(true);
+    handleInfoPage(true);
     setInfoPage(page);
   };
 
   useEffect(() => {
     if (infoOpen) {
-      setInfoOpen(false);
+      handleInfoPage(false);
     }
   }, [selectedTab]);
 
@@ -75,7 +75,6 @@ function AgentsControl ({ selectedTab, isMobile }) {
                 selectedTab={selectedTab} 
                 isMobile={isMobile} 
                 onInfoInFocus={handleChangingInfoPage} 
-                onClosingInfoPage={handleClosingInfoPage} 
                 infoOpen={infoOpen} />
         )}
         { thisWeek && (
@@ -84,15 +83,18 @@ function AgentsControl ({ selectedTab, isMobile }) {
                   thisWeek={thisWeek}
                   selectedTab={selectedTab} 
                   isMobile={isMobile} 
-                  onInfoInFocus={handleChangingInfoPage} />
+                  onInfoInFocus={handleChangingInfoPage}
+                  infoOpen={infoOpen} />
         )}
         <CostGoodsControl selectedTab={selectedTab} 
                           isMobile={isMobile} 
-                          onInfoInFocus={handleChangingInfoPage} /> 
+                          onInfoInFocus={handleChangingInfoPage}
+                          infoOpen={infoOpen} /> 
                           
         { infoOpen && (
-          <Info selectedInfo={infoPage} 
-                onClosingInfoPage={handleClosingInfoPage} />
+          <Info isOpen={infoOpen}
+                selectedInfo={infoPage} 
+                onClosingInfoPage={handleInfoPage} />
         )}
       </div>
     </>
