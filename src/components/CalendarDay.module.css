@@ -25,6 +25,20 @@
   display: none;
 }
 
+.calArrowLeft button, .calArrowRight button {
+  background-color: transparent;
+  border: none;
+}
+
+.calArrowLeft button:focus, .calArrowRight button:focus {
+  outline: none;
+}
+
+.calArrowLeft button:focus-visible, .calArrowRight button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 p.calText {
   color: rgba(188, 188, 188, 0.27);
   font-family: Dongle;
@@ -48,7 +62,7 @@ p.calText {
   max
 } */
 
-p.date {
+time.date {
   margin: 4px 0 0 4px;
   color: #5A5C5B;
   font-family: Dongle;
@@ -68,7 +82,7 @@ p.date {
   width: 100%;
 }
 
-p.propPercent {
+span.propPercent {
   /* margin: 2px 0 0 0; */
   font-family: Akatab;
   font-size: 17px;
@@ -102,16 +116,41 @@ p.percentSign {
 
 .dateBubble {
   display: grid;
-  padding: none;
+  padding: 0;
   width: 42px;
   height: 49px;
   border-radius: 8px;
+  text-align: left;
+  border: none;
   box-shadow: 4px 8px 10px 0px rgba(16, 15, 15, 0.10);
+}
+
+.dateBubble:focus {
+  outline: none;
+}
+
+.dateBubble:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 #popDateBubble {
   cursor: pointer;
 }
+
+/* button {
+  background-color: transparent;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+} */
 
 .popoverContent {
   font-family: Dongle;

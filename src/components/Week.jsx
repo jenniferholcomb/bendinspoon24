@@ -196,7 +196,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                       </div>
                       <div className={customBarContainer}>
                         <div className={colorLayer} style={{ background: day.background, backgroundSize: 'cover' }}>
-                          <div className={backgroundLayer} style={{ backgroundImage: `url(${thisWeek[index].percent >=85 ? index === dayInFocus ? wideHighAlert : highAlert : thisWeek[index].percent >= 65 ? index === dayInFocus ? wideMediumAlert : mediumAlert : index === dayInFocus ? wideLowAlert : lowAlert})`, backgroundRepeat: 'no-repeat', backgroundPosition: '-2px -2px', backgroundSize: 'auto' }}>
+                          <div className={backgroundLayer} style={{ backgroundImage: `url("${thisWeek[index].percent >=85 ? index === dayInFocus ? wideHighAlert : highAlert : thisWeek[index].percent >= 65 ? index === dayInFocus ? wideMediumAlert : mediumAlert : index === dayInFocus ? wideLowAlert : lowAlert}")`, backgroundRepeat: 'no-repeat', backgroundPosition: '-2px -2px', backgroundSize: 'auto' }}>
                             
                             <div className={eventHolidayAlerts}>
                               { index === dayInFocus ?
