@@ -123,6 +123,7 @@ p.percentSign {
   text-align: left;
   border: none;
   box-shadow: 4px 8px 10px 0px rgba(16, 15, 15, 0.10);
+  cursor: pointer;
 }
 
 .dateBubble:focus {
@@ -133,24 +134,6 @@ p.percentSign {
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
-
-#popDateBubble {
-  cursor: pointer;
-}
-
-/* button {
-  background-color: transparent;
-  border: none;
-}
-
-button:focus {
-  outline: none;
-}
-
-button:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-} */
 
 .popoverContent {
   font-family: Dongle;
@@ -193,12 +176,12 @@ button:focus-visible {
 .popHeaderEvent {
   color: #ff4747;
   margin: 10px 5px 0 5px;
+  font-weight: 400;
 }
 
 .popEventName {
   margin: 3px 5px 5px 15px;
   text-transform: none;
-  width: 100%;
   font-family: Akatab;
   font-size: 12px;
   font-style: normal;
@@ -206,7 +189,7 @@ button:focus-visible {
   line-height: 12px;
 }
 
-blockquote {
+.popEventDescription {
   font-size: 95%;
   text-transform: none;
   max-width: 100%;
@@ -216,6 +199,8 @@ blockquote {
   font-weight: 400;
   line-height: 12px;
   margin: 0 10px 10px 15px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break:clone;
 }
 
 @media (max-width: 666px) and (orientation: portrait) {

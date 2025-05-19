@@ -14,7 +14,7 @@ import holidayIcon from "/img/holiday.svg";
 import eventIcon from "/img/event.svg";
 import holidayEventIcon from "/img/holidayEvent.svg";
 
-const {calMonth, calArrowLeft, calArrowLeftDisabled, calText, calArrowRight, calArrowRightDisabled, calendarDateContainer, percentContainer, propPercent, date, dateBubble, popDateBubble, listItemCal, popoverContent, popoverArrow, popHeaderHoliday, popHeaderEvent, popEventName, yearHidden } = styles;
+const {calMonth, calArrowLeft, calArrowLeftDisabled, calText, calArrowRight, calArrowRightDisabled, calendarDateContainer, percentContainer, propPercent, date, dateBubble, popDateBubble, listItemCal, popoverContent, popoverArrow, popHeaderHoliday, popHeaderEvent, popEventName, popEventDescription, yearHidden } = styles;
 
 function getBubbleStyle({ 
   addHoliday = [], 
@@ -29,7 +29,7 @@ function getBubbleStyle({
 
   const style = {
     background: background,
-    outline: currentDay ? '3px solid #C13F07' : 'none',
+    // border: currentDay && '1.75px solid #C13F07',
   };
 
   if (addHoliday[0] && addEvent[0]) {
@@ -62,10 +62,10 @@ function DateStyle ({item, index}) {
       holidayEventIcon,
     }
   });
-  const dateDay = new Date(item.date);
+
+  const [year, month, day] = item.date.split("-").map(Number);
+  const dateDay = new Date(year, month - 1, day);
   const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  
-  console.log(bubbleStyle)
 
   return (
     <div
@@ -80,7 +80,6 @@ function DateStyle ({item, index}) {
           <PopoverTrigger asChild>
             <button
               className={dateBubble}
-              id={popDateBubble}
               style={bubbleStyle}
             >
               <time className={date} style={{ color: `${item.color}` }}>
@@ -104,11 +103,11 @@ function DateStyle ({item, index}) {
               }
               {item.addEvent[0] && 
                 <>
-                  <p className={popHeaderEvent}>Local Events:</p>
+                  <h3 className={popHeaderEvent}>Local Events:</h3>
                   { item.addEvent[1].map((event, index) => 
                     <React.Fragment key={index} >
                       <p className={popEventName}>{event.name}</p>
-                      <blockquote>"{event.description}"</blockquote>
+                      <p className={popEventDescription}>"{event.description}"</p>
                     </React.Fragment>
                   )}
                 </>

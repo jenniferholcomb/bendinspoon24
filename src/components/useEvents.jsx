@@ -44,7 +44,7 @@ const initialState = {
       {'name': 'Portland Cello Project', 'date': ['2025-04-23'], 'description': 'Featuring the music of Beethoven, The Beatles & Billy Eilish. At the Tower Theatre.', 'month': ['04']},  
       {'name': 'James Taylor and His All-Star Band', 'date': ['2025-05-19'], 'description': 'Rock concert at Hayden Homes Amphitheater.', 'month': ['05']},   
       {'name': 'Sting 3.0 Tour', 'date': ['2025-05-25', '2025-05-26'], 'description': 'Rock concert at Hayden Homes Amphitheater.', 'month': ['05']},   
-      {'name': 'Khruangbin - A La Sala Tour', 'date': ['2025-05-19'], 'description': 'Rock concert at Hayden Homes Amphitheater.', 'month': ['05']},   
+      {'name': 'Khruangbin - A La Sala Tour', 'date': ['2025-05-19'], 'description': 'At the Tower Theatre.', 'month': ['05']},   
       {'name': 'Brad Paisley: Truck Still Works World Tour', 'date': ['2025-05-29'], 'description': 'Country concert at Hayden Homes Amphitheater.', 'month': ['05']},   
       {'name': 'An Evening With Goose', 'date': ['2025-05-30'], 'description': 'Rock concert at Hayden Homes Amphitheater.', 'month': ['05']},   
       {'name': 'The Black Keys: No Rain, No Flowers', 'date': ['2025-05-31'], 'description': 'Rock concert at Hayden Homes Amphitheater.', 'month': ['05']},   
