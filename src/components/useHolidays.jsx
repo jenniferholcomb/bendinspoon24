@@ -95,7 +95,7 @@ const useHolidays = () => {
   }
 
   const { error, newHolidaysLoaded, isLoaded, holidayList, id } = state;
-  console.log(holidayList)
+
   const handleAddingHolidays = async () => {
     const addHolidays = { 
       holiday: holidayList, 

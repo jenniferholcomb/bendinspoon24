@@ -217,10 +217,6 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
     // console.log('propertyList changed:', properties);
   }, [properties]);
 
-  useEffect(() => (
-    console.log('rerender')
-  ), []);
-
   return (
     <>
       <section className={isMobile ? (selectedTab === 'tourism' ? tabTourismWrapper : hiddenTourismWrapper) : tourismWrapper} aria-hidden={infoOpen ? "true" : "false"} aria-labelledby="tourism-label">

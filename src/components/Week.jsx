@@ -20,7 +20,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
   const fullDaysOfWeek = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
   const sales = ['6,824', '3,875', '3,294', '3,608', '3,224', '4,241', '5,552'];
   const labor = ['1,185', '634', '578', '526', '508', '861', '1,038'];
-
+  console.log(thisWeekUpdate)
   const handleLastYearDate = (date) => {
     const dateEquivalent = new Date(date);
   
@@ -40,6 +40,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
     const dayOfWeek = fullDaysOfWeek[dayIndex];
     const month = parseInt(dateStr.substring(5, 7), 10);
     const day = parseInt(dateStr.substring(8, 10), 10);
+    console.log(dayIndex)
     if (dayIndex) {
       return `${dayOfWeek}, ${month}/${day}`;
     } else {
@@ -117,7 +118,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                         { index === dayInFocus ?
                           <>
                             <div className={dayDateFocusContainer}>
-                              <h3 className={dayDateFocus}>{formatDateString(day[0], day[1])}</h3>
+                              <h3 className={dayDateFocus}>{`${fullDaysOfWeek[day[1]]}, ${formatDateString(day[0])}`}</h3>
                               { day.addHoliday[1].length > 0 && (
                                 <>
                                   <p className={holidayTitle} aria-label="Holiday:">{day.addHoliday[1][0].name}</p>
