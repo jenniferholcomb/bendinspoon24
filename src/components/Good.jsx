@@ -10,7 +10,7 @@ const {
 
 function Good({ foodItem, decItem, incItem }) {
 
-  const dividerLine = <svg xmlns="http://www.w3.org/2000/svg" width="2" height="37" viewBox="0 0 2 47" fill="none">
+  const dividerLine = <svg xmlns="http://www.w3.org/2000/svg" width="2" height="37" viewBox="0 0 2 47" fill="none" aria-hidden="true">
                         <path d="M0.500002 46C0.500002 46.2761 0.72386 46.5 1 46.5C1.27614 46.5 1.5 46.2761 1.5 46L0.500002 46ZM0.5 2.18557e-08L0.500002 46L1.5 46L1.5 -2.18557e-08L0.5 2.18557e-08Z" fill="#363937"/>
                       </svg> ;
 
@@ -18,15 +18,14 @@ function Good({ foodItem, decItem, incItem }) {
     <> 
       { incItem && (
         <>
-          <div className={goodsCardIncrease}>
-            <div className={increaseImg} style={{ backgroundImage: `url("/img/goods/${incItem.itemCode}.png")`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}></div>
-            <div className={item}>
+          <div className={goodsCardIncrease} aria-label={incItem.name}>
+            <div className={increaseImg} style={{ backgroundImage: `url("/img/goods/${incItem.itemCode}.png")`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} aria-hidden="true"></div>
+            <div className={item} aria-hidden="true">
               <p>{incItem.name}</p>
             </div>
             {dividerLine}
-            {/* <div></div> */}
-            <div className={costContainer}>
-              <div className={cost}>
+            <div className={costContainer} aria-label={`$${incItem.priceDollars}.${incItem.priceCents === 0 ? '00' : incItem.priceCents} per unit. Increased by ${incItem.percentIncrease}%.`}>
+              <div className={cost} aria-hidden="true">
                 <p id={dollarSign}>$</p>
                 <p>{incItem.priceDollars}</p>
                 <p id={cents}>{incItem.priceCents === 0 ? '00' : incItem.priceCents}</p>
@@ -37,7 +36,7 @@ function Good({ foodItem, decItem, incItem }) {
             </div>
             {dividerLine}
             {/* <div></div> */}
-            <div className={increasePercent}>
+            <div className={increasePercent} aria-hidden="true">
               <p><span>+ </span>{incItem.percentIncrease}</p>
               <p id={percentSign}>%</p>
             </div>
@@ -46,29 +45,29 @@ function Good({ foodItem, decItem, incItem }) {
       )}
       { (decItem || foodItem) && (
         <>
-          <div className={goodsCardDecrease}>
+          <li className={goodsCardDecrease} aria-label={foodItem ? foodItem.name : decItem.name}>
             { foodItem && (
               foodItem.percentDecrease ?
                 <div className={decreasePercent}>
-                  <p>- {foodItem.percentDecrease}</p>
-                  <p id={percentSign}>%</p>
+                  <p aria-hidden="true">- {foodItem.percentDecrease}</p>
+                  <p id={percentSign} aria-hidden="true">%</p>
                 </div>
               :
-                <div className={increasePercent}>
-                  <p><span>+ </span>{foodItem.percentIncrease}</p>
-                  <p id={percentSign}>%</p>
+                <div className={increasePercent} >
+                  <p aria-hidden="true"><span>+ </span>{foodItem.percentIncrease}</p>
+                  <p id={percentSign} aria-hidden="true">%</p>
                 </div>
             )}
             { decItem && (
               <div className={decreasePercent}>
-                <p>- {decItem.percentDecrease}</p>
-                <p id={percentSign}>%</p>
+                <p aria-hidden="true">- {decItem.percentDecrease}</p>
+                <p id={percentSign} aria-hidden="true">%</p>
               </div>
             )}
 
             {dividerLine}
-            <div className={costContainer}>
-              <div className={cost}>
+            <div className={costContainer} aria-label={`$${foodItem ? foodItem.priceDollars : decItem.priceDollars}.${foodItem ? (foodItem.priceCents === 0 ? '00' : foodItem.priceCents) : (decItem.priceCents === 0 ? '00' : decItem.priceCents)} per unit. ${foodItem ? foodItem.percentDecrease ? 'Decreased' : 'Increased' : 'Decreased'} by ${foodItem ? foodItem.percentDecrease : decItem.percentDecrease}%.`}>
+              <div className={cost} aria-hidden="true">
                 <p id={dollarSign}>$</p>
                 <p>{foodItem ? foodItem.priceDollars : decItem.priceDollars}</p>
                 <p id={cents}>{foodItem ? (foodItem.priceCents === 0 ? '00' : foodItem.priceCents) : (decItem.priceCents === 0 ? '00' : decItem.priceCents)}</p>
@@ -78,12 +77,12 @@ function Good({ foodItem, decItem, incItem }) {
               </div> */}
             </div>
             {dividerLine}
-            <div className={item}>
+            <div className={item} aria-hidden="true">
               <p>{foodItem ? foodItem.name : decItem.name}</p>
             </div>
-              <div className={decreaseImg} style={{ backgroundImage: `url("/img/goods/${foodItem ? foodItem.itemCode : decItem.itemCode}.png")`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+            <div className={decreaseImg} style={{ backgroundImage: `url("/img/goods/${foodItem ? foodItem.itemCode : decItem.itemCode}.png")`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} aria-hidden="true">
             </div>
-          </div>
+          </li>
         </>
       )}
     </>

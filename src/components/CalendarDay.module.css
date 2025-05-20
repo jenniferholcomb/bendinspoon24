@@ -180,7 +180,7 @@ p.percentSign {
 }
 
 .popEventName {
-  margin: 3px 5px 5px 15px;
+  margin: 3px 5px 5px 5px;
   text-transform: none;
   font-family: Akatab;
   font-size: 12px;
@@ -198,7 +198,7 @@ p.percentSign {
   font-style: normal;
   font-weight: 400;
   line-height: 12px;
-  margin: 0 10px 10px 15px;
+  margin: 0 10px 10px 5px;
   box-decoration-break: clone;
   -webkit-box-decoration-break:clone;
 }

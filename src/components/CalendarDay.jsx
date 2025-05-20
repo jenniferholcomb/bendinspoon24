@@ -14,7 +14,7 @@ import holidayIcon from "/img/holiday.svg";
 import eventIcon from "/img/event.svg";
 import holidayEventIcon from "/img/holidayEvent.svg";
 
-const {calMonth, calArrowLeft, calArrowLeftDisabled, calText, calArrowRight, calArrowRightDisabled, calendarDateContainer, percentContainer, propPercent, date, dateBubble, popDateBubble, listItemCal, popoverContent, popoverArrow, popHeaderHoliday, popHeaderEvent, popEventName, popEventDescription, yearHidden } = styles;
+const {calMonth, calArrowLeft, calArrowLeftDisabled, calText, calArrowRight, calArrowRightDisabled, calendarDateContainer, percentContainer, propPercent, date, dateBubble, popDateBubble, listItemCal, popoverContent, popoverArrow, popHeaderHoliday, popHeaderEventContainer, popHeaderEvent, popEventName, popEventDescription, yearHidden } = styles;
 
 function getBubbleStyle({ 
   addHoliday = [], 
@@ -99,17 +99,21 @@ function DateStyle ({item, index}) {
           <PopoverContent style={{outline: 'none', zIndex: '9999'}}>
             <div className={popoverContent}>
               {item.addHoliday[0] && 
-                <p className={popHeaderHoliday}>{item.addHoliday[1][0].name}</p>
+                <h3 className={popHeaderHoliday} aria-label="Holiday:">{item.addHoliday[1][0].name}</h3>
               }
               {item.addEvent[0] && 
                 <>
-                  <h3 className={popHeaderEvent}>Local Events:</h3>
-                  { item.addEvent[1].map((event, index) => 
-                    <React.Fragment key={index} >
-                      <p className={popEventName}>{event.name}</p>
-                      <p className={popEventDescription}>"{event.description}"</p>
-                    </React.Fragment>
-                  )}
+                  <ul className={popHeaderEventContainer} aria-label="Local Events">
+                    <h3 className={popHeaderEvent} aria-hidden="true">Local Events:</h3>
+                    { item.addEvent[1].map((event, index) => 
+                      <React.Fragment key={index} >
+                        <li>
+                          <p className={popEventName}>{event.name}</p>
+                          <p className={popEventDescription}>"{event.description}"</p>
+                        </li>
+                      </React.Fragment>
+                    )}
+                  </ul>
                 </>
               }
             </div>

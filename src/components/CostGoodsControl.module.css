@@ -60,6 +60,20 @@
   padding-top: 8px;
 }
 
+.infoIcon button {
+  background-color: transparent;
+  border: none;
+}
+
+.infoIcon button:focus {
+  outline: none;
+}
+
+.infoIcon button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 .infoIcon svg {
   padding-top: 3px;
   padding-right: 20px;
@@ -81,6 +95,20 @@
   flex-direction: column;
   cursor: pointer;
   padding: 10px 0 0 0;
+}
+
+button.porArrowContainerInc, button.porArrowContainerDec {
+  background-color: transparent;
+  border: none;
+}
+
+button:focus.porArrowContainerInc, button:focus.porArrowContainerDec {
+  outline: none;
+}
+
+button:focus-visible.porArrowContainerInc, button:focus-visible.porArrowContainerDec {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .porArrowContainerDec svg {
@@ -171,6 +199,10 @@
   justify-items: end;
   row-gap: 9px;
   transform: translateY(-10px);
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
 }
 
 .allGoodsContent {
@@ -205,7 +237,7 @@
   /* padding-top: 14px; */
 }
 
-.costGoodsSubhead p {
+.costGoodsSubhead h3 {
   color: #BDC1C0;
   text-align: center;
   font-family: Akatab;

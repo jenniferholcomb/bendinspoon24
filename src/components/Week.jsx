@@ -142,7 +142,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                               </div>
                             </div>
                           :
-                            <div className={weatherContainer}>
+                            <div className={weatherContainer} aria-label="weather">
                               <div className={iconContainer}>                  
                                 <img className={weatherIcon} src={`/img/icons/${weather[index+14]}.png`} alt={`${weather[index+21]}`} /> 
                               </div>
@@ -248,44 +248,48 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                   <div key={index} className={dayCard} style={index === dayInFocus ? {border: '1px solid #F54949'} : null} onClick={() => onChangingDay(index)}>
                     <div className={dayCardContainer}>
                       <div className={dateContainer}>    
-                        <p className={dayDate}>
+                        {/* <p className={dayDate}>
                           <span className={dayWeek}>{daysOfWeek[day[1]]}</span>
-                          <br />
+                          <br /> */}
+                          <h3 className={dayDate} aria-label={`${fullDaysOfWeek[day[1]]}, ${formatDateString(day[0])}`}>
+                          <span className={dayWeek} aria-hidden="true">{daysOfWeek[day[1]]}</span>
+                          <br aria-hidden="true" />
                           {day[0].substring(5,6) === '0' ? day[0].substring(6,7) : day[0].substring(5,7)}/{day[0].substring(8,9) === '0' ? day[0].substring(9,10) : day[0].substring(8,10)}
-                        </p>
+
+                        </h3>
           
                         { weather && (
-                          <div className={weatherContainer}>
+                          <div className={weatherContainer} aria-label="weather">
                             <div className={iconContainer}>                  
-                              <img className={weatherIcon} src={`/img/icons/${weather[index+14]}.png`} alt='weather icon' />
+                              <img className={weatherIcon} src={`/img/icons/${weather[index+14]}.png`} alt={`${weather[index+21]}`} />
                               {/* <img className={weatherIcon} src={require(`./../img/icons/${forecast[index+14]}.png`)} alt='weather icon' /> */}
                             </div>
-                            <p className={weatherDegree}>{weather[index+7]}&ordm;</p>
+                            <p className={weatherDegree} aria-label={`HI temperature: ${weather[index+7]} degrees`}>{weather[index+7]}&ordm;</p>
                           </div> 
                         )}
                       </div>
                       <div className={notInFocusContainer}>
                         <div className={salesLaborContainer}>
-                          <div className={dividerLine}>
+                          <div className={dividerLine} aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="112" height="2" viewBox="0 0 99 2" fill="none">
                               <path d="M98 1.49999C98.2761 1.49999 98.5 1.27613 98.5 0.999991C98.5 0.723849 98.2761 0.499991 98 0.499991L98 1.49999ZM4.37114e-08 1.5L98 1.49999L98 0.499991L-4.37114e-08 0.5L4.37114e-08 1.5Z" fill="#484A49"/>
                             </svg>
                           </div>
-                          <div className={factorContainer}>
-                            <p className={dollarSignLabor}>$</p>
-                            <p className={laborTotalA}>{labor[day[1]].slice(0,1)}<span className={laborTotalB}>{labor[day[1]].slice(1)}</span></p>
+                          <div className={factorContainer} aria-label={`Labor estimate: $${labor[day[1]]}`}>
+                            <p className={dollarSignLabor} aria-hidden="true">$</p>
+                            <p className={laborTotalA} aria-hidden="true">{labor[day[1]].slice(0,1)}<span className={laborTotalB}>{labor[day[1]].slice(1)}</span></p>
                           </div>
-                          <p className={factorLabel} id={laborLabel}>labor</p>
-                          <div className={dividerLine}>
+                          <p className={factorLabel} id={laborLabel} aria-hidden="true">labor</p>
+                          <div className={dividerLine} aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="99" height="2" viewBox="0 0 99 2" fill="none">
                               <path d="M98 1.49999C98.2761 1.49999 98.5 1.27613 98.5 0.999991C98.5 0.723849 98.2761 0.499991 98 0.499991L98 1.49999ZM4.37114e-08 1.5L98 1.49999L98 0.499991L-4.37114e-08 0.5L4.37114e-08 1.5Z" fill="#484A49"/>
                             </svg>
                           </div>
-                          <div className={factorContainer}>
+                          <div className={factorContainer} aria-label={`Sales from ${handleLastYearDate(day[0])}: $${sales[day[1]]}`}>
                             <p className={dollarSignSales}>$</p>
                             <p className={salesTotalA}>{sales[day[1]].slice(0,1)}<span className={salesTotalB}>{sales[day[1]].slice(1)}</span></p>
                           </div>  
-                          <div className={salesLabels}>
+                          <div className={salesLabels} aria-hidden="true">
                             <p className={factorLabel} id={salesLabelA}>sales</p>
                             <p className={factorLabel} id={salesLabelB}>{handleLastYearDate(day[0])}</p>
                           </div>

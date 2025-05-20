@@ -80,7 +80,7 @@ function GoodsList ({ allGoods }) {
     setFinalIncList(finalIncList);
     increaseList.current = [];
 
-    setCompleteList([...finalIncList, ...finalDecList]);
+    setCompleteList([...finalIncList, ...finalDecList.reverse()]);
 
   }, [goodsListCode]);
 
@@ -88,10 +88,14 @@ function GoodsList ({ allGoods }) {
     <>
     { isTablet ?
       <>
-        <div className={listOrderDec ? porArrowContainerDec : porArrowContainerInc} onClick={handleListOrder}>
+        <button 
+          className={listOrderDec ? porArrowContainerDec : porArrowContainerInc} 
+          onClick={handleListOrder}
+          aria-label={`Percentage unit price has changed for goods, ${listOrderDec ? 'decreased to increased' : 'inceased to decreased'}.`}
+        >
           {listOrderDec ?
             <>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="green arrow icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="green arrow icon" aria-hidden="true">
                 <g filter="url(#filter0_i_1052_1324)">
                   <path d="M27 1.18021e-06L0 0L13.5 13L27 1.18021e-06Z" fill="#0ce6cd"/>
                 </g>
@@ -108,7 +112,7 @@ function GoodsList ({ allGoods }) {
                   </filter>
                 </defs>
               </svg> 
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="red arrow icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="red arrow icon" aria-hidden="true">
                 <g filter="url(#filter0_i_1052_1327)">
                   <path d="M-1.07288e-06 13L27 13L13.5 -1.17426e-06L-1.07288e-06 13Z" fill="#F54949"/>
                 </g>
@@ -128,7 +132,7 @@ function GoodsList ({ allGoods }) {
             </>
           :
             <>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="red arrow icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="red arrow icon" aria-hidden="true">
                 <g filter="url(#filter0_i_1052_1327)">
                   <path d="M-1.07288e-06 13L27 13L13.5 -1.17426e-06L-1.07288e-06 13Z" fill="#F54949"/>
                 </g>
@@ -145,7 +149,7 @@ function GoodsList ({ allGoods }) {
                   </filter>
                 </defs>
               </svg> 
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="green arrow icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="green arrow icon" aria-hidden="true">
                 <g filter="url(#filter0_i_1052_1324)">
                   <path d="M27 1.18021e-06L0 0L13.5 13L27 1.18021e-06Z" fill="#0ce6cd"/>
                 </g>
@@ -164,7 +168,7 @@ function GoodsList ({ allGoods }) {
               </svg> 
             </>
           }
-        </div>
+        </button>
         <div className={goodsContainer}>
           <div className={shadowTop}></div>
           <div className={allGoodsContent}>
@@ -181,7 +185,7 @@ function GoodsList ({ allGoods }) {
       </>
     :
       <>
-        <div className={greenArrow}>
+        <div className={greenArrow} aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="green arrow icon">
             <g filter="url(#filter0_i_1052_1324)">
               <path d="M27 1.18021e-06L0 0L13.5 13L27 1.18021e-06Z" fill="#0ce6cd"/>
@@ -200,7 +204,7 @@ function GoodsList ({ allGoods }) {
             </defs>
           </svg> 
         </div>
-        <div className={redArrow}>
+        <div className={redArrow} aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 27 13" fill="none" alt="red arrow icon">
             <g filter="url(#filter0_i_1052_1327)">
               <path d="M-1.07288e-06 13L27 13L13.5 -1.17426e-06L-1.07288e-06 13Z" fill="#F54949"/>
@@ -219,9 +223,9 @@ function GoodsList ({ allGoods }) {
             </defs>
           </svg> 
         </div>
-        <div className={decreaseContainer}>
-          <div className={shadowTop}></div>
-          <div className={decGoodsContent}>
+        <div className={decreaseContainer} aria-label="Goods that unit price has decreased">
+          <div className={shadowTop} aria-hidden="true"></div>
+          <ul className={decGoodsContent}>
             { finalDecList && (
               finalDecList.map((item, index) => 
                 <Good
@@ -229,12 +233,12 @@ function GoodsList ({ allGoods }) {
                   key={index} />
               )
             )}
-          </div>
-          <div className={shadowBottom}></div>
+          </ul>
+          <div className={shadowBottom} aria-hidden="true"></div>
         </div>
-        <div className={increaseContainer}>
-          <div className={shadowTop}></div>
-          <div className={incGoodsContent}>
+        <div className={increaseContainer} aria-label="Goods that unit price has increased">
+          <div className={shadowTop} aria-hidden="true"></div>
+          <ul className={incGoodsContent}>
             { finalIncList && (
               finalIncList.map((item, index) => 
                 <Good
@@ -242,8 +246,8 @@ function GoodsList ({ allGoods }) {
                   key={index} />
               )
             )}
-          </div>
-          <div className={shadowBottom}></div>
+          </ul>
+          <div className={shadowBottom} aria-hidden="true"></div>
         </div>
       </>
     }
