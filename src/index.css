@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Fira+Mono:wght@400;500;700&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Akatab:wght@400;500;600;700;800;900&family=Dongle&family=Fira+Mono:wght@400;500;700&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 html,
 body,
 :root {
-  /* background: #262B29; */
   background: linear-gradient(86deg, #414141 17.47%, #222A27 83.41%);
   overscroll-behavior: none;
   height: 100%;
@@ -13,12 +10,8 @@ body,
 }
 
 body {
-  /* margin: 0; */
   font-family: 'Outfit';
   font-weight: 100;
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

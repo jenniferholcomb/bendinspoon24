@@ -62,6 +62,10 @@ p.calText {
   max
 } */
 
+[role="row"] {
+  display: contents; /* So the row doesn't interfere with the visual layout */
+}
+
 time.date {
   margin: 4px 0 0 4px;
   color: #5A5C5B;

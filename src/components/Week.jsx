@@ -40,7 +40,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
     const dayOfWeek = fullDaysOfWeek[dayIndex];
     const month = parseInt(dateStr.substring(5, 7), 10);
     const day = parseInt(dateStr.substring(8, 10), 10);
-    console.log(dayIndex)
+
     if (dayIndex) {
       return `${dayOfWeek}, ${month}/${day}`;
     } else {
@@ -71,6 +71,8 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
       if (typeof unsubscribe === "function") unsubscribe(); 
     };
   }, [loadWeather]);
+
+  console.log(thisWeekUpdate)
 
   return (
     <>
@@ -231,7 +233,7 @@ function Week ({ thisWeek, dayInFocus, onChangingDay, selectedTab, isMobile, onI
                                 </>
                               }
                               <div className={holidayAlert}>
-                                <img className={day.addHoliday[0] === true ? `${holidayAlertImg}` : `${hideHolidayAlert}`} src={holidayIcon} alt='holiday alert icon' />
+                                <img className={day.addHoliday[0] === true ? holidayAlertImg : hideHolidayAlert} src={holidayIcon} alt='holiday alert icon' />
                               </div>
                             </div>
                           </div>

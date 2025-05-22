@@ -613,8 +613,9 @@ p.percentSign {
   /* transform: translateY(-.25px); */
 }
 
-.holidayAlert Img {
+.holidayAlertImg {
   height: 21px;
+  width: auto;
   align-self: last baseline;
 }
 

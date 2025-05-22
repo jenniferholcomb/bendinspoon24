@@ -345,10 +345,17 @@ function CalendarDay ({ month, availablePercent, nextMonthAvailPerc, monthName, 
               </button>
             </div>
           </div>
-          {monthBg.map((item, index) => (
-            <DateStyle item={item} 
-                      index={index} 
-                      key={index} />
+
+          {Array.from({ length: Math.ceil(monthBg.length / 7) }).map((_, rowIndex) => (
+            <div role="row" key={rowIndex}>
+              {monthBg.slice(rowIndex * 7, rowIndex * 7 + 7).map((item, cellIndex) => (
+                <DateStyle
+                  item={item}
+                  index={rowIndex * 7 + cellIndex}
+                  key={rowIndex * 7 + cellIndex}
+                />
+              ))}
+            </div>
           ))}
         </>
       )}

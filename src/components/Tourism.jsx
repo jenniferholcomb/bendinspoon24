@@ -252,7 +252,7 @@ const Tourism = ({ onAddingCalendarData, onAddingWeekData, thisWeek, selectedTab
           </div>
         </div>
         <div className={tourismSubhead}>
-          <h4>% short term rentals (STR) occupied by night</h4>
+          <h3>% short term rentals (STR) occupied by night</h3>
         </div>
       </section>
 
