@@ -58,6 +58,7 @@
   grid-column: 3;
   justify-self: end;
   padding-top: 8px;
+  padding-right: 14px;
 }
 
 .infoIcon button {
@@ -74,10 +75,14 @@
   outline-offset: 2px;
 }
 
-.infoIcon svg {
+/* .infoIcon svg {
   padding-top: 3px;
   padding-right: 20px;
   height: 19px;
+} */
+
+.infoIconSVG {
+  fill: #feffdab2;
 }
 
 .controlContainer {
@@ -238,7 +243,7 @@ button:focus-visible.porArrowContainerInc, button:focus-visible.porArrowContaine
 }
 
 .costGoodsSubhead h3 {
-  color: #BDC1C0;
+  color: #FEFFDA;
   text-align: center;
   font-family: Akatab;
   font-size: 14px;
@@ -334,10 +339,6 @@ button.nav5, button.nav6 {
 
   .costLabel {
     padding-top: 3px;
-  }
-
-  .costGoodsHeader svg {
-    padding-right: 15px;
   }
 
   .controlContainer {

@@ -57,7 +57,7 @@
   grid-column: 3;
   justify-self: end;
   padding-top: 8px;
-  padding-right: 20px;
+  padding-right: 18px;
 }
 
 .infoIcon button {
@@ -72,6 +72,10 @@
 .infoIcon button:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 2px;
+}
+
+.infoIconSVG {
+  fill: #feffdab2;
 }
 
 .calendarContainer {
@@ -98,7 +102,7 @@
 }
 
 .tourismSubhead h3 {
-  color: #BDC1C0;
+  color: #FEFFDA;
   text-align: center;
   font-family: Akatab;
   font-size: 14px;

@@ -144,7 +144,7 @@ function Footer ({ selectedTab, onChangingTab, isMobile, infoOpen }) {
                   fill="none"
                   aria-hidden="true"  
                 >
-                  <path d="M0 14V12H16V14H0ZM0 10V8H16V10H0ZM0 6V3.65L6 0L11 3.55L16 0V2.45L11 6L5.925 2.4L0 6Z" fill="#FEFFDA"/>
+                  <path d="M0 14V12H16V14H0ZM0 10V8H16V10H0ZM0 6V3.65L6 0L11 3.55L16 0V2.45L11 6L5.925 2.4L0 6Z" fill="#FEFFDAB2"/>
                 </svg>
               :
                 <svg 
@@ -156,7 +156,7 @@ function Footer ({ selectedTab, onChangingTab, isMobile, infoOpen }) {
                   fill="none"
                   aria-hidden="true" 
                 >
-                  <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="#666B69"/>
+                  <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14Z" fill="#feffda"/>
                 </svg>
               }
             </button>

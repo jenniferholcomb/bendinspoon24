@@ -38,7 +38,7 @@
   grid-column: 3;
   justify-self: end;
   padding-top: 8px;
-  padding-right: 20px;
+  padding-right: 14px;
 }
 
 .infoIcon button {
@@ -53,6 +53,10 @@
 .infoIcon button:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 2px;
+}
+
+.infoIconSVG {
+  fill: #feffdab2;
 }
 
 .weekLabel {
@@ -455,13 +459,13 @@ span.weatherDegreeFocus {
 }
 
 .factorLabel {
-  color: #858786;
+  color: #a4a1a1;
   font-family: Akatab;
   font-size: 11px;
   font-style: normal;
   font-weight: 500;
   line-height: 12px;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.4px;
   margin: 0 0px 0 9px;
 }
 
