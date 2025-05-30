@@ -40,11 +40,11 @@
 }
 
 p.calText {
-  color: #FEFFDAB2;
+  color: rgba(254, 255, 218);
   font-family: Dongle;
   font-size: 38px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200;
   line-height: normal;
   letter-spacing: 3.6px;
   width: 100%;

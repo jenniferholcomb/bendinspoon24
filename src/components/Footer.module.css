@@ -93,7 +93,7 @@ svg {
 }
 
 dd.keyText {
-  color: #BDC1C0;
+  color: rgba(254, 255, 218, 0.94);
   font-family: Akatab;
   font-size: 12px;
   font-style: normal;
